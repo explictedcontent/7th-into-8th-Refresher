@@ -16,22 +16,60 @@
     </div>
 
     <header class="lesson-head head-english">
-      <div class="kicker">English / Language Arts · Lesson 1</div>
+      <div class="kicker">English / Language Arts · Lesson 1 · ⏱️ 30 minutes</div>
       <h1>Parts of Speech &amp; Strong Sentences 📖</h1>
       <p>Words have jobs. When you know each word's job, you can build clear
          sentences, fix mistakes, and write essays that actually sound like you.</p>
     </header>
 
+    <div class="pacer" id="pacer">
+      <button class="pace-btn" data-toggle>▶ Start lesson</button>
+      <span class="pace-time" data-time>00:00 / 30:00</span>
+      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
+      <button class="pace-btn ghost" data-reset>Reset</button>
+      <div class="pace-seg" data-seg></div>
+    </div>
+
     <section class="panel">
-      <h2>🎯 What you'll learn</h2>
+      <h2>🎯 Today's plan (about 30 minutes)</h2>
       <ul class="goal-list">
-        <li>The <strong>8 parts of speech</strong> and what each one does</li>
-        <li>The two pieces every sentence needs: a <strong>subject</strong> and a <strong>predicate</strong></li>
-        <li>How to fix <strong>run-ons</strong> and <strong>fragments</strong></li>
-        <li>How to turn a boring sentence into a vivid one</li>
+        <li>The <strong>8 parts of speech</strong> and how to label words in a sentence</li>
+        <li>Fix <strong>fragments</strong> and <strong>run-ons</strong></li>
+        <li>Read a short passage and answer <strong>comprehension</strong> questions</li>
+        <li>Write your own <strong>vivid paragraph</strong></li>
       </ul>
+      <ul class="plan-strip">
+        <li><b>1.</b> Warm-up · 4 min</li>
+        <li><b>2.</b> Parts of speech · 7 min</li>
+        <li><b>3.</b> Strong sentences · 6 min</li>
+        <li><b>4.</b> Read &amp; answer · 6 min</li>
+        <li><b>5.</b> Write · 5 min</li>
+        <li><b>6.</b> Quick check · 2 min</li>
+      </ul>
+      <p class="progress-note">Press <strong>▶ Start lesson</strong>. The timer pauses if you switch tabs — so it's a <em>real</em> 30 minutes.</p>
     </section>
 
+    <!-- WARM-UP -->
+    <section class="panel">
+      <h2>🔤 Warm-up · Label the words</h2>
+      <p>Pick the right part of speech for each highlighted word:</p>
+      <div data-tagging>
+        <p class="tagline">
+          The
+          <select data-answer="adjective"><option value="">?</option><option value="noun">noun</option><option value="adjective">adjective</option><option value="verb">verb</option></select>
+          (<b>brave</b>)
+          <select data-answer="noun"><option value="">?</option><option value="noun">noun</option><option value="verb">verb</option><option value="adverb">adverb</option></select>
+          (<b>artist</b>)
+          <select data-answer="verb"><option value="">?</option><option value="noun">noun</option><option value="verb">verb</option><option value="pronoun">pronoun</option></select>
+          (<b>painted</b>)
+          <select data-answer="adverb"><option value="">?</option><option value="adjective">adjective</option><option value="adverb">adverb</option><option value="preposition">preposition</option></select>
+          (<b>quietly</b>).
+        </p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+
+    <!-- PARTS OF SPEECH -->
     <section class="panel">
       <h2>🧩 The 8 Parts of Speech</h2>
       <table class="tidy">
@@ -52,51 +90,122 @@
       </div>
     </section>
 
+    <!-- SENTENCES -->
     <section class="panel">
       <h2>🏗️ Building a Complete Sentence</h2>
-      <p>A complete sentence needs two parts:</p>
       <div class="example">
         <span class="label">Subject + Predicate</span>
         <p style="margin:.5rem 0;"><strong>Subject</strong> = who or what the sentence is about.<br />
         <strong>Predicate</strong> = what they do or are (contains the verb).</p>
-        <p style="margin:.5rem 0;">"<u>My older sister</u> <b>paints every weekend.</b>"<br />
-        <span style="color:var(--ink-soft)">↑ subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑ predicate</span></p>
+        <p style="margin:.5rem 0;">"<u>My older sister</u> <b>paints every weekend.</b>"</p>
       </div>
 
-      <h3>Two common mistakes to fix</h3>
       <table class="tidy">
         <tr><th>Problem</th><th>What it is</th><th>Fix</th></tr>
         <tr><td><span class="term">Fragment</span></td><td>Missing a subject or verb. "Because she loves art."</td><td>Finish the thought: "She joined the club because she loves art."</td></tr>
         <tr><td><span class="term">Run-on</span></td><td>Two sentences jammed together. "She paints she also sketches."</td><td>Split or join properly: "She paints, <em>and</em> she also sketches."</td></tr>
       </table>
 
+      <h3>Practice — pick the correct sentence</h3>
+      <form class="quiz">
+        <div class="question" data-answer="b" data-why="A complete sentence has a subject AND a verb and finishes the thought.">
+          <div class="q"><span class="num">1</span>Which one is a <em>complete</em> sentence?</div>
+          <div class="options">
+            <label><input type="radio" name="s1" value="a" />Running through the rain all afternoon.</label>
+            <label><input type="radio" name="s1" value="b" />The team practiced all afternoon.</label>
+            <label><input type="radio" name="s1" value="c" />Because the weather was nice.</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="question" data-answer="c" data-why="A comma + 'and' correctly joins two complete ideas — no run-on.">
+          <div class="q"><span class="num">2</span>Which one fixes the run-on "I love art I draw daily"?</div>
+          <div class="options">
+            <label><input type="radio" name="s2" value="a" />I love art I draw daily everyday.</label>
+            <label><input type="radio" name="s2" value="b" />I love art, I draw daily.</label>
+            <label><input type="radio" name="s2" value="c" />I love art, and I draw daily.</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- READING -->
+    <section class="panel">
+      <h2>📚 Read &amp; Answer</h2>
+      <p>Read the passage carefully, then answer the questions below.</p>
+      <div class="passage">
+        <p>Maya had always loved color, but she had never tried painting a mural.
+        When her art teacher asked for volunteers to decorate the school's empty
+        hallway, Maya's hand shot up before she could second-guess herself. For
+        two weeks she sketched, mixed paints, and climbed ladders after school.</p>
+        <p>The morning the mural was revealed, students stopped and stared. A
+        giant sunrise spread across the wall in warm oranges, balanced by a cool
+        blue sky. Maya felt nervous and proud at the same time. She realized that
+        the scariest projects often became the ones she was most glad she tried.</p>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="mural" data-why="The whole passage is about Maya painting a mural.">
+          <div class="q"><span class="num">1</span>What is the passage mainly about?</div>
+          <div class="options">
+            <label><input type="radio" name="r1" value="ladder" />How to climb a ladder safely</label>
+            <label><input type="radio" name="r1" value="mural" />Maya taking on the challenge of painting a mural</label>
+            <label><input type="radio" name="r1" value="teacher" />A teacher who paints murals</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="question" data-answer="brave" data-why="She volunteered 'before she could second-guess herself' — that shows courage.">
+          <div class="q"><span class="num">2</span>Raising her hand "before she could second-guess herself" shows Maya is…</div>
+          <div class="options">
+            <label><input type="radio" name="r2" value="lazy" />Lazy</label>
+            <label><input type="radio" name="r2" value="brave" />Brave / willing to take a risk</label>
+            <label><input type="radio" name="r2" value="angry" />Angry</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="question" data-answer="theme" data-why="The last line states the lesson: scary projects can be the most rewarding — that's the theme.">
+          <div class="q"><span class="num">3</span>Which sentence best states the <em>theme</em> (message)?</div>
+          <div class="options">
+            <label><input type="radio" name="r3" value="paint" />Painting takes exactly two weeks.</label>
+            <label><input type="radio" name="r3" value="theme" />Trying something scary can be worth it.</label>
+            <label><input type="radio" name="r3" value="hall" />Hallways should be decorated.</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- WRITE -->
+    <section class="panel">
+      <h2>✍️ Your Turn to Write</h2>
+      <p>Write <strong>3–4 sentences</strong> describing your favorite place to make
+         art (or your favorite hobby). Make it <em>vivid</em> — show, don't just tell.</p>
       <div class="tryit">
-        <strong>Try it — find the verb 🔎</strong>
-        <p style="margin:.4rem 0;">In the sentence below, type the one word that is the <em>verb</em> (the action):</p>
-        <p style="font-weight:700;">"The talented student <u>sketched</u> a dragon."</p>
-        <input type="text" id="verbAns" placeholder="type the verb" />
-        <button class="btn" onclick="checkVerb()">Check</button>
-        <div class="result" id="verbResult"></div>
+        <textarea class="write" data-count="#wc" placeholder="Start writing here… e.g., 'My desk is a happy mess of paintbrushes…'"></textarea>
+        <div class="wordcount" id="wc">0 words</div>
+        <p style="margin:.6rem 0 .3rem;"><strong>Check your own writing:</strong></p>
+        <ul class="checklist">
+          <li><input type="checkbox" /> Every sentence has a subject and a verb (no fragments)</li>
+          <li><input type="checkbox" /> I used at least one strong, specific verb</li>
+          <li><input type="checkbox" /> I used at least two adjectives to add detail</li>
+          <li><input type="checkbox" /> I started each sentence with a capital and ended with punctuation</li>
+          <li><input type="checkbox" /> I "showed" a feeling instead of just naming it</li>
+        </ul>
       </div>
     </section>
 
+    <!-- QUIZ -->
     <section class="panel">
-      <h2>✨ Make It Vivid</h2>
-      <p>Strong writers swap weak words for specific ones.</p>
-      <div class="example">
-        <span class="label">Before → After</span>
-        <p style="margin:.5rem 0;">😴 "The dog went to the thing and was happy."<br />
-        🌟 "The golden retriever <em>sprinted</em> to the park and <em>wagged its tail wildly</em>."</p>
-      </div>
-      <ul class="goal-list">
-        <li>Trade plain verbs (went, said) for strong ones (sprinted, whispered)</li>
-        <li>Add an adjective or two — but don't overdo it</li>
-        <li>Show, don't just tell: instead of "she was nervous," try "her hands trembled"</li>
-      </ul>
-    </section>
-
-    <section class="panel">
-      <h2>✏️ Quick Check</h2>
+      <h2>✅ Quick Check</h2>
       <form class="quiz">
         <div class="question" data-answer="adjective" data-why="'Bright' describes the noun 'colors,' so it's an adjective.">
           <div class="q"><span class="num">1</span>In "She chose <strong>bright</strong> colors," what part of speech is <em>bright</em>?</div>
@@ -138,6 +247,16 @@
           <div class="feedback"></div>
         </div>
 
+        <div class="question" data-answer="adverb" data-why="'Quickly' describes HOW she painted (a verb), so it's an adverb.">
+          <div class="q"><span class="num">5</span>In "She painted <strong>quickly</strong>," what part of speech is <em>quickly</em>?</div>
+          <div class="options">
+            <label><input type="radio" name="q5" value="adjective" />Adjective</label>
+            <label><input type="radio" name="q5" value="adverb" />Adverb</label>
+            <label><input type="radio" name="q5" value="noun" />Noun</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
         <div class="btn-row">
           <button type="button" class="btn" data-check>Check my answers</button>
           <button type="button" class="btn ghost" data-reset>Reset</button>
@@ -154,15 +273,27 @@
     <p class="foot">📖 Knowing each word's job makes grammar, writing, and even a new language much easier.</p>
   </div>
 
-  <script src="../assets/js/quiz.js"></script>
+  <div class="break-overlay" id="breakOverlay">
+    <div class="break-card">
+      <div class="big">🎉</div>
+      <h2>That's a full 30 minutes!</h2>
+      <p>Awesome focus. Now take a <strong>10–15 minute break</strong> — stretch, grab a snack and some water, and rest your eyes. When you come back, start your next lesson.</p>
+      <div class="btn-row"><button class="btn" id="breakKeep">I'm taking my break 👍</button></div>
+    </div>
+  </div>
+
   <script>
-    function checkVerb() {
-      const v = document.getElementById('verbAns').value.trim().toLowerCase();
-      const el = document.getElementById('verbResult');
-      const ok = v === 'sketched';
-      el.textContent = ok ? '✅ Yes! "sketched" is the action — the verb.' : '❌ Not quite. Which word is the ACTION the student did?';
-      el.style.color = ok ? 'var(--good)' : 'var(--bad)';
-    }
+    window.LESSON_PLAN = { minutes: 30, segments: [
+      { label: "Warm-up", min: 4 },
+      { label: "Parts of speech", min: 7 },
+      { label: "Strong sentences", min: 6 },
+      { label: "Read & answer", min: 6 },
+      { label: "Write", min: 5 },
+      { label: "Quick check", min: 2 }
+    ]};
   </script>
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/activities.js"></script>
+  <script src="../assets/js/timer.js"></script>
 </body>
 </html>

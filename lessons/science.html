@@ -16,23 +16,60 @@
     </div>
 
     <header class="lesson-head head-science">
-      <div class="kicker">Science · Lesson 1</div>
+      <div class="kicker">Science · Lesson 1 · ⏱️ 30 minutes</div>
       <h1>The Scientific Method &amp; Lab Safety 🔬</h1>
       <p>Science isn't just facts to memorize — it's a <em>method</em> for figuring
          out how the world works. Learn the steps real scientists use on every
          experiment.</p>
     </header>
 
+    <div class="pacer" id="pacer">
+      <button class="pace-btn" data-toggle>▶ Start lesson</button>
+      <span class="pace-time" data-time>00:00 / 30:00</span>
+      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
+      <button class="pace-btn ghost" data-reset>Reset</button>
+      <div class="pace-seg" data-seg></div>
+    </div>
+
     <section class="panel">
-      <h2>🎯 What you'll learn</h2>
+      <h2>🎯 Today's plan (about 30 minutes)</h2>
       <ul class="goal-list">
         <li>The <strong>6 steps</strong> of the scientific method</li>
-        <li>How to write a testable <strong>hypothesis</strong></li>
-        <li>The difference between <strong>independent</strong> and <strong>dependent</strong> variables</li>
+        <li>Write a testable <strong>hypothesis</strong></li>
+        <li>Tell apart <strong>independent</strong>, <strong>dependent</strong> &amp; <strong>controlled</strong> variables</li>
+        <li>Design your own experiment and read a <strong>data table</strong></li>
         <li>Key <strong>lab safety</strong> rules</li>
       </ul>
+      <ul class="plan-strip">
+        <li><b>1.</b> Warm-up · 4 min</li>
+        <li><b>2.</b> The method · 7 min</li>
+        <li><b>3.</b> Variables · 8 min</li>
+        <li><b>4.</b> Design &amp; data · 7 min</li>
+        <li><b>5.</b> Safety + quiz · 4 min</li>
+      </ul>
+      <p class="progress-note">Press <strong>▶ Start lesson</strong>. The timer pauses if you switch tabs — so it's a <em>real</em> 30 minutes.</p>
     </section>
 
+    <!-- WARM-UP -->
+    <section class="panel">
+      <h2>🤔 Warm-up · What do you already know?</h2>
+      <p>A student tests: <em>"Does the amount of water change how tall a sunflower grows?"</em>
+         Label each part:</p>
+      <div data-tagging>
+        <p class="tagline">
+          Amount of water (the thing changed) →
+          <select data-answer="independent"><option value="">choose…</option><option value="independent">independent variable</option><option value="dependent">dependent variable</option><option value="controlled">controlled variable</option></select><br />
+          Height of the sunflower (the thing measured) →
+          <select data-answer="dependent"><option value="">choose…</option><option value="independent">independent variable</option><option value="dependent">dependent variable</option><option value="controlled">controlled variable</option></select><br />
+          Same pot, soil, and sunlight for every plant →
+          <select data-answer="controlled"><option value="">choose…</option><option value="independent">independent variable</option><option value="dependent">dependent variable</option><option value="controlled">controlled variable</option></select>
+        </p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <p class="progress-note">Don't worry if these are new — you'll learn them right below. 👇</p>
+    </section>
+
+    <!-- METHOD -->
     <section class="panel">
       <h2>🔁 The Scientific Method</h2>
       <ol class="steps">
@@ -50,6 +87,7 @@
       </div>
     </section>
 
+    <!-- VARIABLES -->
     <section class="panel">
       <h2>🎚️ Variables: the heart of a fair test</h2>
       <table class="tidy">
@@ -63,21 +101,79 @@
         <div><strong>Memory tip:</strong> <em>I</em> change the <em>I</em>ndependent variable. The <em>D</em>ependent variable <em>D</em>epends on it.</div>
       </div>
 
-      <div class="tryit">
-        <strong>Try it — spot the variable 🔍</strong>
-        <p style="margin:.4rem 0;">"A student tests how the <em>amount of sunlight</em> affects how many <em>flowers</em> a plant grows."</p>
-        <p style="margin:.4rem 0;">What is the <strong>dependent</strong> variable (the thing measured)?</p>
-        <select id="varPick" style="padding:8px;border-radius:8px;border:1px solid var(--line);">
-          <option value="">— choose —</option>
-          <option value="sun">Amount of sunlight</option>
-          <option value="flowers">Number of flowers</option>
-          <option value="water">Amount of water</option>
-        </select>
-        <button class="btn" onclick="checkVar()">Check</button>
-        <div class="result" id="varResult"></div>
+      <h3>Practice — label the variables</h3>
+      <div data-tagging>
+        <p class="tagline">
+          Experiment: "Does sleep affect test scores?"<br />
+          Hours of sleep →
+          <select data-answer="independent"><option value="">choose…</option><option value="independent">independent</option><option value="dependent">dependent</option><option value="controlled">controlled</option></select>,
+          Test score →
+          <select data-answer="dependent"><option value="">choose…</option><option value="independent">independent</option><option value="dependent">dependent</option><option value="controlled">controlled</option></select>,
+          Same test for everyone →
+          <select data-answer="controlled"><option value="">choose…</option><option value="independent">independent</option><option value="dependent">dependent</option><option value="controlled">controlled</option></select>
+        </p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
     </section>
 
+    <!-- DESIGN + DATA -->
+    <section class="panel">
+      <h2>🧪 Design your own experiment</h2>
+      <p>Pick something you're curious about (Does cold water freeze faster than hot?
+         Do paper airplanes with longer wings fly farther?). Fill in your plan:</p>
+      <div class="tryit">
+        <p><strong>1. My question:</strong></p>
+        <textarea class="write" placeholder="What do you want to find out?"></textarea>
+        <p style="margin-top:12px;"><strong>2. My hypothesis (If… then…):</strong></p>
+        <textarea class="write" placeholder="If I ___, then ___."></textarea>
+        <p style="margin-top:12px;"><strong>3. Variables:</strong></p>
+        <textarea class="write" placeholder="Independent (what I change): ...&#10;Dependent (what I measure): ...&#10;Controlled (what I keep the same): ..."></textarea>
+        <p style="margin:.6rem 0 .3rem;"><strong>Check your plan:</strong></p>
+        <ul class="checklist">
+          <li><input type="checkbox" /> My hypothesis uses "If… then…" and is testable</li>
+          <li><input type="checkbox" /> I change only ONE thing (the independent variable)</li>
+          <li><input type="checkbox" /> I named something I will measure</li>
+          <li><input type="checkbox" /> I listed at least two things I'll keep the same</li>
+        </ul>
+      </div>
+
+      <h3>Read the data table</h3>
+      <p>A student measured how high a plant grew with different amounts of sunlight:</p>
+      <table class="tidy">
+        <tr><th>Sunlight per day</th><th>Plant height after 3 weeks</th></tr>
+        <tr><td>2 hours</td><td>6 cm</td></tr>
+        <tr><td>4 hours</td><td>11 cm</td></tr>
+        <tr><td>6 hours</td><td>15 cm</td></tr>
+        <tr><td>8 hours</td><td>18 cm</td></tr>
+      </table>
+      <form class="quiz">
+        <div class="question" data-answer="more" data-why="As sunlight goes up, height goes up — a positive pattern.">
+          <div class="q"><span class="num">1</span>What's the pattern in the data?</div>
+          <div class="options">
+            <label><input type="radio" name="d1" value="more" />More sunlight → taller plant</label>
+            <label><input type="radio" name="d1" value="less" />More sunlight → shorter plant</label>
+            <label><input type="radio" name="d1" value="none" />Sunlight makes no difference</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="question" data-answer="18" data-why="The 8-hour row shows 18 cm.">
+          <div class="q"><span class="num">2</span>How tall was the plant that got 8 hours of sun?</div>
+          <div class="options">
+            <label><input type="radio" name="d2" value="15" />15 cm</label>
+            <label><input type="radio" name="d2" value="18" />18 cm</label>
+            <label><input type="radio" name="d2" value="6" />6 cm</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- SAFETY + QUIZ -->
     <section class="panel">
       <h2>🧪 Lab Safety Rules</h2>
       <ul class="goal-list">
@@ -92,10 +188,8 @@
         <span class="ico">⚠️</span>
         <div><strong>Golden rule:</strong> when in doubt, ask the teacher <em>before</em> you act — not after.</div>
       </div>
-    </section>
 
-    <section class="panel">
-      <h2>✏️ Quick Check</h2>
+      <h2 style="margin-top:26px;">✏️ Quick Check</h2>
       <form class="quiz">
         <div class="question" data-answer="hypothesis" data-why="A testable 'If…then…' prediction is the hypothesis.">
           <div class="q"><span class="num">1</span>A testable <em>"If… then…"</em> prediction is called a…</div>
@@ -137,6 +231,16 @@
           <div class="feedback"></div>
         </div>
 
+        <div class="question" data-answer="one" data-why="A fair test changes only ONE variable at a time so you know what caused the result.">
+          <div class="q"><span class="num">5</span>In a fair test, how many variables should you change at once?</div>
+          <div class="options">
+            <label><input type="radio" name="q5" value="one" />Just one</label>
+            <label><input type="radio" name="q5" value="two" />Two or three</label>
+            <label><input type="radio" name="q5" value="all" />As many as possible</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
         <div class="btn-row">
           <button type="button" class="btn" data-check>Check my answers</button>
           <button type="button" class="btn ghost" data-reset>Reset</button>
@@ -153,17 +257,26 @@
     <p class="foot">🔬 Every 8th-grade experiment uses these same steps — you're ready to investigate!</p>
   </div>
 
-  <script src="../assets/js/quiz.js"></script>
+  <div class="break-overlay" id="breakOverlay">
+    <div class="break-card">
+      <div class="big">🎉</div>
+      <h2>That's a full 30 minutes!</h2>
+      <p>Awesome focus. Now take a <strong>10–15 minute break</strong> — stretch, grab a snack and some water, and rest your eyes. When you come back, start your next lesson.</p>
+      <div class="btn-row"><button class="btn" id="breakKeep">I'm taking my break 👍</button></div>
+    </div>
+  </div>
+
   <script>
-    function checkVar() {
-      const v = document.getElementById('varPick').value;
-      const el = document.getElementById('varResult');
-      const ok = v === 'flowers';
-      el.textContent = ok
-        ? '✅ Right! The number of flowers is measured, so it depends on the sunlight.'
-        : '❌ Not quite — the dependent variable is the thing you MEASURE at the end.';
-      el.style.color = ok ? 'var(--good)' : 'var(--bad)';
-    }
+    window.LESSON_PLAN = { minutes: 30, segments: [
+      { label: "Warm-up", min: 4 },
+      { label: "The method", min: 7 },
+      { label: "Variables", min: 8 },
+      { label: "Design & data", min: 7 },
+      { label: "Safety + quiz", min: 4 }
+    ]};
   </script>
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/activities.js"></script>
+  <script src="../assets/js/timer.js"></script>
 </body>
 </html>

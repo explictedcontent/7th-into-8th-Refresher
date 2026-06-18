@@ -16,22 +16,54 @@
     </div>
 
     <header class="lesson-head head-math">
-      <div class="kicker">Math · Lesson 1</div>
+      <div class="kicker">Math · Lesson 1 · ⏱️ 30 minutes</div>
       <h1>Integers &amp; the Order of Operations 🔢</h1>
       <p>These two skills are the foundation of all the algebra you'll do in 8th
          grade. Nail them now and equations will feel easy later.</p>
     </header>
 
+    <div class="pacer" id="pacer">
+      <button class="pace-btn" data-toggle>▶ Start lesson</button>
+      <span class="pace-time" data-time>00:00 / 30:00</span>
+      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
+      <button class="pace-btn ghost" data-reset>Reset</button>
+      <div class="pace-seg" data-seg></div>
+    </div>
+
     <section class="panel">
-      <h2>🎯 What you'll learn</h2>
+      <h2>🎯 Today's plan (about 30 minutes)</h2>
       <ul class="goal-list">
-        <li>What <strong>integers</strong> are and how to add, subtract, multiply &amp; divide them</li>
-        <li>The rules for <strong>positive and negative</strong> signs</li>
-        <li><strong>PEMDAS</strong> — the order you must solve a math problem in</li>
-        <li>How to avoid the #1 mistake students make</li>
+        <li>Add, subtract, multiply &amp; divide <strong>integers</strong> (positives &amp; negatives)</li>
+        <li>Use <strong>PEMDAS</strong> to solve multi-step problems in the right order</li>
+        <li>Evaluate <strong>algebra expressions</strong> by plugging in a value (8th-grade preview!)</li>
+        <li>Solve real-world <strong>word problems</strong></li>
       </ul>
+      <ul class="plan-strip">
+        <li><b>1.</b> Warm-up · 4 min</li>
+        <li><b>2.</b> Integers · 8 min</li>
+        <li><b>3.</b> PEMDAS · 8 min</li>
+        <li><b>4.</b> Algebra &amp; word problems · 7 min</li>
+        <li><b>5.</b> Quick check · 3 min</li>
+      </ul>
+      <p class="progress-note">Press <strong>▶ Start lesson</strong> above. The timer pauses if you leave this tab, so it's a <em>real</em> 30 minutes.</p>
     </section>
 
+    <!-- WARM-UP -->
+    <section class="panel">
+      <h2>🔥 Warm-up · Mental math</h2>
+      <p>No calculator! Do these in your head, then type your answers and press Check.</p>
+      <div data-practice>
+        <div class="practice-grid">
+          <div class="prob" data-answer="3"><span class="pnum">1</span><span class="qtext">8 + (−5) =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="-9"><span class="pnum">2</span><span class="qtext">−4 + (−5) =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="10"><span class="pnum">3</span><span class="qtext">−2 × −5 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="-4"><span class="pnum">4</span><span class="qtext">12 ÷ −3 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        </div>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check warm-up</button><span class="score" data-practice-score></span></div>
+      </div>
+    </section>
+
+    <!-- INTEGERS -->
     <section class="panel">
       <h2>➕➖ Part 1: Integers</h2>
       <p><span class="term">Integers</span> are whole numbers <em>and</em> their negatives:
@@ -52,15 +84,21 @@
         <code>5 − (−3)</code> becomes <code>5 + 3 = 8</code>. Two minuses next to each other turn into a plus!</div>
       </div>
 
-      <div class="tryit">
-        <strong>Try it — integer practice 🧮</strong>
-        <p style="margin:.4rem 0;">Solve <code>−7 + 12 − (−2)</code> in your head, then type your answer:</p>
-        <input type="number" id="intAns" placeholder="?" />
-        <button class="btn" onclick="checkInt()">Check</button>
-        <div class="result" id="intResult"></div>
+      <h3>Practice set — integers</h3>
+      <div data-practice>
+        <div class="practice-grid">
+          <div class="prob" data-answer="7"><span class="pnum">1</span><span class="qtext">−7 + 12 − (−2) =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="-18"><span class="pnum">2</span><span class="qtext">−3 × 6 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="2"><span class="pnum">3</span><span class="qtext">−10 + 4 + 8 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="15"><span class="pnum">4</span><span class="qtext">−45 ÷ −3 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="-1"><span class="pnum">5</span><span class="qtext">6 − 7 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="-20"><span class="pnum">6</span><span class="qtext">−4 × 5 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        </div>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div>
       </div>
     </section>
 
+    <!-- PEMDAS -->
     <section class="panel">
       <h2>🧭 Part 2: Order of Operations (PEMDAS)</h2>
       <p>When a problem has many steps, everyone has to solve it in the <em>same order</em> — or we'd all get different answers. Use <strong>PEMDAS</strong>:</p>
@@ -86,15 +124,51 @@
         </ol>
       </div>
 
-      <div class="tryit">
-        <strong>Try it — PEMDAS challenge 🎯</strong>
-        <p style="margin:.4rem 0;">Solve <code>3 × (4 + 2) − 10 ÷ 2</code>:</p>
-        <input type="number" id="pemAns" placeholder="?" />
-        <button class="btn" onclick="checkPem()">Check</button>
-        <div class="result" id="pemResult"></div>
+      <h3>Practice set — PEMDAS</h3>
+      <div data-practice>
+        <div class="practice-grid">
+          <div class="prob" data-answer="13"><span class="pnum">1</span><span class="qtext">3 × (4 + 2) − 10 ÷ 2 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="20"><span class="pnum">2</span><span class="qtext">2 + 3 × 6 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="1"><span class="pnum">3</span><span class="qtext">(10 − 4) ÷ 6 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="19"><span class="pnum">4</span><span class="qtext">4² + 9 ÷ 3 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="14"><span class="pnum">5</span><span class="qtext">5 × 2 + 8 ÷ 2 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        </div>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div>
       </div>
     </section>
 
+    <!-- ALGEBRA BRIDGE + WORD PROBLEMS -->
+    <section class="panel">
+      <h2>🧪 Part 3: Plug it in (algebra preview)</h2>
+      <p>In 8th grade, letters stand in for numbers. To <span class="term">evaluate</span>
+         an expression, just replace the letter with its value and use PEMDAS.</p>
+      <div class="example">
+        <span class="label">Example</span>
+        <p style="margin:.5rem 0;">If <code>x = 4</code>, find <code>3x − 5</code>.<br />
+        <code>3x</code> means <code>3 × x = 3 × 4 = 12</code>, then <code>12 − 5 = <mark>7</mark></code>.</p>
+      </div>
+
+      <div data-practice>
+        <div class="practice-grid">
+          <div class="prob" data-answer="11"><span class="pnum">1</span><span class="qtext">x = 4: &nbsp; 2x + 3 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="10"><span class="pnum">2</span><span class="qtext">x = 5: &nbsp; 4x − 10 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="1"><span class="pnum">3</span><span class="qtext">x = −2: &nbsp; x + 3 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        </div>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div>
+      </div>
+
+      <h3>Word problems — read carefully</h3>
+      <div data-practice>
+        <div class="practice-grid">
+          <div class="prob" data-answer="-3"><span class="pnum">1</span><span class="qtext">The temperature was 5°. It dropped 8°. New temperature? (just the number)</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="32"><span class="pnum">2</span><span class="qtext">A diver is 12 m below the surface, then descends 20 m more. How many meters below the surface?</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+          <div class="prob" data-answer="46"><span class="pnum">3</span><span class="qtext">You buy 3 shirts at $12 each plus a $10 hat. Total cost in dollars?</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        </div>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
     <section class="panel">
       <h2>✏️ Quick Check</h2>
       <form class="quiz">
@@ -138,6 +212,26 @@
           <div class="feedback"></div>
         </div>
 
+        <div class="question" data-answer="7" data-why="3x means 3×4=12, then 12−5=7.">
+          <div class="q"><span class="num">5</span>If <code>x = 4</code>, what is <code>3x − 5</code>?</div>
+          <div class="options">
+            <label><input type="radio" name="q5" value="2" />2</label>
+            <label><input type="radio" name="q5" value="7" />7</label>
+            <label><input type="radio" name="q5" value="17" />17</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="positive" data-why="Two negatives multiplied give a positive: −7 × −3 = 21.">
+          <div class="q"><span class="num">6</span>A negative times a negative is always…</div>
+          <div class="options">
+            <label><input type="radio" name="q6" value="negative" />Negative</label>
+            <label><input type="radio" name="q6" value="positive" />Positive</label>
+            <label><input type="radio" name="q6" value="zero" />Zero</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
         <div class="btn-row">
           <button type="button" class="btn" data-check>Check my answers</button>
           <button type="button" class="btn ghost" data-reset>Reset</button>
@@ -154,22 +248,26 @@
     <p class="foot">🔢 You just reviewed the backbone of pre-algebra. Next stop: 8th-grade equations!</p>
   </div>
 
-  <script src="../assets/js/quiz.js"></script>
+  <div class="break-overlay" id="breakOverlay">
+    <div class="break-card">
+      <div class="big">🎉</div>
+      <h2>That's a full 30 minutes!</h2>
+      <p>Awesome focus. Now take a <strong>10–15 minute break</strong> — stretch, grab a snack and some water, and rest your eyes. When you come back, start your next lesson.</p>
+      <div class="btn-row"><button class="btn" id="breakKeep">I'm taking my break 👍</button></div>
+    </div>
+  </div>
+
   <script>
-    function checkInt() {
-      const v = Number(document.getElementById('intAns').value);
-      const el = document.getElementById('intResult');
-      // -7 + 12 - (-2) = -7 + 12 + 2 = 7
-      el.textContent = v === 7 ? '✅ Yes! −7 + 12 + 2 = 7' : '❌ Not yet. Remember − (−2) becomes + 2. Try again!';
-      el.style.color = v === 7 ? 'var(--good)' : 'var(--bad)';
-    }
-    function checkPem() {
-      const v = Number(document.getElementById('pemAns').value);
-      const el = document.getElementById('pemResult');
-      // 3*(6) - 5 = 18 - 5 = 13
-      el.textContent = v === 13 ? '✅ Perfect! 3×6=18, 10÷2=5, 18−5=13.' : '❌ Close — do the parentheses and division before subtracting.';
-      el.style.color = v === 13 ? 'var(--good)' : 'var(--bad)';
-    }
+    window.LESSON_PLAN = { minutes: 30, segments: [
+      { label: "Warm-up", min: 4 },
+      { label: "Integers", min: 8 },
+      { label: "PEMDAS", min: 8 },
+      { label: "Algebra & word problems", min: 7 },
+      { label: "Quick check", min: 3 }
+    ]};
   </script>
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/activities.js"></script>
+  <script src="../assets/js/timer.js"></script>
 </body>
 </html>

@@ -16,22 +16,58 @@
     </div>
 
     <header class="lesson-head head-social">
-      <div class="kicker">Social Studies · Lesson 1</div>
+      <div class="kicker">Social Studies · Lesson 1 · ⏱️ 30 minutes</div>
       <h1>Map Skills, Continents &amp; Coordinates 🗺️</h1>
       <p>Before you study history or current events, you need to find places on a
          map. These skills let you pinpoint <em>any</em> spot on Earth.</p>
     </header>
 
+    <div class="pacer" id="pacer">
+      <button class="pace-btn" data-toggle>▶ Start lesson</button>
+      <span class="pace-time" data-time>00:00 / 30:00</span>
+      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
+      <button class="pace-btn ghost" data-reset>Reset</button>
+      <div class="pace-seg" data-seg></div>
+    </div>
+
     <section class="panel">
-      <h2>🎯 What you'll learn</h2>
+      <h2>🎯 Today's plan (about 30 minutes)</h2>
       <ul class="goal-list">
         <li>The <strong>7 continents</strong> and <strong>5 oceans</strong></li>
-        <li>How to read a map's <strong>compass rose</strong>, <strong>key</strong>, and <strong>scale</strong></li>
-        <li><strong>Latitude</strong> and <strong>longitude</strong> — Earth's address system</li>
-        <li>The special lines: Equator and Prime Meridian</li>
+        <li>Read a map's <strong>compass rose</strong>, <strong>key</strong>, and <strong>scale</strong></li>
+        <li>Use <strong>latitude</strong> and <strong>longitude</strong> to locate any place</li>
+        <li>Read about <strong>why geography matters</strong></li>
       </ul>
+      <ul class="plan-strip">
+        <li><b>1.</b> Warm-up · 4 min</li>
+        <li><b>2.</b> Continents &amp; oceans · 6 min</li>
+        <li><b>3.</b> Reading a map · 6 min</li>
+        <li><b>4.</b> Latitude &amp; longitude · 9 min</li>
+        <li><b>5.</b> Read + quiz · 5 min</li>
+      </ul>
+      <p class="progress-note">Press <strong>▶ Start lesson</strong>. The timer pauses if you switch tabs — so it's a <em>real</em> 30 minutes.</p>
     </section>
 
+    <!-- WARM-UP -->
+    <section class="panel">
+      <h2>🌎 Warm-up · Which continent?</h2>
+      <p>Match each country to its continent:</p>
+      <div data-tagging>
+        <p class="tagline">
+          Egypt →
+          <select data-answer="africa"><option value="">choose…</option><option value="africa">Africa</option><option value="asia">Asia</option><option value="europe">Europe</option></select>,
+          Brazil →
+          <select data-answer="south-america"><option value="">choose…</option><option value="north-america">North America</option><option value="south-america">South America</option><option value="australia">Australia</option></select>,
+          Japan →
+          <select data-answer="asia"><option value="">choose…</option><option value="asia">Asia</option><option value="europe">Europe</option><option value="africa">Africa</option></select>,
+          France →
+          <select data-answer="europe"><option value="">choose…</option><option value="europe">Europe</option><option value="asia">Asia</option><option value="south-america">South America</option></select>
+        </p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+
+    <!-- CONTINENTS -->
     <section class="panel">
       <h2>🌍 Continents &amp; Oceans</h2>
       <p>There are <strong>7 continents</strong>: Africa, Antarctica, Asia, Australia, Europe, North America, and South America.</p>
@@ -42,6 +78,7 @@
       </div>
     </section>
 
+    <!-- MAP TOOLS -->
     <section class="panel">
       <h2>🧭 Reading a Map</h2>
       <table class="tidy">
@@ -55,8 +92,16 @@
         <span class="ico">🧭</span>
         <div><strong>Remember the directions:</strong> <em>"Never Eat Soggy Waffles"</em> = North, East, South, West (clockwise).</div>
       </div>
+      <div class="tryit">
+        <strong>Try it — using a scale 📏</strong>
+        <p style="margin:.4rem 0;">A map's scale says <code>1 inch = 50 miles</code>. Two cities are <strong>3 inches</strong> apart on the map. How many real miles apart are they?</p>
+        <input type="number" id="scaleAns" placeholder="miles" />
+        <button class="btn" onclick="checkScale()">Check</button>
+        <div class="result" id="scaleResult"></div>
+      </div>
     </section>
 
+    <!-- LAT/LONG -->
     <section class="panel">
       <h2>📍 Latitude &amp; Longitude</h2>
       <p>These imaginary lines form a grid so every place has an exact "address."</p>
@@ -68,6 +113,21 @@
       <div class="callout">
         <span class="ico">🪜</span>
         <div><strong>Trick:</strong> Lat<u>itude</u> lines are like the rungs of a <em>ladder</em> (flat). Always say latitude <em>first</em>, like "40° N, 74° W" for New York City.</div>
+      </div>
+
+      <h3>Practice — north/south, east/west</h3>
+      <div data-tagging>
+        <p class="tagline">
+          A place at <b>30° N</b> is in the
+          <select data-answer="north"><option value="">choose…</option><option value="north">Northern</option><option value="south">Southern</option></select>
+          Hemisphere.<br />
+          A place at <b>20° S, 50° W</b> is south of the
+          <select data-answer="equator"><option value="">choose…</option><option value="equator">Equator</option><option value="prime">Prime Meridian</option></select>.<br />
+          When you write coordinates, you say
+          <select data-answer="lat"><option value="">choose…</option><option value="lat">latitude</option><option value="long">longitude</option></select>
+          first.
+        </p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
 
       <div class="tryit">
@@ -84,6 +144,47 @@
       </div>
     </section>
 
+    <!-- READING -->
+    <section class="panel">
+      <h2>📚 Why Geography Matters</h2>
+      <div class="passage">
+        <p>Long before phones could show a blue dot on a map, explorers crossed
+        oceans using only the stars, a compass, and lines of latitude and
+        longitude. Knowing exactly <em>where</em> you are has always shaped human
+        history — where cities grew, which countries traded, and how armies moved.</p>
+        <p>Geography still shapes daily life. Mountains and rivers decide where
+        roads and farms can go. A country near the Equator has a very different
+        climate from one near the poles. When you understand maps, the news about
+        faraway places suddenly makes a lot more sense.</p>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="where" data-why="The passage repeats that knowing 'where' you are has shaped history and daily life.">
+          <div class="q"><span class="num">1</span>What is the main idea?</div>
+          <div class="options">
+            <label><input type="radio" name="r1" value="stars" />Stars are prettier than maps</label>
+            <label><input type="radio" name="r1" value="where" />Knowing where places are shapes history and daily life</label>
+            <label><input type="radio" name="r1" value="phones" />Phones ruined exploration</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="question" data-answer="climate" data-why="The passage says a country near the Equator has a different climate from one near the poles.">
+          <div class="q"><span class="num">2</span>According to the passage, being near the Equator affects a country's…</div>
+          <div class="options">
+            <label><input type="radio" name="r2" value="climate" />Climate</label>
+            <label><input type="radio" name="r2" value="language" />Language</label>
+            <label><input type="radio" name="r2" value="money" />Currency</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- QUIZ -->
     <section class="panel">
       <h2>✏️ Quick Check</h2>
       <form class="quiz">
@@ -127,6 +228,16 @@
           <div class="feedback"></div>
         </div>
 
+        <div class="question" data-answer="latitude" data-why="When writing coordinates, latitude (N/S) comes first, then longitude (E/W).">
+          <div class="q"><span class="num">5</span>In coordinates like "40° N, 74° W," which is written first?</div>
+          <div class="options">
+            <label><input type="radio" name="q5" value="longitude" />Longitude (E/W)</label>
+            <label><input type="radio" name="q5" value="latitude" />Latitude (N/S)</label>
+            <label><input type="radio" name="q5" value="either" />It doesn't matter</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
         <div class="btn-row">
           <button type="button" class="btn" data-check>Check my answers</button>
           <button type="button" class="btn ghost" data-reset>Reset</button>
@@ -143,17 +254,42 @@
     <p class="foot">🗺️ Now you can locate any place on Earth — the first step to understanding history and the world.</p>
   </div>
 
-  <script src="../assets/js/quiz.js"></script>
+  <div class="break-overlay" id="breakOverlay">
+    <div class="break-card">
+      <div class="big">🎉</div>
+      <h2>That's a full 30 minutes!</h2>
+      <p>Awesome focus. Now take a <strong>10–15 minute break</strong> — stretch, grab a snack and some water, and rest your eyes. When you come back, start your next lesson.</p>
+      <div class="btn-row"><button class="btn" id="breakKeep">I'm taking my break 👍</button></div>
+    </div>
+  </div>
+
   <script>
+    window.LESSON_PLAN = { minutes: 30, segments: [
+      { label: "Warm-up", min: 4 },
+      { label: "Continents & oceans", min: 6 },
+      { label: "Reading a map", min: 6 },
+      { label: "Latitude & longitude", min: 9 },
+      { label: "Read + quiz", min: 5 }
+    ]};
+    function checkScale() {
+      const v = Number(document.getElementById('scaleAns').value);
+      const el = document.getElementById('scaleResult');
+      const ok = v === 150;
+      el.textContent = ok ? '✅ Yes! 3 × 50 = 150 miles.' : '❌ Not yet — multiply the inches by the miles-per-inch (3 × 50).';
+      el.style.color = ok ? 'var(--good)' : 'var(--bad)';
+    }
     function checkLine() {
       const v = document.getElementById('linePick').value;
       const el = document.getElementById('lineResult');
       const ok = v === 'equator';
       el.textContent = ok
         ? '✅ Correct! The Equator is 0° latitude.'
-        : '❌ Not quite — that 0° latitude line is the one that circles Earth\'s middle.';
+        : "❌ Not quite — that 0° latitude line circles Earth's middle.";
       el.style.color = ok ? 'var(--good)' : 'var(--bad)';
     }
   </script>
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/activities.js"></script>
+  <script src="../assets/js/timer.js"></script>
 </body>
 </html>

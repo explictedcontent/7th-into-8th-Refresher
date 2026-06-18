@@ -339,3 +339,120 @@ table.tidy th { background: var(--cream); }
   .hero, .lesson-head { padding: 24px 20px; }
   .panel { padding: 20px; }
 }
+
+/* ===========================================================
+   Pacing timer — keeps each lesson a real 30 minutes
+   =========================================================== */
+.pacer {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  background: rgba(255,253,248,.96);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.pacer.running { border-color: var(--science); }
+.pacer .pace-btn {
+  border: 0; cursor: pointer; font-family: inherit; font-weight: 800;
+  padding: 9px 16px; border-radius: 999px; color: #fff; background: var(--ink);
+}
+.pacer .pace-btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.pacer .pace-time { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.05rem; }
+.pacer .pace-track {
+  flex: 1 1 160px; min-width: 120px; height: 12px;
+  background: var(--cream); border-radius: 999px; overflow: hidden; border: 1px solid var(--line);
+}
+.pacer .pace-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--science), var(--math));
+  transition: width .4s ease;
+}
+.pacer .pace-seg { font-size: .85rem; font-weight: 700; color: var(--ink-soft); flex-basis: 100%; }
+.pacer .pace-seg b { color: var(--ink); }
+
+.plan-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0;
+  list-style: none; padding: 0;
+}
+.plan-strip li {
+  font-size: .82rem; font-weight: 700;
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: 999px; padding: 5px 12px;
+}
+.plan-strip li b { color: var(--math); }
+
+/* Break overlay */
+.break-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(31,36,64,.78); backdrop-filter: blur(4px); padding: 20px;
+}
+.break-overlay.show { display: flex; }
+.break-card {
+  background: #fff; border-radius: var(--radius); padding: 34px 30px;
+  max-width: 460px; text-align: center; box-shadow: var(--shadow);
+}
+.break-card .big { font-size: 3rem; }
+.break-card h2 { margin: 8px 0 6px; }
+.break-card p { color: var(--ink-soft); }
+.break-card .btn-row { justify-content: center; }
+
+/* ===========================================================
+   Extra activity styles for the longer lessons
+   =========================================================== */
+.passage {
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px 20px; margin: 14px 0;
+  font-size: 1.02rem;
+}
+.passage p { margin: 0 0 10px; }
+.passage p:last-child { margin-bottom: 0; }
+
+.tagline { font-size: 1.05rem; line-height: 2.4; }
+.tagline select {
+  font-family: inherit; font-size: .9rem; padding: 4px 6px;
+  border-radius: 8px; border: 1px solid var(--line); margin: 0 2px;
+  background: #fff;
+}
+.tagline select.ok { border-color: var(--good); background: color-mix(in srgb, var(--good) 14%, #fff); }
+.tagline select.no { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, #fff); }
+
+.practice-grid { display: grid; gap: 12px; }
+.prob {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: #fff;
+}
+.prob .pnum {
+  display: inline-grid; place-items: center; width: 26px; height: 26px;
+  border-radius: 50%; background: var(--ink); color: #fff; font-size: .85rem; flex-shrink: 0;
+}
+.prob .qtext { font-weight: 700; flex: 1 1 200px; }
+.prob input { font-family: inherit; font-size: 1rem; padding: 7px 10px; border: 1px solid var(--line); border-radius: 9px; width: 90px; }
+.prob .mark { font-weight: 800; min-width: 1.4em; }
+
+.checklist { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 8px; }
+.checklist li { display: flex; gap: 10px; align-items: flex-start; }
+.checklist input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--science); }
+
+textarea.write {
+  width: 100%; min-height: 110px; font-family: inherit; font-size: 1rem;
+  padding: 12px; border: 1px solid var(--line); border-radius: 12px; resize: vertical;
+}
+.wordcount { font-size: .85rem; color: var(--ink-soft); margin-top: 6px; }
+
+.value-scale { display: flex; gap: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); margin: 12px 0; }
+.value-scale div { flex: 1; height: 46px; display: grid; place-items: center; font-size: .8rem; font-weight: 700; }
+
+.challenge { counter-reset: ch; list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 10px; }
+.challenge li {
+  counter-increment: ch; position: relative; padding: 12px 14px 12px 50px;
+  border: 1px solid var(--line); border-radius: 12px; background: #fff;
+}
+.challenge li::before {
+  content: counter(ch); position: absolute; left: 12px; top: 12px;
+  width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
+  font-weight: 800; color: #fff; background: var(--art);
+}

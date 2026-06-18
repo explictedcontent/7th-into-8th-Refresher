@@ -16,23 +16,55 @@
     </div>
 
     <header class="lesson-head head-art">
-      <div class="kicker">Art · Lesson 1 · ★ Your favorite</div>
+      <div class="kicker">Art · Lesson 1 · ★ Your favorite · ⏱️ 30 minutes</div>
       <h1>The Elements of Art &amp; Color Theory 🎨</h1>
       <p>Every painting, poster, doodle, and video game is built from the same
          basic building blocks. Learn them here — then jump into your own studio
          and create.</p>
     </header>
 
+    <!-- PACING TIMER -->
+    <div class="pacer" id="pacer">
+      <button class="pace-btn" data-toggle>▶ Start lesson</button>
+      <span class="pace-time" data-time>00:00 / 30:00</span>
+      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
+      <button class="pace-btn ghost" data-reset>Reset</button>
+      <div class="pace-seg" data-seg></div>
+    </div>
+
     <section class="panel">
-      <h2>🎯 What you'll learn</h2>
+      <h2>🎯 Today's plan (about 30 minutes)</h2>
       <ul class="goal-list">
         <li>The <strong>7 Elements of Art</strong> that artists use everywhere</li>
         <li>How the <strong>color wheel</strong> works (primary, secondary, complementary)</li>
-        <li>The difference between <strong>warm</strong> and <strong>cool</strong> colors</li>
-        <li>How to use it all in your own digital painting</li>
+        <li>The difference between <strong>warm</strong> and <strong>cool</strong> colors, plus <strong>value</strong></li>
+        <li>A guided drawing challenge in your own digital studio</li>
+      </ul>
+      <ul class="plan-strip">
+        <li><b>1.</b> Warm-up · 4 min</li>
+        <li><b>2.</b> The 7 elements · 8 min</li>
+        <li><b>3.</b> Color &amp; value · 7 min</li>
+        <li><b>4.</b> Studio challenge · 8 min</li>
+        <li><b>5.</b> Quick check · 3 min</li>
+      </ul>
+      <p class="progress-note">Press <strong>▶ Start lesson</strong> above. The timer only counts while this tab is open, so it's a <em>real</em> 30 minutes — no rushing! 😉</p>
+    </section>
+
+    <!-- 1. WARM-UP -->
+    <section class="panel">
+      <h2>🌅 Warm-up · Look closely</h2>
+      <p>Artists notice details most people walk past. Look around the room you're
+         in right now and find one example of each. Say them out loud or jot them down:</p>
+      <ul class="checklist">
+        <li><input type="checkbox" /> A <strong>line</strong> (the edge of a table, a cord, a stripe)</li>
+        <li><input type="checkbox" /> A <strong>shape</strong> (a window, a screen, a sign)</li>
+        <li><input type="checkbox" /> A <strong>warm color</strong> (red, orange, or yellow)</li>
+        <li><input type="checkbox" /> A <strong>cool color</strong> (blue, green, or purple)</li>
+        <li><input type="checkbox" /> Something with interesting <strong>texture</strong> (rough, soft, bumpy)</li>
       </ul>
     </section>
 
+    <!-- 2. ELEMENTS -->
     <section class="panel">
       <h2>🧱 The 7 Elements of Art</h2>
       <p>Think of these like the ingredients in a recipe. Mix them differently and you get completely different art.</p>
@@ -51,8 +83,39 @@
         <div><strong>Memory trick:</strong> <em>"Little Sharks Find Colorful Vivid Textured Spaces."</em>
         The first letters = Line, Shape, Form, Color, Value, Texture, Space.</div>
       </div>
+
+      <h3>Value: the secret weapon</h3>
+      <p><span class="term">Value</span> is how light or dark a color is. Shading from
+         light to dark is what makes a flat circle look like a 3-D ball. Here's a
+         <strong>value scale</strong> from light to dark:</p>
+      <div class="value-scale">
+        <div style="background:#ffffff;color:#333;">1</div>
+        <div style="background:#dddddd;color:#333;">2</div>
+        <div style="background:#bbbbbb;color:#333;">3</div>
+        <div style="background:#999999;color:#fff;">4</div>
+        <div style="background:#666666;color:#fff;">5</div>
+        <div style="background:#333333;color:#fff;">6</div>
+        <div style="background:#000000;color:#fff;">7</div>
+      </div>
+
+      <div data-tagging>
+        <h3>Try it — name that element</h3>
+        <p class="tagline">
+          A round basketball shows
+          <select data-answer="form"><option value="">choose…</option><option value="line">line</option><option value="form">form</option><option value="space">space</option></select>.
+          A shadow on a face is mostly
+          <select data-answer="value"><option value="">choose…</option><option value="value">value</option><option value="color">color</option><option value="shape">shape</option></select>.
+          The bumpy surface of tree bark is
+          <select data-answer="texture"><option value="">choose…</option><option value="texture">texture</option><option value="form">form</option><option value="line">line</option></select>.
+        </p>
+        <div class="btn-row">
+          <button type="button" class="btn" data-grade>Check labels</button>
+          <span class="score" data-tag-score></span>
+        </div>
+      </div>
     </section>
 
+    <!-- 3. COLOR -->
     <section class="panel">
       <h2>🌈 Color Theory Basics</h2>
       <div class="wheel">
@@ -88,12 +151,20 @@
       </div>
     </section>
 
-    <!-- ===================== ART STUDIO ===================== -->
+    <!-- 4. STUDIO -->
     <section class="panel">
-      <h2>🖌️ Your Art Studio</h2>
-      <p>Now use what you learned. Try drawing something with a <strong>warm</strong>
-         color next to its <strong>complementary cool</strong> color and watch it pop.
-         When you're proud of it, hit <em>Save</em> to keep the picture.</p>
+      <h2>🖌️ Studio Challenge · "Complementary Sunset"</h2>
+      <p>Time to use everything you learned. Follow the steps below in your studio.
+         Don't rush — take your time and make it yours. 🎨</p>
+
+      <ol class="challenge">
+        <li>Draw a straight <strong>horizon line</strong> across the middle (that's the <em>Line</em> element).</li>
+        <li>Add a big round <strong>sun</strong> using a <strong>warm</strong> color (red, orange, or yellow).</li>
+        <li>Fill the sky around it with a <strong>cool complementary</strong> color (blue or purple) so the sun pops.</li>
+        <li>Show <strong>value</strong>: make the sky darker at the top and lighter near the sun.</li>
+        <li>Add <strong>texture</strong> to the ground — short strokes for grass, or waves for water.</li>
+        <li>Hit <strong>💾 Save</strong> to keep your masterpiece!</li>
+      </ol>
 
       <div class="studio">
         <div class="tools">
@@ -126,7 +197,7 @@
       </div>
     </section>
 
-    <!-- ===================== QUIZ ===================== -->
+    <!-- 5. QUIZ -->
     <section class="panel">
       <h2>✏️ Quick Check</h2>
       <form class="quiz">
@@ -170,6 +241,16 @@
           <div class="feedback"></div>
         </div>
 
+        <div class="question" data-answer="value" data-why="Value — going from light to dark — is what makes a flat shape look 3-D.">
+          <div class="q"><span class="num">5</span>What makes a flat circle look like a round 3-D ball?</div>
+          <div class="options">
+            <label><input type="radio" name="q5" value="value" />Shading its value (light to dark)</label>
+            <label><input type="radio" name="q5" value="line" />Drawing more lines</label>
+            <label><input type="radio" name="q5" value="texture" />Adding warm colors only</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
         <div class="btn-row">
           <button type="button" class="btn" data-check>Check my answers</button>
           <button type="button" class="btn ghost" data-reset>Reset</button>
@@ -183,12 +264,27 @@
       <a class="back-link" href="math.html">Next: Math →</a>
     </div>
 
-    <p class="foot">🎨 Tip: art shows up in every subject — diagrams in science, maps in social studies, even neat handwriting in math!</p>
+    <p class="foot">🎨 Art shows up in every subject — diagrams in science, maps in social studies, even neat handwriting in math!</p>
   </div>
 
-  <script src="../assets/js/quiz.js"></script>
-  <script src="../assets/js/studio.js"></script>
+  <!-- BREAK SCREEN -->
+  <div class="break-overlay" id="breakOverlay">
+    <div class="break-card">
+      <div class="big">🎉</div>
+      <h2>That's a full 30 minutes!</h2>
+      <p>Awesome focus. Now take a <strong>10–15 minute break</strong> — stretch, grab a snack and some water, and rest your eyes. When you come back, start your next lesson.</p>
+      <div class="btn-row"><button class="btn" id="breakKeep">I'm taking my break 👍</button></div>
+    </div>
+  </div>
+
   <script>
+    window.LESSON_PLAN = { minutes: 30, segments: [
+      { label: "Warm-up", min: 4 },
+      { label: "The 7 elements", min: 8 },
+      { label: "Color & value", min: 7 },
+      { label: "Studio challenge", min: 8 },
+      { label: "Quick check", min: 3 }
+    ]};
     function mixColor() {
       const a = document.getElementById('c1').value;
       const b = document.getElementById('c2').value;
@@ -197,12 +293,16 @@
         'red+yellow': '🟠 Orange — a warm secondary color!',
         'blue+yellow': '🟢 Green — a fresh secondary color!',
         'blue+red': '🟣 Purple — a cool secondary color!',
-        'red+red': 'That\'s still red! Pick two different colors. 🙂',
-        'yellow+yellow': 'That\'s still yellow! Pick two different colors. 🙂',
-        'blue+blue': 'That\'s still blue! Pick two different colors. 🙂'
+        'red+red': "That's still red! Pick two different colors. 🙂",
+        'yellow+yellow': "That's still yellow! Pick two different colors. 🙂",
+        'blue+blue': "That's still blue! Pick two different colors. 🙂"
       };
       document.getElementById('mixResult').textContent = map[key] || 'Pick two colors and press Mix!';
     }
   </script>
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/activities.js"></script>
+  <script src="../assets/js/studio.js"></script>
+  <script src="../assets/js/timer.js"></script>
 </body>
 </html>
