@@ -1270,7 +1270,7 @@ function checkLine(){
   el.style.color=ok?'var(--good)':'var(--bad)';
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+function boot(){
 
   /* greeting on load */
   var g=document.querySelector('[data-greeting]');
@@ -1425,7 +1425,8 @@ document.addEventListener('DOMContentLoaded', function(){
   /* pause timers when the whole tab is hidden (real minutes only) */
   document.addEventListener('visibilitychange',function(){ if(document.hidden) pauseAllPacers(); });
 
-});
+}
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',boot); } else { boot(); }
 </script>
 </body>
 </html>
