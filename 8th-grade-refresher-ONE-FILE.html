@@ -1235,7 +1235,7 @@ function showLesson(id){
   if(el) el.classList.add('active');
   var btns = document.querySelectorAll('.subject-nav button');
   for(var j=0;j<btns.length;j++) btns[j].classList.toggle('navactive', btns[j].getAttribute('data-target')===id);
-  window.scrollTo({top:0,behavior:'smooth'});
+  try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
 }
 
 /* ---------- Name greeting (saved on this device) ---------- */
