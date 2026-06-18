@@ -7,7 +7,7 @@
 <style>
 :root{
   --ink:#1f2440;--ink-soft:#4a5072;--paper:#fffdf8;--cream:#fef6e4;--line:#e7e0d2;
-  --math:#2d6cdf;--english:#e0529c;--science:#1fae8b;--social:#f0883e;--art:#8b5cf6;
+  --math:#2d6cdf;--english:#e0529c;--science:#1fae8b;--social:#f0883e;--art:#8b5cf6;--anatomy:#d64550;
   --good:#1fae8b;--bad:#e85d5d;--shadow:0 10px 30px rgba(31,36,64,0.12);--radius:18px;
   --font:"Segoe UI","Trebuchet MS",system-ui,-apple-system,sans-serif;
 }
@@ -60,6 +60,7 @@ a{color:inherit;}
 .card.science{--accent:var(--science);}
 .card.social{--accent:var(--social);}
 .card.art{--accent:var(--art);}
+.card.anatomy{--accent:var(--anatomy);}
 
 .lesson-head{border-radius:var(--radius);padding:30px 32px;color:#fff;box-shadow:var(--shadow);margin-bottom:28px;}
 .lesson-head .kicker{font-weight:700;opacity:.9;letter-spacing:.05em;text-transform:uppercase;font-size:.8rem;}
@@ -70,6 +71,7 @@ a{color:inherit;}
 .head-science{background:linear-gradient(135deg,var(--science),#41cda8);}
 .head-social{background:linear-gradient(135deg,var(--social),#f5a86a);}
 .head-art{background:linear-gradient(135deg,var(--art),#b08bf7);}
+.head-anatomy{background:linear-gradient(135deg,var(--anatomy),#ef7a83);}
 
 .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow);margin-bottom:24px;}
 .panel h2{margin-top:0;display:flex;align-items:center;gap:10px;}
@@ -223,6 +225,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <button data-target="math" onclick="showLesson('math')">🔢 Math</button>
     <button data-target="english" onclick="showLesson('english')">📖 English</button>
     <button data-target="science" onclick="showLesson('science')">🔬 Science</button>
+    <button data-target="anatomy" onclick="showLesson('anatomy')">🫀 Anatomy</button>
     <button data-target="social" onclick="showLesson('social')">🗺️ Social Studies</button>
   </nav>
 
@@ -262,6 +265,11 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
       <a class="card science" onclick="showLesson('science')">
         <span class="emoji">🔬</span><h3>Science</h3>
         <p>The scientific method &amp; lab safety — how real scientists ask and answer questions.</p>
+        <span class="tag">Lesson 1 ready</span>
+      </a>
+      <a class="card anatomy" onclick="showLesson('anatomy')">
+        <span class="emoji">🫀</span><h3>Anatomy (Human Body)</h3>
+        <p>How the body is built and the major systems that keep you alive and moving.</p>
         <span class="tag">Lesson 1 ready</span>
       </a>
       <a class="card social" onclick="showLesson('social')">
@@ -910,6 +918,136 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
       </form>
     </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('english')">← English</span>
+      <span class="back-link" onclick="showLesson('anatomy')">Next: Anatomy →</span></div>
+  </section>
+
+  <!-- ================= ANATOMY ================= -->
+  <section id="anatomy" class="lesson-section">
+    <header class="lesson-head head-anatomy">
+      <div class="kicker">Anatomy · Lesson 1 · ⏱️ 30 minutes</div>
+      <h1>The Human Body &amp; Its Systems 🫀</h1>
+      <p>Your body is a team of systems working together every second. Meet the main ones and what each does.</p>
+    </header>
+    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
+      <span class="pace-time" data-time>00:00 / 30:00</span>
+      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
+      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
+
+    <section class="panel">
+      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <ul class="goal-list">
+        <li>How the body is organized: <strong>cells → tissues → organs → systems</strong></li>
+        <li>The <strong>major body systems</strong> and what each does</li>
+        <li>Match <strong>organs</strong> to their systems</li>
+        <li>How the systems <strong>work together</strong></li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> How the body is built · 6 min</li>
+        <li><b>3.</b> The body systems · 9 min</li><li><b>4.</b> Match it up · 6 min</li><li><b>5.</b> Quick check · 5 min</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>🤔 Warm-up · Find these on yourself</h2>
+      <p>Point to (or picture) each of these on your own body:</p>
+      <ul class="checklist">
+        <li><input type="checkbox" /> Your <strong>heart</strong> — slightly left of center in your chest</li>
+        <li><input type="checkbox" /> Your <strong>lungs</strong> — they fill your chest when you breathe in</li>
+        <li><input type="checkbox" /> Your <strong>brain</strong> — inside your skull</li>
+        <li><input type="checkbox" /> Your <strong>biggest muscle</strong> — the gluteus (your seat!)</li>
+        <li><input type="checkbox" /> Feel your <strong>pulse</strong> at your wrist or neck — that's your heart pumping blood</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🧬 How the Body Is Built</h2>
+      <p>Your body is organized from the tiniest pieces all the way up to the whole you:</p>
+      <ol class="steps">
+        <li><strong>Cells</strong> — the smallest living building blocks (you have trillions!)</li>
+        <li><strong>Tissues</strong> — groups of similar cells working together (like muscle tissue)</li>
+        <li><strong>Organs</strong> — different tissues teamed up for a job (like the heart)</li>
+        <li><strong>Organ systems</strong> — organs working together (like the circulatory system)</li>
+        <li><strong>Organism</strong> — all the systems together = the whole body (you!)</li>
+      </ol>
+      <div class="callout"><span class="ico">💡</span><div><strong>Smallest → biggest:</strong> Cells → Tissues → Organs → Systems → Organism.</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>🫀 The Major Body Systems</h2>
+      <table class="tidy">
+        <tr><th>System</th><th>Main job</th><th>Key parts</th></tr>
+        <tr><td><span class="term">Skeletal</span></td><td>Supports the body, protects organs, makes blood cells</td><td>Bones, joints (206 bones!)</td></tr>
+        <tr><td><span class="term">Muscular</span></td><td>Moves the body, holds posture, makes heat</td><td>Muscles, tendons</td></tr>
+        <tr><td><span class="term">Circulatory</span></td><td>Pumps blood to carry oxygen &amp; nutrients everywhere</td><td>Heart, blood, blood vessels</td></tr>
+        <tr><td><span class="term">Respiratory</span></td><td>Takes in oxygen, gets rid of carbon dioxide</td><td>Lungs, trachea, diaphragm</td></tr>
+        <tr><td><span class="term">Digestive</span></td><td>Breaks down food into energy &amp; nutrients</td><td>Stomach, intestines, liver</td></tr>
+        <tr><td><span class="term">Nervous</span></td><td>Controls the body and senses the world</td><td>Brain, spinal cord, nerves</td></tr>
+        <tr><td><span class="term">Excretory</span></td><td>Removes liquid waste from the blood</td><td>Kidneys, bladder</td></tr>
+      </table>
+      <div class="callout"><span class="ico">🤝</span><div><strong>Teamwork:</strong> When you run, the <em>respiratory</em> system grabs oxygen, the <em>circulatory</em> system delivers it, the <em>muscular</em> system moves you, and the <em>nervous</em> system controls it all — at the same time!</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>🔗 Match the organ to its system</h2>
+      <div data-tagging>
+        <p class="tagline">Heart →
+          <select data-answer="circulatory"><option value="">choose…</option><option value="circulatory">circulatory</option><option value="respiratory">respiratory</option><option value="nervous">nervous</option></select>,
+          Lungs →
+          <select data-answer="respiratory"><option value="">choose…</option><option value="respiratory">respiratory</option><option value="circulatory">circulatory</option><option value="digestive">digestive</option></select>,
+          Brain →
+          <select data-answer="nervous"><option value="">choose…</option><option value="nervous">nervous</option><option value="muscular">muscular</option><option value="skeletal">skeletal</option></select>,
+          Stomach →
+          <select data-answer="digestive"><option value="">choose…</option><option value="digestive">digestive</option><option value="excretory">excretory</option><option value="respiratory">respiratory</option></select></p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <h3>One more set</h3>
+      <div data-tagging>
+        <p class="tagline">Bones →
+          <select data-answer="skeletal"><option value="">choose…</option><option value="skeletal">skeletal</option><option value="muscular">muscular</option><option value="nervous">nervous</option></select>,
+          Kidneys →
+          <select data-answer="excretory"><option value="">choose…</option><option value="excretory">excretory</option><option value="digestive">digestive</option><option value="circulatory">circulatory</option></select>,
+          Muscles →
+          <select data-answer="muscular"><option value="">choose…</option><option value="muscular">muscular</option><option value="skeletal">skeletal</option><option value="nervous">nervous</option></select></p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="cells" data-why="Cells are the smallest living building blocks of the body.">
+          <div class="q"><span class="num">1</span>What is the smallest living building block of the body?</div>
+          <div class="options"><label><input type="radio" name="anq1" value="cells" />Cells</label>
+            <label><input type="radio" name="anq1" value="organs" />Organs</label>
+            <label><input type="radio" name="anq1" value="systems" />Systems</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="circulatory" data-why="The circulatory system (heart + blood vessels) pumps blood.">
+          <div class="q"><span class="num">2</span>Which system pumps blood around the body?</div>
+          <div class="options"><label><input type="radio" name="anq2" value="circulatory" />Circulatory</label>
+            <label><input type="radio" name="anq2" value="respiratory" />Respiratory</label>
+            <label><input type="radio" name="anq2" value="skeletal" />Skeletal</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="respiratory" data-why="The lungs are part of the respiratory system, which handles breathing.">
+          <div class="q"><span class="num">3</span>The lungs belong to which system?</div>
+          <div class="options"><label><input type="radio" name="anq3" value="digestive" />Digestive</label>
+            <label><input type="radio" name="anq3" value="respiratory" />Respiratory</label>
+            <label><input type="radio" name="anq3" value="muscular" />Muscular</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="skeletal" data-why="The skeletal system supports the body, protects organs, and makes blood cells.">
+          <div class="q"><span class="num">4</span>Which system protects your organs and makes blood cells?</div>
+          <div class="options"><label><input type="radio" name="anq4" value="skeletal" />Skeletal</label>
+            <label><input type="radio" name="anq4" value="nervous" />Nervous</label>
+            <label><input type="radio" name="anq4" value="digestive" />Digestive</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="nervous" data-why="The brain and spinal cord are the core of the nervous system.">
+          <div class="q"><span class="num">5</span>The brain and spinal cord are part of the ______ system.</div>
+          <div class="options"><label><input type="radio" name="anq5" value="muscular" />Muscular</label>
+            <label><input type="radio" name="anq5" value="nervous" />Nervous</label>
+            <label><input type="radio" name="anq5" value="circulatory" />Circulatory</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="order" data-why="From smallest to biggest: Cells → Tissues → Organs → Systems.">
+          <div class="q"><span class="num">6</span>Which is the correct order, smallest to biggest?</div>
+          <div class="options"><label><input type="radio" name="anq6" value="order" />Cells → Tissues → Organs → Systems</label>
+            <label><input type="radio" name="anq6" value="b" />Organs → Cells → Systems → Tissues</label>
+            <label><input type="radio" name="anq6" value="c" />Systems → Organs → Tissues → Cells</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showLesson('science')">← Science</span>
       <span class="back-link" onclick="showLesson('social')">Next: Social Studies →</span></div>
   </section>
 
@@ -1058,7 +1196,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
-    <div class="lesson-nav"><span class="back-link" onclick="showLesson('science')">← Science</span>
+    <div class="lesson-nav"><span class="back-link" onclick="showLesson('anatomy')">← Anatomy</span>
       <span class="back-link" onclick="showLesson('home')">Back to start →</span></div>
   </section>
 
@@ -1081,6 +1219,7 @@ var LESSON_PLANS = {
   math:   [{label:"Warm-up",min:4},{label:"Integers",min:8},{label:"PEMDAS",min:8},{label:"Algebra & word problems",min:7},{label:"Quick check",min:3}],
   english:[{label:"Warm-up",min:4},{label:"Parts of speech",min:7},{label:"Strong sentences",min:6},{label:"Read & answer",min:6},{label:"Write",min:5},{label:"Quick check",min:2}],
   science:[{label:"Warm-up",min:4},{label:"The method",min:7},{label:"Variables",min:8},{label:"Design & data",min:7},{label:"Safety + quiz",min:4}],
+  anatomy:[{label:"Warm-up",min:4},{label:"How the body is built",min:6},{label:"The body systems",min:9},{label:"Match it up",min:6},{label:"Quick check",min:5}],
   social: [{label:"Warm-up",min:4},{label:"Continents & oceans",min:6},{label:"Reading a map",min:6},{label:"Latitude & longitude",min:9},{label:"Read + quiz",min:5}]
 };
 
