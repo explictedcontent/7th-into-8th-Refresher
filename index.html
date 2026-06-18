@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8th Grade Launchpad — A 7th → 8th Grade Refresher</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="brand" href="index.html">
+        <span class="logo">🚀</span>
+        <span>8th Grade Launchpad</span>
+      </a>
+    </div>
+
+    <section class="hero">
+      <span class="pill">Summer Refresher · Ages 12–13</span>
+      <h1 data-greeting>Welcome! Let's get ready for 8th grade. 🎉</h1>
+      <p>
+        This is your personal interactive review of everything from 7th grade —
+        built right into your computer. Work through a subject, try the
+        practice questions, and get instant feedback. <strong>Art is featured
+        first</strong> because it's your favorite! 🎨
+      </p>
+
+      <div class="tryit" style="margin-top:22px;max-width:420px;">
+        <label for="nameInput"><strong>What should I call you?</strong></label><br />
+        <input type="text" id="nameInput" placeholder="Type your name" />
+        <button class="btn" onclick="saveName()">Save</button>
+        <div class="progress-note">Saved only on this computer — totally private.</div>
+      </div>
+    </section>
+
+    <h2 style="margin:0 0 16px;">Pick a subject to start Lesson&nbsp;1</h2>
+
+    <div class="cards">
+
+      <a class="card art" href="lessons/art.html">
+        <span class="fav">★ FAVORITE</span>
+        <span class="emoji">🎨</span>
+        <h3>Art</h3>
+        <p>Elements of art &amp; color theory — plus a real drawing studio you can paint in.</p>
+        <span class="tag">Lesson 1 ready</span>
+      </a>
+
+      <a class="card math" href="lessons/math.html">
+        <span class="emoji">🔢</span>
+        <h3>Math</h3>
+        <p>Integers, the order of operations, and the rules that power 8th-grade algebra.</p>
+        <span class="tag">Lesson 1 ready</span>
+      </a>
+
+      <a class="card english" href="lessons/english.html">
+        <span class="emoji">📖</span>
+        <h3>English / Language Arts</h3>
+        <p>Parts of speech and building strong, clear sentences that say what you mean.</p>
+        <span class="tag">Lesson 1 ready</span>
+      </a>
+
+      <a class="card science" href="lessons/science.html">
+        <span class="emoji">🔬</span>
+        <h3>Science</h3>
+        <p>The scientific method &amp; lab safety — how real scientists ask and answer questions.</p>
+        <span class="tag">Lesson 1 ready</span>
+      </a>
+
+      <a class="card social" href="lessons/social-studies.html">
+        <span class="emoji">🗺️</span>
+        <h3>Social Studies</h3>
+        <p>Map skills, continents, and coordinates — find any place on Earth.</p>
+        <span class="tag">Lesson 1 ready</span>
+      </a>
+
+    </div>
+
+    <section class="panel" style="margin-top:32px;">
+      <h2>📅 How to use this</h2>
+      <ul class="goal-list">
+        <li>Do <strong>one subject a day</strong> — about 20–30 minutes each.</li>
+        <li>Read the lesson, try the <em>"Try it"</em> boxes, then take the quiz.</li>
+        <li>Click <strong>Check my answers</strong> to see what you got right and why.</li>
+        <li>Star ⭐ Art is open for free drawing anytime you want a creative break.</li>
+      </ul>
+    </section>
+
+    <p class="foot">Made with ❤️ for a soon-to-be 8th grader. Open <code>index.html</code> in any web browser to begin.</p>
+  </div>
+
+  <script src="assets/js/quiz.js"></script>
+</body>
+</html>

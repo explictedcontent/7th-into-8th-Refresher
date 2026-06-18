@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Science · Lesson 1 — The Scientific Method &amp; Lab Safety</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>" />
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="brand" href="../index.html"><span class="logo">🚀</span><span>8th Grade Launchpad</span></a>
+      <a class="back-link" href="../index.html">← All subjects</a>
+    </div>
+
+    <header class="lesson-head head-science">
+      <div class="kicker">Science · Lesson 1</div>
+      <h1>The Scientific Method &amp; Lab Safety 🔬</h1>
+      <p>Science isn't just facts to memorize — it's a <em>method</em> for figuring
+         out how the world works. Learn the steps real scientists use on every
+         experiment.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎯 What you'll learn</h2>
+      <ul class="goal-list">
+        <li>The <strong>6 steps</strong> of the scientific method</li>
+        <li>How to write a testable <strong>hypothesis</strong></li>
+        <li>The difference between <strong>independent</strong> and <strong>dependent</strong> variables</li>
+        <li>Key <strong>lab safety</strong> rules</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🔁 The Scientific Method</h2>
+      <ol class="steps">
+        <li><strong>Question</strong> — What are you curious about? ("Does music help plants grow?")</li>
+        <li><strong>Research</strong> — Find out what's already known.</li>
+        <li><strong>Hypothesis</strong> — A testable, "If… then…" prediction.</li>
+        <li><strong>Experiment</strong> — Test it, changing only one thing at a time.</li>
+        <li><strong>Analyze</strong> — Collect data and look for patterns.</li>
+        <li><strong>Conclusion</strong> — Was your hypothesis supported? Share your results.</li>
+      </ol>
+      <div class="callout">
+        <span class="ico">💡</span>
+        <div><strong>A good hypothesis is testable.</strong> Format:
+        <em>"If</em> I play music for my plant, <em>then</em> it will grow taller than a plant with no music."</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🎚️ Variables: the heart of a fair test</h2>
+      <table class="tidy">
+        <tr><th>Variable</th><th>What it means</th><th>Plant example</th></tr>
+        <tr><td><span class="term">Independent</span></td><td>The ONE thing <em>you</em> change</td><td>Whether music plays</td></tr>
+        <tr><td><span class="term">Dependent</span></td><td>What you <em>measure</em> (it depends on the change)</td><td>How tall the plant grows</td></tr>
+        <tr><td><span class="term">Controlled</span></td><td>Everything you keep the <em>same</em> to be fair</td><td>Water, sunlight, soil, pot size</td></tr>
+      </table>
+      <div class="callout">
+        <span class="ico">🎯</span>
+        <div><strong>Memory tip:</strong> <em>I</em> change the <em>I</em>ndependent variable. The <em>D</em>ependent variable <em>D</em>epends on it.</div>
+      </div>
+
+      <div class="tryit">
+        <strong>Try it — spot the variable 🔍</strong>
+        <p style="margin:.4rem 0;">"A student tests how the <em>amount of sunlight</em> affects how many <em>flowers</em> a plant grows."</p>
+        <p style="margin:.4rem 0;">What is the <strong>dependent</strong> variable (the thing measured)?</p>
+        <select id="varPick" style="padding:8px;border-radius:8px;border:1px solid var(--line);">
+          <option value="">— choose —</option>
+          <option value="sun">Amount of sunlight</option>
+          <option value="flowers">Number of flowers</option>
+          <option value="water">Amount of water</option>
+        </select>
+        <button class="btn" onclick="checkVar()">Check</button>
+        <div class="result" id="varResult"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🧪 Lab Safety Rules</h2>
+      <ul class="goal-list">
+        <li>Wear <strong>safety goggles</strong> whenever told to</li>
+        <li><strong>Never eat or drink</strong> in the lab</li>
+        <li>Tie back long hair and roll up loose sleeves</li>
+        <li>Tell your teacher about <strong>any</strong> spill or accident right away</li>
+        <li>Know where the sink, fire extinguisher, and exit are</li>
+        <li>Never mix chemicals unless instructed</li>
+      </ul>
+      <div class="callout">
+        <span class="ico">⚠️</span>
+        <div><strong>Golden rule:</strong> when in doubt, ask the teacher <em>before</em> you act — not after.</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="hypothesis" data-why="A testable 'If…then…' prediction is the hypothesis.">
+          <div class="q"><span class="num">1</span>A testable <em>"If… then…"</em> prediction is called a…</div>
+          <div class="options">
+            <label><input type="radio" name="q1" value="conclusion" />Conclusion</label>
+            <label><input type="radio" name="q1" value="hypothesis" />Hypothesis</label>
+            <label><input type="radio" name="q1" value="question" />Question</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="independent" data-why="The variable YOU choose to change is the independent variable.">
+          <div class="q"><span class="num">2</span>The one variable that <em>you</em> change on purpose is the…</div>
+          <div class="options">
+            <label><input type="radio" name="q2" value="dependent" />Dependent variable</label>
+            <label><input type="radio" name="q2" value="independent" />Independent variable</label>
+            <label><input type="radio" name="q2" value="controlled" />Controlled variable</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="tell" data-why="Always tell your teacher about a spill immediately so it can be cleaned up safely.">
+          <div class="q"><span class="num">3</span>You spill a liquid in the lab. What should you do?</div>
+          <div class="options">
+            <label><input type="radio" name="q3" value="ignore" />Ignore it and keep working</label>
+            <label><input type="radio" name="q3" value="tell" />Tell your teacher right away</label>
+            <label><input type="radio" name="q3" value="taste" />Taste it to see what it is</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="same" data-why="Controlled variables are kept the SAME to make the test fair.">
+          <div class="q"><span class="num">4</span>Why do scientists keep <em>controlled</em> variables the same?</div>
+          <div class="options">
+            <label><input type="radio" name="q4" value="same" />To keep the test fair</label>
+            <label><input type="radio" name="q4" value="fun" />To make it more fun</label>
+            <label><input type="radio" name="q4" value="fast" />To finish faster</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <div class="lesson-nav">
+      <a class="back-link" href="english.html">← English</a>
+      <a class="back-link" href="social-studies.html">Next: Social Studies →</a>
+    </div>
+
+    <p class="foot">🔬 Every 8th-grade experiment uses these same steps — you're ready to investigate!</p>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    function checkVar() {
+      const v = document.getElementById('varPick').value;
+      const el = document.getElementById('varResult');
+      const ok = v === 'flowers';
+      el.textContent = ok
+        ? '✅ Right! The number of flowers is measured, so it depends on the sunlight.'
+        : '❌ Not quite — the dependent variable is the thing you MEASURE at the end.';
+      el.style.color = ok ? 'var(--good)' : 'var(--bad)';
+    }
+  </script>
+</body>
+</html>

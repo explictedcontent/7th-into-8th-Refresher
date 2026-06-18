@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art · Lesson 1 — Elements of Art &amp; Color Theory</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="brand" href="../index.html"><span class="logo">🚀</span><span>8th Grade Launchpad</span></a>
+      <a class="back-link" href="../index.html">← All subjects</a>
+    </div>
+
+    <header class="lesson-head head-art">
+      <div class="kicker">Art · Lesson 1 · ★ Your favorite</div>
+      <h1>The Elements of Art &amp; Color Theory 🎨</h1>
+      <p>Every painting, poster, doodle, and video game is built from the same
+         basic building blocks. Learn them here — then jump into your own studio
+         and create.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎯 What you'll learn</h2>
+      <ul class="goal-list">
+        <li>The <strong>7 Elements of Art</strong> that artists use everywhere</li>
+        <li>How the <strong>color wheel</strong> works (primary, secondary, complementary)</li>
+        <li>The difference between <strong>warm</strong> and <strong>cool</strong> colors</li>
+        <li>How to use it all in your own digital painting</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🧱 The 7 Elements of Art</h2>
+      <p>Think of these like the ingredients in a recipe. Mix them differently and you get completely different art.</p>
+      <table class="tidy">
+        <tr><th>Element</th><th>What it is</th><th>Spot it in real life</th></tr>
+        <tr><td><span class="term">Line</span></td><td>A mark with length and direction</td><td>The edge of a phone, your signature</td></tr>
+        <tr><td><span class="term">Shape</span></td><td>A flat, enclosed area (2-D)</td><td>A road sign, an emoji</td></tr>
+        <tr><td><span class="term">Form</span></td><td>A shape with depth (3-D)</td><td>A basketball, a sculpture</td></tr>
+        <tr><td><span class="term">Color</span></td><td>Hue made by reflected light</td><td>A sunset, a paint set</td></tr>
+        <tr><td><span class="term">Value</span></td><td>How light or dark something is</td><td>Shadows on a face</td></tr>
+        <tr><td><span class="term">Texture</span></td><td>How a surface feels (or looks like it feels)</td><td>Tree bark, soft fur</td></tr>
+        <tr><td><span class="term">Space</span></td><td>The area around and between objects</td><td>The gap that makes a drawing look far away</td></tr>
+      </table>
+      <div class="callout">
+        <span class="ico">💡</span>
+        <div><strong>Memory trick:</strong> <em>"Little Sharks Find Colorful Vivid Textured Spaces."</em>
+        The first letters = Line, Shape, Form, Color, Value, Texture, Space.</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🌈 Color Theory Basics</h2>
+      <div class="wheel">
+        <div class="ring" aria-hidden="true"></div>
+        <div>
+          <h3 style="margin-top:0;">The color wheel</h3>
+          <ul>
+            <li><span class="term">Primary colors</span> — <mark>red, yellow, blue</mark>. You can't mix other colors to make these.</li>
+            <li><span class="term">Secondary colors</span> — orange, green, purple. Mix two primaries to get one.</li>
+            <li><span class="term">Complementary colors</span> sit <em>opposite</em> on the wheel (like blue &amp; orange). Side by side, they really pop!</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Warm vs. Cool</h3>
+      <div class="example">
+        <span class="label">Warm 🔥</span> reds, oranges, yellows — feel cozy, exciting, close.<br />
+        <span class="label">Cool ❄️</span> blues, greens, purples — feel calm, quiet, far away.
+      </div>
+
+      <div class="tryit">
+        <strong>Try it — mix a color! 🧪</strong>
+        <p style="margin:.4rem 0;">Pick two primary colors and I'll tell you what you'd get:</p>
+        <select id="c1" style="padding:8px;border-radius:8px;border:1px solid var(--line);">
+          <option value="red">Red</option><option value="yellow">Yellow</option><option value="blue">Blue</option>
+        </select>
+        +
+        <select id="c2" style="padding:8px;border-radius:8px;border:1px solid var(--line);">
+          <option value="yellow">Yellow</option><option value="red">Red</option><option value="blue">Blue</option>
+        </select>
+        <button class="btn" onclick="mixColor()">Mix!</button>
+        <div class="result" id="mixResult"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ART STUDIO ===================== -->
+    <section class="panel">
+      <h2>🖌️ Your Art Studio</h2>
+      <p>Now use what you learned. Try drawing something with a <strong>warm</strong>
+         color next to its <strong>complementary cool</strong> color and watch it pop.
+         When you're proud of it, hit <em>Save</em> to keep the picture.</p>
+
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches" id="swatches">
+            <span class="swatch" data-color="#8b5cf6" title="Purple"></span>
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#f5c518" title="Yellow"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#e85d5d" title="Red"></span>
+            <span class="swatch" data-color="#e0529c" title="Pink"></span>
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="brush-size">
+            <label for="brushSize">Brush</label>
+            <input type="range" id="brushSize" min="2" max="48" value="8" />
+            <span id="brushVal">8px</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="artCanvas" aria-label="Drawing canvas"></canvas>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn" id="saveBtn">💾 Save my artwork</button>
+          <button class="btn ghost" id="clearBtn">🧽 Clear canvas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="form" data-why="Form has depth — it's a 3-D shape like a ball or a sculpture.">
+          <div class="q"><span class="num">1</span>Which element of art means a shape that has <em>depth</em> (3-D)?</div>
+          <div class="options">
+            <label><input type="radio" name="q1" value="line" />Line</label>
+            <label><input type="radio" name="q1" value="form" />Form</label>
+            <label><input type="radio" name="q1" value="value" />Value</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="green" data-why="Yellow + blue = green, a secondary color.">
+          <div class="q"><span class="num">2</span>Mixing the primary colors <strong>yellow + blue</strong> makes…</div>
+          <div class="options">
+            <label><input type="radio" name="q2" value="purple" />Purple</label>
+            <label><input type="radio" name="q2" value="green" />Green</label>
+            <label><input type="radio" name="q2" value="orange" />Orange</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="cool" data-why="Blues, greens, and purples are cool colors — calm and far away.">
+          <div class="q"><span class="num">3</span>Blue is an example of a ______ color.</div>
+          <div class="options">
+            <label><input type="radio" name="q3" value="warm" />Warm</label>
+            <label><input type="radio" name="q3" value="cool" />Cool</label>
+            <label><input type="radio" name="q3" value="primary-only" />Secondary</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="opposite" data-why="Complementary colors sit opposite each other on the wheel (like blue & orange).">
+          <div class="q"><span class="num">4</span>Complementary colors are…</div>
+          <div class="options">
+            <label><input type="radio" name="q4" value="same" />Right next to each other</label>
+            <label><input type="radio" name="q4" value="opposite" />Opposite each other on the wheel</label>
+            <label><input type="radio" name="q4" value="black" />Always black and white</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <div class="lesson-nav">
+      <a class="back-link" href="../index.html">← All subjects</a>
+      <a class="back-link" href="math.html">Next: Math →</a>
+    </div>
+
+    <p class="foot">🎨 Tip: art shows up in every subject — diagrams in science, maps in social studies, even neat handwriting in math!</p>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/studio.js"></script>
+  <script>
+    function mixColor() {
+      const a = document.getElementById('c1').value;
+      const b = document.getElementById('c2').value;
+      const key = [a, b].sort().join('+');
+      const map = {
+        'red+yellow': '🟠 Orange — a warm secondary color!',
+        'blue+yellow': '🟢 Green — a fresh secondary color!',
+        'blue+red': '🟣 Purple — a cool secondary color!',
+        'red+red': 'That\'s still red! Pick two different colors. 🙂',
+        'yellow+yellow': 'That\'s still yellow! Pick two different colors. 🙂',
+        'blue+blue': 'That\'s still blue! Pick two different colors. 🙂'
+      };
+      document.getElementById('mixResult').textContent = map[key] || 'Pick two colors and press Mix!';
+    }
+  </script>
+</body>
+</html>

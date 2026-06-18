@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Studies · Lesson 1 — Map Skills, Continents &amp; Coordinates</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>" />
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="brand" href="../index.html"><span class="logo">🚀</span><span>8th Grade Launchpad</span></a>
+      <a class="back-link" href="../index.html">← All subjects</a>
+    </div>
+
+    <header class="lesson-head head-social">
+      <div class="kicker">Social Studies · Lesson 1</div>
+      <h1>Map Skills, Continents &amp; Coordinates 🗺️</h1>
+      <p>Before you study history or current events, you need to find places on a
+         map. These skills let you pinpoint <em>any</em> spot on Earth.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎯 What you'll learn</h2>
+      <ul class="goal-list">
+        <li>The <strong>7 continents</strong> and <strong>5 oceans</strong></li>
+        <li>How to read a map's <strong>compass rose</strong>, <strong>key</strong>, and <strong>scale</strong></li>
+        <li><strong>Latitude</strong> and <strong>longitude</strong> — Earth's address system</li>
+        <li>The special lines: Equator and Prime Meridian</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🌍 Continents &amp; Oceans</h2>
+      <p>There are <strong>7 continents</strong>: Africa, Antarctica, Asia, Australia, Europe, North America, and South America.</p>
+      <p>And <strong>5 oceans</strong>: Pacific, Atlantic, Indian, Southern (Antarctic), and Arctic.</p>
+      <div class="callout">
+        <span class="ico">💡</span>
+        <div><strong>Did you know?</strong> Asia is the largest continent and the Pacific is the largest ocean — so big it covers about a third of the planet!</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🧭 Reading a Map</h2>
+      <table class="tidy">
+        <tr><th>Tool</th><th>What it does</th></tr>
+        <tr><td><span class="term">Compass rose</span></td><td>Shows directions: N, S, E, W (and NE, SW…)</td></tr>
+        <tr><td><span class="term">Map key / legend</span></td><td>Explains what the symbols and colors mean</td></tr>
+        <tr><td><span class="term">Scale</span></td><td>Shows how map distance compares to real distance</td></tr>
+        <tr><td><span class="term">Title</span></td><td>Tells you what the map is about</td></tr>
+      </table>
+      <div class="callout">
+        <span class="ico">🧭</span>
+        <div><strong>Remember the directions:</strong> <em>"Never Eat Soggy Waffles"</em> = North, East, South, West (clockwise).</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>📍 Latitude &amp; Longitude</h2>
+      <p>These imaginary lines form a grid so every place has an exact "address."</p>
+      <table class="tidy">
+        <tr><th>Lines</th><th>Direction</th><th>Measured from</th><th>0° line</th></tr>
+        <tr><td><span class="term">Latitude</span></td><td>Run <em>east–west</em> (but measure north/south)</td><td>How far N or S</td><td>The <strong>Equator</strong></td></tr>
+        <tr><td><span class="term">Longitude</span></td><td>Run <em>north–south</em> (but measure east/west)</td><td>How far E or W</td><td>The <strong>Prime Meridian</strong></td></tr>
+      </table>
+      <div class="callout">
+        <span class="ico">🪜</span>
+        <div><strong>Trick:</strong> Lat<u>itude</u> lines are like the rungs of a <em>ladder</em> (flat). Always say latitude <em>first</em>, like "40° N, 74° W" for New York City.</div>
+      </div>
+
+      <div class="tryit">
+        <strong>Try it — which line is 0°? 🌐</strong>
+        <p style="margin:.4rem 0;">The line of latitude marked <strong>0°</strong> that splits Earth into Northern and Southern halves is the…</p>
+        <select id="linePick" style="padding:8px;border-radius:8px;border:1px solid var(--line);">
+          <option value="">— choose —</option>
+          <option value="prime">Prime Meridian</option>
+          <option value="equator">Equator</option>
+          <option value="tropic">Tropic of Cancer</option>
+        </select>
+        <button class="btn" onclick="checkLine()">Check</button>
+        <div class="result" id="lineResult"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="7" data-why="There are 7 continents: Africa, Antarctica, Asia, Australia, Europe, North & South America.">
+          <div class="q"><span class="num">1</span>How many continents are there?</div>
+          <div class="options">
+            <label><input type="radio" name="q1" value="5" />5</label>
+            <label><input type="radio" name="q1" value="7" />7</label>
+            <label><input type="radio" name="q1" value="9" />9</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="equator" data-why="The Equator is latitude 0°, dividing Earth into Northern and Southern Hemispheres.">
+          <div class="q"><span class="num">2</span>Which line is at <strong>0° latitude</strong>?</div>
+          <div class="options">
+            <label><input type="radio" name="q2" value="prime" />Prime Meridian</label>
+            <label><input type="radio" name="q2" value="equator" />Equator</label>
+            <label><input type="radio" name="q2" value="border" />International Date Line</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="key" data-why="The map key (legend) explains what symbols and colors mean.">
+          <div class="q"><span class="num">3</span>Which map tool explains what the symbols mean?</div>
+          <div class="options">
+            <label><input type="radio" name="q3" value="scale" />Scale</label>
+            <label><input type="radio" name="q3" value="key" />Map key / legend</label>
+            <label><input type="radio" name="q3" value="title" />Title</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="pacific" data-why="The Pacific is the largest ocean, covering about a third of Earth.">
+          <div class="q"><span class="num">4</span>Which is the <em>largest</em> ocean?</div>
+          <div class="options">
+            <label><input type="radio" name="q4" value="atlantic" />Atlantic</label>
+            <label><input type="radio" name="q4" value="pacific" />Pacific</label>
+            <label><input type="radio" name="q4" value="arctic" />Arctic</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <div class="lesson-nav">
+      <a class="back-link" href="science.html">← Science</a>
+      <a class="back-link" href="../index.html">Back to start →</a>
+    </div>
+
+    <p class="foot">🗺️ Now you can locate any place on Earth — the first step to understanding history and the world.</p>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    function checkLine() {
+      const v = document.getElementById('linePick').value;
+      const el = document.getElementById('lineResult');
+      const ok = v === 'equator';
+      el.textContent = ok
+        ? '✅ Correct! The Equator is 0° latitude.'
+        : '❌ Not quite — that 0° latitude line is the one that circles Earth\'s middle.';
+      el.style.color = ok ? 'var(--good)' : 'var(--bad)';
+    }
+  </script>
+</body>
+</html>

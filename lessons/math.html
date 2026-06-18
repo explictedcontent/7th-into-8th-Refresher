@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math · Lesson 1 — Integers &amp; Order of Operations</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>" />
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="brand" href="../index.html"><span class="logo">🚀</span><span>8th Grade Launchpad</span></a>
+      <a class="back-link" href="../index.html">← All subjects</a>
+    </div>
+
+    <header class="lesson-head head-math">
+      <div class="kicker">Math · Lesson 1</div>
+      <h1>Integers &amp; the Order of Operations 🔢</h1>
+      <p>These two skills are the foundation of all the algebra you'll do in 8th
+         grade. Nail them now and equations will feel easy later.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎯 What you'll learn</h2>
+      <ul class="goal-list">
+        <li>What <strong>integers</strong> are and how to add, subtract, multiply &amp; divide them</li>
+        <li>The rules for <strong>positive and negative</strong> signs</li>
+        <li><strong>PEMDAS</strong> — the order you must solve a math problem in</li>
+        <li>How to avoid the #1 mistake students make</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>➕➖ Part 1: Integers</h2>
+      <p><span class="term">Integers</span> are whole numbers <em>and</em> their negatives:
+         <code>… −3, −2, −1, 0, 1, 2, 3 …</code> (no fractions or decimals).
+         Picture them on a number line — negatives to the left, positives to the right.</p>
+
+      <h3>The sign rules</h3>
+      <table class="tidy">
+        <tr><th>Situation</th><th>Rule</th><th>Example</th></tr>
+        <tr><td>Same signs, add</td><td>Add, keep the sign</td><td><code>−4 + (−3) = −7</code></td></tr>
+        <tr><td>Different signs, add</td><td>Subtract, keep the bigger number's sign</td><td><code>−9 + 4 = −5</code></td></tr>
+        <tr><td>Multiply / divide — same signs</td><td>Answer is <strong>positive</strong></td><td><code>−6 × −2 = 12</code></td></tr>
+        <tr><td>Multiply / divide — different signs</td><td>Answer is <strong>negative</strong></td><td><code>−6 × 2 = −12</code></td></tr>
+      </table>
+      <div class="callout">
+        <span class="ico">💡</span>
+        <div><strong>Subtracting = adding the opposite.</strong>
+        <code>5 − (−3)</code> becomes <code>5 + 3 = 8</code>. Two minuses next to each other turn into a plus!</div>
+      </div>
+
+      <div class="tryit">
+        <strong>Try it — integer practice 🧮</strong>
+        <p style="margin:.4rem 0;">Solve <code>−7 + 12 − (−2)</code> in your head, then type your answer:</p>
+        <input type="number" id="intAns" placeholder="?" />
+        <button class="btn" onclick="checkInt()">Check</button>
+        <div class="result" id="intResult"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🧭 Part 2: Order of Operations (PEMDAS)</h2>
+      <p>When a problem has many steps, everyone has to solve it in the <em>same order</em> — or we'd all get different answers. Use <strong>PEMDAS</strong>:</p>
+      <ol class="steps">
+        <li><strong>P</strong>arentheses (and other grouping symbols) first</li>
+        <li><strong>E</strong>xponents (powers &amp; roots)</li>
+        <li><strong>M</strong>ultiplication &amp; <strong>D</strong>ivision — left to right</li>
+        <li><strong>A</strong>ddition &amp; <strong>S</strong>ubtraction — left to right</li>
+      </ol>
+      <div class="callout">
+        <span class="ico">⚠️</span>
+        <div><strong>Watch out!</strong> Multiply and divide are a <em>team</em> — do whichever comes first, left to right. Same for add and subtract. Don't always do all multiplication before division!</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Worked example</span>
+        <p style="margin:.5rem 0;">Solve <code>6 + 2 × (5 − 1)²</code></p>
+        <ol class="steps">
+          <li>Parentheses: <code>5 − 1 = 4</code> &nbsp;→&nbsp; <code>6 + 2 × 4²</code></li>
+          <li>Exponent: <code>4² = 16</code> &nbsp;→&nbsp; <code>6 + 2 × 16</code></li>
+          <li>Multiply: <code>2 × 16 = 32</code> &nbsp;→&nbsp; <code>6 + 32</code></li>
+          <li>Add: <code>6 + 32 = <mark>38</mark></code></li>
+        </ol>
+      </div>
+
+      <div class="tryit">
+        <strong>Try it — PEMDAS challenge 🎯</strong>
+        <p style="margin:.4rem 0;">Solve <code>3 × (4 + 2) − 10 ÷ 2</code>:</p>
+        <input type="number" id="pemAns" placeholder="?" />
+        <button class="btn" onclick="checkPem()">Check</button>
+        <div class="result" id="pemResult"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="-12" data-why="Different signs when multiplying = negative. 6 × 2 = 12, so −12.">
+          <div class="q"><span class="num">1</span>What is <code>−6 × 2</code>?</div>
+          <div class="options">
+            <label><input type="radio" name="q1" value="12" />12</label>
+            <label><input type="radio" name="q1" value="-12" />−12</label>
+            <label><input type="radio" name="q1" value="-8" />−8</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="8" data-why="Subtracting a negative adds: 5 − (−3) = 5 + 3 = 8.">
+          <div class="q"><span class="num">2</span>What is <code>5 − (−3)</code>?</div>
+          <div class="options">
+            <label><input type="radio" name="q2" value="2" />2</label>
+            <label><input type="radio" name="q2" value="8" />8</label>
+            <label><input type="radio" name="q2" value="-8" />−8</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="parentheses" data-why="In PEMDAS, parentheses always come first.">
+          <div class="q"><span class="num">3</span>In <code>6 + 2 × (5 − 1)²</code>, what do you do <em>first</em>?</div>
+          <div class="options">
+            <label><input type="radio" name="q3" value="add" />Add 6 + 2</label>
+            <label><input type="radio" name="q3" value="parentheses" />Solve inside the parentheses</label>
+            <label><input type="radio" name="q3" value="exponent" />Do the exponent</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-answer="13" data-why="Parentheses: 4+2=6. Then 3×6=18 and 10÷2=5. Finally 18−5=13.">
+          <div class="q"><span class="num">4</span>Solve <code>3 × (4 + 2) − 10 ÷ 2</code></div>
+          <div class="options">
+            <label><input type="radio" name="q4" value="13" />13</label>
+            <label><input type="radio" name="q4" value="4" />4</label>
+            <label><input type="radio" name="q4" value="23" />23</label>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button>
+          <span class="score"></span>
+        </div>
+      </form>
+    </section>
+
+    <div class="lesson-nav">
+      <a class="back-link" href="art.html">← Art</a>
+      <a class="back-link" href="english.html">Next: English →</a>
+    </div>
+
+    <p class="foot">🔢 You just reviewed the backbone of pre-algebra. Next stop: 8th-grade equations!</p>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    function checkInt() {
+      const v = Number(document.getElementById('intAns').value);
+      const el = document.getElementById('intResult');
+      // -7 + 12 - (-2) = -7 + 12 + 2 = 7
+      el.textContent = v === 7 ? '✅ Yes! −7 + 12 + 2 = 7' : '❌ Not yet. Remember − (−2) becomes + 2. Try again!';
+      el.style.color = v === 7 ? 'var(--good)' : 'var(--bad)';
+    }
+    function checkPem() {
+      const v = Number(document.getElementById('pemAns').value);
+      const el = document.getElementById('pemResult');
+      // 3*(6) - 5 = 18 - 5 = 13
+      el.textContent = v === 13 ? '✅ Perfect! 3×6=18, 10÷2=5, 18−5=13.' : '❌ Close — do the parentheses and division before subtracting.';
+      el.style.color = v === 13 ? 'var(--good)' : 'var(--bad)';
+    }
+  </script>
+</body>
+</html>
