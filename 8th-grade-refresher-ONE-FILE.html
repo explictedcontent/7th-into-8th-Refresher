@@ -240,9 +240,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <section class="hero">
       <span class="pill">Summer Refresher · Ages 12–13</span>
       <h1 data-greeting>Welcome! Let's get ready for 8th grade. 🎉</h1>
-      <p>This is your personal interactive review of everything from 7th grade. Each lesson is a paced
-         <strong>30 minutes</strong> with practice and instant feedback, then a break.
-         <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
+      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>two full lessons</strong> of practice and instant feedback. Do it all and it's about <strong>2 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
       <div class="tryit" style="margin-top:22px;max-width:420px;">
         <label for="nameInput"><strong>What should I call you?</strong></label><br />
         <input type="text" id="nameInput" placeholder="Type your name" />
@@ -288,13 +286,13 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <section class="panel" style="margin-top:32px;">
       <h2>📅 How to use this</h2>
       <ul class="goal-list">
-        <li>Each lesson is a <strong>real 30 minutes</strong> — press <strong>▶ Start lesson</strong> at the top and the built-in timer paces you.</li>
-        <li>At 30 minutes a <strong>🎉 Break screen</strong> pops up — take 10–15 minutes, then come back and do a second lesson for a full hour.</li>
+        <li>Pick a subject up top, then choose <strong>Lesson 1</strong> or <strong>Lesson 2</strong>.</li>
+        <li>Doing all six subjects (both lessons each) is about <strong>2 hours</strong> of work — split it across the day however you like, and take breaks whenever you need them.</li>
         <li>Read the lesson, do every <em>"Try it"</em> and practice set, then take the quiz and click <strong>Check my answers</strong>.</li>
         <li>Use the buttons at the top to switch subjects anytime.</li>
       </ul>
       <div class="callout"><span class="ico">🗓️</span>
-        <div><strong>Suggested rhythm:</strong> one 30-minute lesson → 10–15 min break → a second 30-minute lesson. That's your hour!</div>
+        <div><strong>Suggested rhythm:</strong> a few subjects in the morning, a break, then the rest later. There's no clock — go at your own pace.</div>
       </div>
     </section>
     <p class="foot">Made with ❤️ for a soon-to-be 8th grader. Everything is inside this one file.</p>
@@ -305,18 +303,12 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button></div>
     <div class="lesson-part active" id="art-1">
     <header class="lesson-head head-art">
-      <div class="kicker">Art · Lesson 1 · ★ Your favorite · ⏱️ 30 minutes</div>
+      <div class="kicker">Art · Lesson 1 · ★ Your favorite</div>
       <h1>The Elements of Art &amp; Color Theory 🎨</h1>
       <p>Every painting, poster, doodle, and video game is built from the same basic building blocks. Learn them here — then jump into your own studio and create.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button>
-      <div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The <strong>7 Elements of Art</strong> artists use everywhere</li>
         <li>How the <strong>color wheel</strong> works (primary, secondary, complementary)</li>
@@ -324,8 +316,8 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <li>A guided drawing challenge in your own digital studio</li>
       </ul>
       <ul class="plan-strip">
-        <li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> The 7 elements · 8 min</li>
-        <li><b>3.</b> Color &amp; value · 7 min</li><li><b>4.</b> Studio challenge · 8 min</li><li><b>5.</b> Quick check · 3 min</li>
+        <li><b>1.</b> Warm-up</li><li><b>2.</b> The 7 elements</li>
+        <li><b>3.</b> Color &amp; value</li><li><b>4.</b> Studio challenge</li><li><b>5.</b> Quick check</li>
       </ul>
       <p class="progress-note">Press <strong>▶ Start lesson</strong>. Take your time — no rushing! 😉</p>
     </section>
@@ -465,31 +457,45 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🎨 More practice · Warm, cool &amp; mixing</h2>
+      <p>Sort each color as <strong>warm</strong> or <strong>cool</strong>:</p>
+      <div data-tagging>
+        <p class="tagline">
+          Red → <select data-answer="warm"><option value="">choose…</option><option value="warm">warm</option><option value="cool">cool</option></select>, Blue → <select data-answer="cool"><option value="">choose…</option><option value="warm">warm</option><option value="cool">cool</option></select>,
+          Yellow → <select data-answer="warm"><option value="">choose…</option><option value="warm">warm</option><option value="cool">cool</option></select>, Green → <select data-answer="cool"><option value="">choose…</option><option value="warm">warm</option><option value="cool">cool</option></select>,
+          Orange → <select data-answer="warm"><option value="">choose…</option><option value="warm">warm</option><option value="cool">cool</option></select>, Purple → <select data-answer="cool"><option value="">choose…</option><option value="warm">warm</option><option value="cool">cool</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <h3>Mix two primaries → which secondary?</h3>
+      <div data-tagging>
+        <p class="tagline">
+          Red + blue → <select data-answer="purple"><option value="">choose…</option><option value="purple">purple</option><option value="green">green</option><option value="orange">orange</option></select>,
+          Blue + yellow → <select data-answer="green"><option value="">choose…</option><option value="purple">purple</option><option value="green">green</option><option value="orange">orange</option></select>,
+          Red + yellow → <select data-answer="orange"><option value="">choose…</option><option value="purple">purple</option><option value="green">green</option><option value="orange">orange</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('home')">← All subjects</span>
       <span class="back-link" onclick="showPart('art',2)">Next: Art · Lesson 2 →</span></div>
     </div><!-- /art-1 -->
 
     <div class="lesson-part" id="art-2">
     <header class="lesson-head head-art">
-      <div class="kicker">Art · Lesson 2 · ★ Your favorite · ⏱️ 30 minutes</div>
+      <div class="kicker">Art · Lesson 2 · ★ Your favorite</div>
       <h1>Shading &amp; Form: Make It Look 3-D ✏️</h1>
       <p>In Lesson 1 you met <em>value</em>. Now you'll use it to turn flat shapes into round, solid forms that pop off the page.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>How a <strong>light source</strong> creates highlights and shadows</li>
         <li>The <strong>5 parts</strong> of light and shadow on a 3-D object</li>
         <li>How to <strong>shade a sphere</strong> step by step</li>
         <li>A studio challenge: make a flat circle look like a solid ball</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> Light &amp; shadow · 8 min</li>
-        <li><b>3.</b> Shading a form · 9 min</li><li><b>4.</b> Studio challenge · 6 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Light &amp; shadow</li>
+        <li><b>3.</b> Shading a form</li><li><b>4.</b> Studio challenge</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -592,6 +598,24 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>✏️ More practice · Shade a cylinder</h2>
+      <p>Back to your studio above — shade a <strong>cylinder</strong> (like a soda can). Check off each step as you go:</p>
+      <ul class="checklist">
+        <li><input type="checkbox" /> Draw a tall rounded rectangle</li>
+        <li><input type="checkbox" /> Keep one side <strong>light</strong> (facing the light)</li>
+        <li><input type="checkbox" /> Add a dark <strong>core shadow</strong> stripe down the other side</li>
+        <li><input type="checkbox" /> Leave a thin <strong>highlight</strong> on the light side</li>
+        <li><input type="checkbox" /> Drop a <strong>cast shadow</strong> on the ground</li>
+      </ul>
+      <h3>Value check</h3>
+      <div data-tagging>
+        <p class="tagline">A surface facing the light is <select data-answer="light"><option value="">choose…</option><option value="light">light</option><option value="dark">dark</option></select>,
+          a surface turned away is <select data-answer="dark"><option value="">choose…</option><option value="light">light</option><option value="dark">dark</option></select>,
+          and a cast shadow is darkest <select data-answer="near"><option value="">choose…</option><option value="near">right next to the object</option><option value="far">far away</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('art',1)">← Art · Lesson 1</span>
       <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
     </div><!-- /art-2 -->
@@ -602,25 +626,20 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-tabs"><button class="lt active" onclick="showPart('math',1)">Lesson 1</button><button class="lt" onclick="showPart('math',2)">Lesson 2</button></div>
     <div class="lesson-part active" id="math-1">
     <header class="lesson-head head-math">
-      <div class="kicker">Math · Lesson 1 · ⏱️ 30 minutes</div>
+      <div class="kicker">Math · Lesson 1</div>
       <h1>Integers &amp; the Order of Operations 🔢</h1>
       <p>These two skills are the foundation of all the algebra you'll do in 8th grade.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>Add, subtract, multiply &amp; divide <strong>integers</strong></li>
         <li>Use <strong>PEMDAS</strong> for multi-step problems</li>
         <li>Evaluate <strong>algebra expressions</strong> (8th-grade preview!)</li>
         <li>Solve real-world <strong>word problems</strong></li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> Integers · 8 min</li>
-        <li><b>3.</b> PEMDAS · 8 min</li><li><b>4.</b> Algebra &amp; word problems · 7 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Integers</li>
+        <li><b>3.</b> PEMDAS</li><li><b>4.</b> Algebra &amp; word problems</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -735,31 +754,42 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🔁 Extra practice · Mixed review</h2>
+      <p>Solve each (type just the number):</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="-5"><span class="pnum">1</span><span class="qtext">−8 + 3 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="20"><span class="pnum">2</span><span class="qtext">−5 × −4 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="9"><span class="pnum">3</span><span class="qtext">7 − (−2) =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="14"><span class="pnum">4</span><span class="qtext">2 + 3 × 4 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="2"><span class="pnum">5</span><span class="qtext">(6 + 2) ÷ 4 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="15"><span class="pnum">6</span><span class="qtext">5² − 10 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="-3"><span class="pnum">7</span><span class="qtext">−12 ÷ 4 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="7"><span class="pnum">8</span><span class="qtext">3 + 2 × (7 − 5) =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="10"><span class="pnum">9</span><span class="qtext">If x = 3:  4x − 2 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="3"><span class="pnum">10</span><span class="qtext">If x = −1:  5 + 2x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('art')">← Art</span>
       <span class="back-link" onclick="showPart('math',2)">Next: Math · Lesson 2 →</span></div>
     </div><!-- /math-1 -->
 
     <div class="lesson-part" id="math-2">
     <header class="lesson-head head-math">
-      <div class="kicker">Math · Lesson 2 · ⏱️ 30 minutes</div>
+      <div class="kicker">Math · Lesson 2</div>
       <h1>Solving One- &amp; Two-Step Equations 🔢</h1>
       <p>An equation is a balance scale. Whatever you do to one side, you do to the other — that's how you find the missing number.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>Use <strong>inverse operations</strong> to undo what's done to <em>x</em></li>
         <li>Solve <strong>one-step</strong> equations</li>
         <li>Solve <strong>two-step</strong> equations</li>
         <li>Turn <strong>word problems</strong> into equations and solve them</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> One-step · 8 min</li>
-        <li><b>3.</b> Two-step · 9 min</li><li><b>4.</b> Word problems · 6 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> One-step</li>
+        <li><b>3.</b> Two-step</li><li><b>4.</b> Word problems</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -856,6 +886,22 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🔁 Extra practice · More equations</h2>
+      <p>Solve for x:</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="6"><span class="pnum">1</span><span class="qtext">x + 9 = 15, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="5"><span class="pnum">2</span><span class="qtext">x − 6 = −1, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="8"><span class="pnum">3</span><span class="qtext">7x = 56, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="20"><span class="pnum">4</span><span class="qtext">x ÷ 4 = 5, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="6"><span class="pnum">5</span><span class="qtext">2x + 7 = 19, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="5"><span class="pnum">6</span><span class="qtext">3x − 4 = 11, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="5"><span class="pnum">7</span><span class="qtext">5x + 5 = 30, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="4"><span class="pnum">8</span><span class="qtext">4x − 9 = 7, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="12"><span class="pnum">9</span><span class="qtext">(x ÷ 3) + 2 = 6, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="4"><span class="pnum">10</span><span class="qtext">6x − 10 = 14, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('math',1)">← Math · Lesson 1</span>
       <span class="back-link" onclick="showLesson('english')">Next: English →</span></div>
     </div><!-- /math-2 -->
@@ -866,26 +912,21 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-tabs"><button class="lt active" onclick="showPart('english',1)">Lesson 1</button><button class="lt" onclick="showPart('english',2)">Lesson 2</button></div>
     <div class="lesson-part active" id="english-1">
     <header class="lesson-head head-english">
-      <div class="kicker">English / Language Arts · Lesson 1 · ⏱️ 30 minutes</div>
+      <div class="kicker">English / Language Arts · Lesson 1</div>
       <h1>Parts of Speech &amp; Strong Sentences 📖</h1>
       <p>Words have jobs. Know each word's job and you can build clear sentences and fix mistakes.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The <strong>8 parts of speech</strong> and labeling words</li>
         <li>Fix <strong>fragments</strong> and <strong>run-ons</strong></li>
         <li>Read a passage and answer <strong>comprehension</strong> questions</li>
         <li>Write your own <strong>vivid paragraph</strong></li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> Parts of speech · 7 min</li>
-        <li><b>3.</b> Strong sentences · 6 min</li><li><b>4.</b> Read &amp; answer · 6 min</li>
-        <li><b>5.</b> Write · 5 min</li><li><b>6.</b> Quick check · 2 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Parts of speech</li>
+        <li><b>3.</b> Strong sentences</li><li><b>4.</b> Read &amp; answer</li>
+        <li><b>5.</b> Write</li><li><b>6.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -1019,31 +1060,60 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>📚 More practice · Read &amp; label</h2>
+      <div class="passage">
+        <p>Diego had never won anything in his life, so when his name was called for the science fair's first-place ribbon, he froze. Slowly a grin spread across his face. All those late nights testing his solar oven had finally paid off, and his little sister cheered the loudest of anyone in the gym.</p>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="b" data-why="It's about Diego winning the science fair after working hard.">
+          <div class="q"><span class="num">1</span>What is the passage mostly about?</div>
+          <div class="options"><label><input type="radio" name="e1x1" value="a" />A sister who likes gyms</label>
+            <label><input type="radio" name="e1x1" value="b" />Diego winning the science fair after hard work</label>
+            <label><input type="radio" name="e1x1" value="c" />How to build a solar oven</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="surprised" data-why="He 'froze' — he'd never won before, so he was surprised, then happy.">
+          <div class="q"><span class="num">2</span>When his name was called, Diego felt…</div>
+          <div class="options"><label><input type="radio" name="e1x2" value="bored" />Bored</label>
+            <label><input type="radio" name="e1x2" value="surprised" />Surprised, then happy</label>
+            <label><input type="radio" name="e1x2" value="angry" />Angry</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="hardwork" data-why="'All those late nights… paid off' shows hard work pays off.">
+          <div class="q"><span class="num">3</span>Which theme fits best?</div>
+          <div class="options"><label><input type="radio" name="e1x3" value="luck" />Winning is all luck</label>
+            <label><input type="radio" name="e1x3" value="hardwork" />Hard work can pay off</label>
+            <label><input type="radio" name="e1x3" value="boring" />Science fairs are boring</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+      <h3>Label the parts of speech</h3>
+      <div data-tagging>
+        <p class="tagline">The
+          <select data-answer="adjective"><option value="">choose…</option><option value="noun">noun</option><option value="adjective">adjective</option><option value="verb">verb</option></select> (<b>happy</b>)
+          <select data-answer="noun"><option value="">choose…</option><option value="noun">noun</option><option value="verb">verb</option><option value="adverb">adverb</option></select> (<b>dog</b>)
+          <select data-answer="verb"><option value="">choose…</option><option value="noun">noun</option><option value="verb">verb</option><option value="adjective">adjective</option></select> (<b>ran</b>)
+          <select data-answer="adverb"><option value="">choose…</option><option value="adjective">adjective</option><option value="adverb">adverb</option><option value="noun">noun</option></select> (<b>quickly</b>).</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('math')">← Math</span>
       <span class="back-link" onclick="showPart('english',2)">Next: English · Lesson 2 →</span></div>
     </div><!-- /english-1 -->
 
     <div class="lesson-part" id="english-2">
     <header class="lesson-head head-english">
-      <div class="kicker">English / Language Arts · Lesson 2 · ⏱️ 30 minutes</div>
+      <div class="kicker">English / Language Arts · Lesson 2</div>
       <h1>Figurative Language 📖</h1>
       <p>Good writers don't always say things straight. They use word-tricks that paint pictures and stir feelings. Learn to spot — and use — them.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The main types of <strong>figurative language</strong></li>
         <li>The difference between a <strong>simile</strong> and a <strong>metaphor</strong></li>
         <li>Spot figurative language in a <strong>passage</strong></li>
         <li>Write your own vivid lines</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> The types · 9 min</li>
-        <li><b>3.</b> Spot it in text · 7 min</li><li><b>4.</b> Write with it · 7 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> The types</li>
+        <li><b>3.</b> Spot it in text</li><li><b>4.</b> Write with it</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -1156,6 +1226,28 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🎭 More practice · Name the device</h2>
+      <div data-tagging>
+        <p class="tagline">
+          "Her smile was sunshine" → <select data-answer="metaphor"><option value="">choose…</option><option value="metaphor">metaphor</option><option value="simile">simile</option><option value="idiom">idiom</option></select>.
+          "The fire swallowed the forest" → <select data-answer="personification"><option value="">choose…</option><option value="personification">personification</option><option value="hyperbole">hyperbole</option><option value="simile">simile</option></select>.
+          "Quiet as a mouse" → <select data-answer="simile"><option value="">choose…</option><option value="simile">simile</option><option value="metaphor">metaphor</option><option value="onomatopoeia">onomatopoeia</option></select>.
+          "Buzz went the bee" → <select data-answer="onomatopoeia"><option value="">choose…</option><option value="onomatopoeia">onomatopoeia</option><option value="idiom">idiom</option><option value="metaphor">metaphor</option></select>.
+          "I have a ton of homework" → <select data-answer="hyperbole"><option value="">choose…</option><option value="hyperbole">hyperbole</option><option value="simile">simile</option><option value="personification">personification</option></select>.
+          "It's raining cats and dogs" → <select data-answer="idiom"><option value="">choose…</option><option value="idiom">idiom</option><option value="metaphor">metaphor</option><option value="onomatopoeia">onomatopoeia</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <h3>Write your own</h3>
+      <div class="tryit">
+        <p style="margin:0 0 .3rem;"><strong>A personification</strong> (give something non-human a human action):</p>
+        <textarea class="write" data-count="#e2x1" placeholder="The alarm clock screamed at me…"></textarea>
+        <div class="wordcount" id="e2x1">0 words</div>
+        <p style="margin:.8rem 0 .3rem;"><strong>A hyperbole</strong> (a huge exaggeration):</p>
+        <textarea class="write" data-count="#e2x2" placeholder="My backpack weighs a thousand pounds…"></textarea>
+        <div class="wordcount" id="e2x2">0 words</div>
+      </div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('english',1)">← English · Lesson 1</span>
       <span class="back-link" onclick="showLesson('science')">Next: Science →</span></div>
     </div><!-- /english-2 -->
@@ -1166,17 +1258,12 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-tabs"><button class="lt active" onclick="showPart('science',1)">Lesson 1</button><button class="lt" onclick="showPart('science',2)">Lesson 2</button></div>
     <div class="lesson-part active" id="science-1">
     <header class="lesson-head head-science">
-      <div class="kicker">Science · Lesson 1 · ⏱️ 30 minutes</div>
+      <div class="kicker">Science · Lesson 1</div>
       <h1>The Scientific Method &amp; Lab Safety 🔬</h1>
       <p>Science is a <em>method</em> for figuring out how the world works. Learn the steps scientists use.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The <strong>6 steps</strong> of the scientific method</li>
         <li>Write a testable <strong>hypothesis</strong></li>
@@ -1184,8 +1271,8 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <li>Design an experiment and read a <strong>data table</strong></li>
         <li>Key <strong>lab safety</strong> rules</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> The method · 7 min</li>
-        <li><b>3.</b> Variables · 8 min</li><li><b>4.</b> Design &amp; data · 7 min</li><li><b>5.</b> Safety + quiz · 4 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> The method</li>
+        <li><b>3.</b> Variables</li><li><b>4.</b> Design &amp; data</li><li><b>5.</b> Safety + quiz</li></ul>
     </section>
 
     <section class="panel">
@@ -1318,31 +1405,58 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>📊 More practice · Read another data table</h2>
+      <p>A student timed how long a candle stayed lit under jars of different sizes:</p>
+      <table class="tidy">
+        <tr><th>Jar size</th><th>Time candle stayed lit</th></tr>
+        <tr><td>Small (250 mL)</td><td>3 seconds</td></tr>
+        <tr><td>Medium (500 mL)</td><td>6 seconds</td></tr>
+        <tr><td>Large (1000 mL)</td><td>12 seconds</td></tr>
+      </table>
+      <form class="quiz">
+        <div class="question" data-answer="bigger" data-why="A bigger jar holds more air (oxygen), so the candle burns longer.">
+          <div class="q"><span class="num">1</span>What's the pattern?</div>
+          <div class="options"><label><input type="radio" name="s1x1" value="bigger" />Bigger jar → burns longer</label>
+            <label><input type="radio" name="s1x1" value="smaller" />Bigger jar → burns shorter</label>
+            <label><input type="radio" name="s1x1" value="none" />Jar size makes no difference</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="jar" data-why="The jar size is the one thing changed — the independent variable.">
+          <div class="q"><span class="num">2</span>What is the independent variable?</div>
+          <div class="options"><label><input type="radio" name="s1x2" value="jar" />The jar size</label>
+            <label><input type="radio" name="s1x2" value="time" />The burn time</label>
+            <label><input type="radio" name="s1x2" value="color" />The candle color</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+      <h3>Label the variables</h3>
+      <div data-tagging>
+        <p class="tagline">Experiment: "Does fertilizer change how fast grass grows?"<br />
+          Amount of fertilizer → <select data-answer="independent"><option value="">choose…</option><option value="independent">independent</option><option value="dependent">dependent</option><option value="controlled">controlled</option></select>,
+          how fast the grass grows → <select data-answer="dependent"><option value="">choose…</option><option value="independent">independent</option><option value="dependent">dependent</option><option value="controlled">controlled</option></select>,
+          same water for every patch → <select data-answer="controlled"><option value="">choose…</option><option value="independent">independent</option><option value="dependent">dependent</option><option value="controlled">controlled</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('english')">← English</span>
       <span class="back-link" onclick="showPart('science',2)">Next: Science · Lesson 2 →</span></div>
     </div><!-- /science-1 -->
 
     <div class="lesson-part" id="science-2">
     <header class="lesson-head head-science">
-      <div class="kicker">Science · Lesson 2 · ⏱️ 30 minutes</div>
+      <div class="kicker">Science · Lesson 2</div>
       <h1>Matter: States &amp; Changes 🔬</h1>
       <p>Everything around you is <em>matter</em> — anything that has mass and takes up space. Today: the states of matter and how matter changes.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The three main <strong>states of matter</strong> and their particles</li>
         <li><strong>Changes of state</strong> (melting, freezing, evaporation, condensation)</li>
         <li><strong>Physical</strong> vs. <strong>chemical</strong> changes</li>
         <li>Signs that a <strong>new substance</strong> formed</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> States of matter · 8 min</li>
-        <li><b>3.</b> Physical vs chemical · 9 min</li><li><b>4.</b> Practice &amp; data · 6 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> States of matter</li>
+        <li><b>3.</b> Physical vs chemical</li><li><b>4.</b> Practice &amp; data</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -1439,6 +1553,29 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🧪 More practice · Sort the changes</h2>
+      <p>Physical or chemical change?</p>
+      <div data-tagging>
+        <p class="tagline">
+          Boiling water → <select data-answer="physical"><option value="">choose…</option><option value="physical">physical</option><option value="chemical">chemical</option></select>,
+          baking a cake → <select data-answer="chemical"><option value="">choose…</option><option value="physical">physical</option><option value="chemical">chemical</option></select>,
+          crushing a can → <select data-answer="physical"><option value="">choose…</option><option value="physical">physical</option><option value="chemical">chemical</option></select>,
+          a nail rusting → <select data-answer="chemical"><option value="">choose…</option><option value="physical">physical</option><option value="chemical">chemical</option></select>,
+          dissolving sugar in tea → <select data-answer="physical"><option value="">choose…</option><option value="physical">physical</option><option value="chemical">chemical</option></select>,
+          a glow stick lighting up → <select data-answer="chemical"><option value="">choose…</option><option value="physical">physical</option><option value="chemical">chemical</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <h3>Name the change of state</h3>
+      <div data-tagging>
+        <p class="tagline">
+          Ice → water is <select data-answer="melting"><option value="">choose…</option><option value="melting">melting</option><option value="freezing">freezing</option><option value="condensation">condensation</option></select>,
+          water → ice is <select data-answer="freezing"><option value="">choose…</option><option value="melting">melting</option><option value="freezing">freezing</option><option value="evaporation">evaporation</option></select>,
+          water → steam is <select data-answer="evaporation"><option value="">choose…</option><option value="evaporation">evaporation</option><option value="condensation">condensation</option><option value="freezing">freezing</option></select>,
+          steam → drops on a mirror is <select data-answer="condensation"><option value="">choose…</option><option value="condensation">condensation</option><option value="melting">melting</option><option value="evaporation">evaporation</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('science',1)">← Science · Lesson 1</span>
       <span class="back-link" onclick="showLesson('anatomy')">Next: Anatomy →</span></div>
     </div><!-- /science-2 -->
@@ -1449,25 +1586,20 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-tabs"><button class="lt active" onclick="showPart('anatomy',1)">Lesson 1</button><button class="lt" onclick="showPart('anatomy',2)">Lesson 2</button></div>
     <div class="lesson-part active" id="anatomy-1">
     <header class="lesson-head head-anatomy">
-      <div class="kicker">Anatomy · Lesson 1 · ⏱️ 30 minutes</div>
+      <div class="kicker">Anatomy · Lesson 1</div>
       <h1>The Human Body &amp; Its Systems 🫀</h1>
       <p>Your body is a team of systems working together every second. Meet the main ones and what each does.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>How the body is organized: <strong>cells → tissues → organs → systems</strong></li>
         <li>The <strong>major body systems</strong> and what each does</li>
         <li>Match <strong>organs</strong> to their systems</li>
         <li>How the systems <strong>work together</strong></li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> How the body is built · 6 min</li>
-        <li><b>3.</b> The body systems · 9 min</li><li><b>4.</b> Match it up · 6 min</li><li><b>5.</b> Quick check · 5 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> How the body is built</li>
+        <li><b>3.</b> The body systems</li><li><b>4.</b> Match it up</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -1572,31 +1704,53 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🔗 More practice · Organs &amp; systems</h2>
+      <div data-tagging>
+        <p class="tagline">
+          Small intestine → <select data-answer="digestive"><option value="">choose…</option><option value="digestive">digestive</option><option value="nervous">nervous</option><option value="skeletal">skeletal</option></select>,
+          Spinal cord → <select data-answer="nervous"><option value="">choose…</option><option value="nervous">nervous</option><option value="circulatory">circulatory</option><option value="respiratory">respiratory</option></select>,
+          Ribs → <select data-answer="skeletal"><option value="">choose…</option><option value="skeletal">skeletal</option><option value="muscular">muscular</option><option value="digestive">digestive</option></select>,
+          Blood vessels → <select data-answer="circulatory"><option value="">choose…</option><option value="circulatory">circulatory</option><option value="respiratory">respiratory</option><option value="skeletal">skeletal</option></select>,
+          Windpipe → <select data-answer="respiratory"><option value="">choose…</option><option value="respiratory">respiratory</option><option value="digestive">digestive</option><option value="nervous">nervous</option></select>,
+          Biceps → <select data-answer="muscular"><option value="">choose…</option><option value="muscular">muscular</option><option value="skeletal">skeletal</option><option value="nervous">nervous</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="tissue" data-why="Cells group into tissues; tissues build organs.">
+          <div class="q"><span class="num">1</span>A group of similar cells working together is a…</div>
+          <div class="options"><label><input type="radio" name="an1x1" value="organ" />Organ</label>
+            <label><input type="radio" name="an1x1" value="tissue" />Tissue</label>
+            <label><input type="radio" name="an1x1" value="system" />System</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="digestive" data-why="The stomach is part of the digestive system.">
+          <div class="q"><span class="num">2</span>The stomach is part of which system?</div>
+          <div class="options"><label><input type="radio" name="an1x2" value="digestive" />Digestive</label>
+            <label><input type="radio" name="an1x2" value="nervous" />Nervous</label>
+            <label><input type="radio" name="an1x2" value="skeletal" />Skeletal</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('science')">← Science</span>
       <span class="back-link" onclick="showPart('anatomy',2)">Next: Anatomy · Lesson 2 →</span></div>
     </div><!-- /anatomy-1 -->
 
     <div class="lesson-part" id="anatomy-2">
     <header class="lesson-head head-anatomy">
-      <div class="kicker">Anatomy · Lesson 2 · ⏱️ 30 minutes</div>
+      <div class="kicker">Anatomy · Lesson 2</div>
       <h1>Circulation &amp; Breathing 🫀</h1>
       <p>Two systems team up to keep every cell alive: the <em>circulatory</em> system (heart + blood) and the <em>respiratory</em> system (lungs + breathing).</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>How the <strong>heart and blood vessels</strong> move blood</li>
         <li>How the <strong>lungs</strong> trade oxygen for carbon dioxide</li>
         <li>How the two systems <strong>work together</strong></li>
         <li>Match the parts to their jobs</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> Heart &amp; blood · 8 min</li>
-        <li><b>3.</b> Lungs &amp; gas exchange · 8 min</li><li><b>4.</b> Teamwork &amp; match · 7 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Heart &amp; blood</li>
+        <li><b>3.</b> Lungs &amp; gas exchange</li><li><b>4.</b> Teamwork &amp; match</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -1684,6 +1838,32 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🔗 More practice · Heart &amp; lungs</h2>
+      <div data-tagging>
+        <p class="tagline">
+          Muscle that helps you breathe → <select data-answer="diaphragm"><option value="">choose…</option><option value="diaphragm">diaphragm</option><option value="alveoli">alveoli</option><option value="artery">artery</option></select>,
+          Vessels that carry blood to the body → <select data-answer="arteries"><option value="">choose…</option><option value="arteries">arteries</option><option value="veins">veins</option><option value="trachea">trachea</option></select>,
+          Tiny air sacs for gas exchange → <select data-answer="alveoli"><option value="">choose…</option><option value="alveoli">alveoli</option><option value="capillaries">capillaries</option><option value="veins">veins</option></select>,
+          Gas you breathe in → <select data-answer="oxygen"><option value="">choose…</option><option value="oxygen">oxygen</option><option value="co2">carbon dioxide</option><option value="helium">helium</option></select>,
+          Gas you breathe out → <select data-answer="co2"><option value="">choose…</option><option value="oxygen">oxygen</option><option value="co2">carbon dioxide</option><option value="nitrogen">nitrogen</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="lungs" data-why="Blood picks up oxygen in the lungs (in the alveoli).">
+          <div class="q"><span class="num">1</span>Where does blood pick up oxygen?</div>
+          <div class="options"><label><input type="radio" name="an2x1" value="lungs" />The lungs</label>
+            <label><input type="radio" name="an2x1" value="stomach" />The stomach</label>
+            <label><input type="radio" name="an2x1" value="brain" />The brain</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="capillaries" data-why="Capillaries are the tiny vessels where blood trades materials with cells.">
+          <div class="q"><span class="num">2</span>The tiniest vessels, where the trade happens, are…</div>
+          <div class="options"><label><input type="radio" name="an2x2" value="capillaries" />Capillaries</label>
+            <label><input type="radio" name="an2x2" value="arteries" />Big arteries</label>
+            <label><input type="radio" name="an2x2" value="bones" />Bones</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('anatomy',1)">← Anatomy · Lesson 1</span>
       <span class="back-link" onclick="showLesson('social')">Next: Social Studies →</span></div>
     </div><!-- /anatomy-2 -->
@@ -1694,25 +1874,20 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-tabs"><button class="lt active" onclick="showPart('social',1)">Lesson 1</button><button class="lt" onclick="showPart('social',2)">Lesson 2</button></div>
     <div class="lesson-part active" id="social-1">
     <header class="lesson-head head-social">
-      <div class="kicker">Social Studies · Lesson 1 · ⏱️ 30 minutes</div>
+      <div class="kicker">Social Studies · Lesson 1</div>
       <h1>Map Skills, Continents &amp; Coordinates 🗺️</h1>
       <p>These skills let you pinpoint <em>any</em> spot on Earth.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The <strong>7 continents</strong> and <strong>5 oceans</strong></li>
         <li>Read a map's <strong>compass rose</strong>, <strong>key</strong>, and <strong>scale</strong></li>
         <li>Use <strong>latitude</strong> and <strong>longitude</strong></li>
         <li>Read about <strong>why geography matters</strong></li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> Continents · 6 min</li>
-        <li><b>3.</b> Reading a map · 6 min</li><li><b>4.</b> Latitude &amp; longitude · 9 min</li><li><b>5.</b> Read + quiz · 5 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Continents</li>
+        <li><b>3.</b> Reading a map</li><li><b>4.</b> Latitude &amp; longitude</li><li><b>5.</b> Read + quiz</li></ul>
     </section>
 
     <section class="panel">
@@ -1836,31 +2011,51 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🌍 More practice · Map skills</h2>
+      <div data-tagging>
+        <p class="tagline">
+          Australia is both a country and a → <select data-answer="continent"><option value="">choose…</option><option value="continent">continent</option><option value="ocean">ocean</option><option value="hemisphere">hemisphere</option></select>,
+          lines that measure east/west are → <select data-answer="longitude"><option value="">choose…</option><option value="longitude">longitude</option><option value="latitude">latitude</option></select>,
+          0° longitude is the → <select data-answer="prime"><option value="">choose…</option><option value="prime">Prime Meridian</option><option value="equator">Equator</option></select>,
+          the ocean between America and Europe is the → <select data-answer="atlantic"><option value="">choose…</option><option value="atlantic">Atlantic</option><option value="pacific">Pacific</option><option value="indian">Indian</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="100" data-why="2 inches × 50 miles per inch = 100 miles.">
+          <div class="q"><span class="num">1</span>Scale: 1 inch = 50 miles. Two towns are 2 inches apart on the map. Real distance?</div>
+          <div class="options"><label><input type="radio" name="g1x1" value="100" />100 miles</label>
+            <label><input type="radio" name="g1x1" value="52" />52 miles</label>
+            <label><input type="radio" name="g1x1" value="25" />25 miles</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="south" data-why="°S means south of the Equator — the Southern Hemisphere.">
+          <div class="q"><span class="num">2</span>A city at <strong>35° S</strong> is in which hemisphere?</div>
+          <div class="options"><label><input type="radio" name="g1x2" value="north" />Northern</label>
+            <label><input type="radio" name="g1x2" value="south" />Southern</label>
+            <label><input type="radio" name="g1x2" value="none" />You can't tell</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('anatomy')">← Anatomy</span>
       <span class="back-link" onclick="showPart('social',2)">Next: Social Studies · Lesson 2 →</span></div>
     </div><!-- /social-1 -->
 
     <div class="lesson-part" id="social-2">
     <header class="lesson-head head-social">
-      <div class="kicker">Social Studies · Lesson 2 · ⏱️ 30 minutes</div>
+      <div class="kicker">Social Studies · Lesson 2</div>
       <h1>The 3 Branches of Government 🏛️</h1>
       <p>The U.S. Constitution splits the government into three branches so no single person or group gets too much power. Here's how it works.</p>
     </header>
-    <div class="pacer"><button class="pace-btn" data-toggle>▶ Start lesson</button>
-      <span class="pace-time" data-time>00:00 / 30:00</span>
-      <div class="pace-track"><div class="pace-fill" data-fill></div></div>
-      <button class="pace-btn ghost" data-reset>Reset</button><div class="pace-seg" data-seg></div></div>
-
     <section class="panel">
-      <h2>🎯 Today's plan (about 30 minutes)</h2>
+      <h2>🎯 Today's plan</h2>
       <ul class="goal-list">
         <li>The <strong>3 branches</strong> and what each one does</li>
         <li>How <strong>checks and balances</strong> keep power even</li>
         <li>How a <strong>bill becomes a law</strong></li>
         <li>What a <strong>veto</strong> is</li>
       </ul>
-      <ul class="plan-strip"><li><b>1.</b> Warm-up · 4 min</li><li><b>2.</b> Three branches · 9 min</li>
-        <li><b>3.</b> Checks &amp; balances · 7 min</li><li><b>4.</b> How a bill becomes law · 7 min</li><li><b>5.</b> Quick check · 3 min</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Three branches</li>
+        <li><b>3.</b> Checks &amp; balances</li><li><b>4.</b> How a bill becomes law</li><li><b>5.</b> Quick check</li></ul>
     </section>
 
     <section class="panel">
@@ -1949,6 +2144,33 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🏛️ More practice · Government</h2>
+      <div data-tagging>
+        <p class="tagline">
+          The Senate → <select data-answer="legislative"><option value="">choose…</option><option value="legislative">Legislative</option><option value="executive">Executive</option><option value="judicial">Judicial</option></select>,
+          the President's Cabinet → <select data-answer="executive"><option value="">choose…</option><option value="legislative">Legislative</option><option value="executive">Executive</option><option value="judicial">Judicial</option></select>,
+          the Supreme Court → <select data-answer="judicial"><option value="">choose…</option><option value="legislative">Legislative</option><option value="executive">Executive</option><option value="judicial">Judicial</option></select>,
+          writes and passes laws → <select data-answer="legislative"><option value="">choose…</option><option value="legislative">Legislative</option><option value="executive">Executive</option><option value="judicial">Judicial</option></select>,
+          decides if a law is constitutional → <select data-answer="judicial"><option value="">choose…</option><option value="legislative">Legislative</option><option value="executive">Executive</option><option value="judicial">Judicial</option></select>,
+          signs or vetoes bills → <select data-answer="executive"><option value="">choose…</option><option value="legislative">Legislative</option><option value="executive">Executive</option><option value="judicial">Judicial</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="override" data-why="Congress can override a veto with a 2/3 vote.">
+          <div class="q"><span class="num">1</span>If the President vetoes a bill, Congress can still pass it with…</div>
+          <div class="options"><label><input type="radio" name="g2x1" value="override" />A 2/3 override vote</label>
+            <label><input type="radio" name="g2x1" value="giveup" />Nothing — it's dead</label>
+            <label><input type="radio" name="g2x1" value="court" />The Supreme Court's signature</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="both" data-why="A bill must pass BOTH the House and the Senate before going to the President.">
+          <div class="q"><span class="num">2</span>Before a bill reaches the President, it must pass…</div>
+          <div class="options"><label><input type="radio" name="g2x2" value="house" />Only the House</label>
+            <label><input type="radio" name="g2x2" value="both" />Both the House and the Senate</label>
+            <label><input type="radio" name="g2x2" value="court" />The Supreme Court</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('social',1)">← Social Studies · Lesson 1</span>
       <span class="back-link" onclick="showLesson('home')">Back to start →</span></div>
     </div><!-- /social-2 -->
@@ -1957,38 +2179,11 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
   <p class="foot">🎒 Everything is inside this one file — no internet or other files needed.</p>
 </div>
 
-<!-- BREAK SCREEN -->
-<div class="break-overlay" id="breakOverlay">
-  <div class="break-card"><div class="big">🎉</div>
-    <h2>That's a full 30 minutes!</h2>
-    <p>Awesome focus. Now take a <strong>10–15 minute break</strong> — stretch, grab a snack and some water, and rest your eyes. When you come back, start your next lesson.</p>
-    <div class="btn-row"><button class="btn" id="breakKeep">I'm taking my break 👍</button></div>
-  </div>
-</div>
-
 <script>
-/* ---------- Lesson plans (minutes per segment) ---------- */
-var LESSON_PLANS = {
-  "art-1":    [{label:"Warm-up",min:4},{label:"The 7 elements",min:8},{label:"Color & value",min:7},{label:"Studio challenge",min:8},{label:"Quick check",min:3}],
-  "art-2":    [{label:"Warm-up",min:4},{label:"Light & shadow",min:8},{label:"Shading a form",min:9},{label:"Studio challenge",min:6},{label:"Quick check",min:3}],
-  "math-1":   [{label:"Warm-up",min:4},{label:"Integers",min:8},{label:"PEMDAS",min:8},{label:"Algebra & word problems",min:7},{label:"Quick check",min:3}],
-  "math-2":   [{label:"Warm-up",min:4},{label:"One-step equations",min:8},{label:"Two-step equations",min:9},{label:"Word problems",min:6},{label:"Quick check",min:3}],
-  "english-1":[{label:"Warm-up",min:4},{label:"Parts of speech",min:7},{label:"Strong sentences",min:6},{label:"Read & answer",min:6},{label:"Write",min:5},{label:"Quick check",min:2}],
-  "english-2":[{label:"Warm-up",min:4},{label:"Figurative language",min:9},{label:"Spot it in text",min:7},{label:"Write with it",min:7},{label:"Quick check",min:3}],
-  "science-1":[{label:"Warm-up",min:4},{label:"The method",min:7},{label:"Variables",min:8},{label:"Design & data",min:7},{label:"Safety + quiz",min:4}],
-  "science-2":[{label:"Warm-up",min:4},{label:"States of matter",min:8},{label:"Physical vs chemical",min:9},{label:"Practice & data",min:6},{label:"Quick check",min:3}],
-  "anatomy-1":[{label:"Warm-up",min:4},{label:"How the body is built",min:6},{label:"The body systems",min:9},{label:"Match it up",min:6},{label:"Quick check",min:5}],
-  "anatomy-2":[{label:"Warm-up",min:4},{label:"The heart & blood",min:8},{label:"Lungs & gas exchange",min:8},{label:"Teamwork & match",min:7},{label:"Quick check",min:3}],
-  "social-1": [{label:"Warm-up",min:4},{label:"Continents & oceans",min:6},{label:"Reading a map",min:6},{label:"Latitude & longitude",min:9},{label:"Read + quiz",min:5}],
-  "social-2": [{label:"Warm-up",min:4},{label:"Three branches",min:9},{label:"Checks & balances",min:7},{label:"How a bill becomes law",min:7},{label:"Quick check",min:3}]
-};
 
-var pacers = [];
-function pauseAllPacers(){ pacers.forEach(function(p){ p.pause(); }); }
 
 /* ---------- Tab navigation ---------- */
 function showLesson(id){
-  pauseAllPacers();
   var secs = document.querySelectorAll('.lesson-section');
   for(var i=0;i<secs.length;i++) secs[i].classList.remove('active');
   var el = document.getElementById(id);
@@ -2000,7 +2195,6 @@ function showLesson(id){
 
 /* ---------- Lesson 1 / Lesson 2 switch inside a subject ---------- */
 function showPart(subject,n){
-  pauseAllPacers();
   var sec=document.getElementById(subject); if(!sec) return;
   var parts=sec.querySelectorAll('.lesson-part');
   for(var i=0;i<parts.length;i++) parts[i].classList.remove('active');
@@ -2160,43 +2354,6 @@ function boot(){
     if(saveBtn) saveBtn.addEventListener('click',function(){ var l=document.createElement('a'); l.download='my-artwork.png'; l.href=canvas.toDataURL('image/png'); l.click(); });
   });
 
-  /* ===== Pacing timers (one per lesson) ===== */
-  function showBreak(){ var ov=document.getElementById('breakOverlay'); if(ov) ov.classList.add('show'); }
-  var keepBtn=document.getElementById('breakKeep');
-  if(keepBtn) keepBtn.addEventListener('click',function(){ document.getElementById('breakOverlay').classList.remove('show'); });
-
-  document.querySelectorAll('.pacer').forEach(function(pacer){
-    var part=pacer.closest('.lesson-part');
-    var key=part?part.id:( (pacer.closest('.lesson-section')||{}).id || 'lesson');
-    var segs=(LESSON_PLANS[key]||[]).map(function(s){ return {label:s.label,min:s.min}; });
-    var targetSec=0; segs.forEach(function(s){ targetSec+=s.min*60; s.end=targetSec; });
-    if(!targetSec) targetSec=30*60;
-    var storeKey='pace:'+key;
-    var elapsed=0; try{ elapsed=parseInt(localStorage.getItem(storeKey)||'0',10); }catch(e){}
-    var running=false,ticker=null,breakShown=false;
-    var timeEl=pacer.querySelector('[data-time]'), fillEl=pacer.querySelector('[data-fill]'),
-        segEl=pacer.querySelector('[data-seg]'), toggleBtn=pacer.querySelector('[data-toggle]'), resetBtn=pacer.querySelector('[data-reset]');
-    function fmt(s){ var m=Math.floor(s/60),ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
-    function render(){
-      timeEl.textContent=fmt(Math.min(elapsed,targetSec))+' / '+fmt(targetSec);
-      fillEl.style.width=Math.min(100,(elapsed/targetSec)*100)+'%';
-      var cur=null; for(var i=0;i<segs.length;i++){ if(elapsed<segs[i].end){ cur=segs[i]; break; } } if(!cur) cur=segs[segs.length-1];
-      if(cur&&segEl) segEl.innerHTML='Spend about <b>'+cur.min+' min</b> here · Now on: <b>'+cur.label+'</b>';
-      if(elapsed>=targetSec&&!breakShown){ breakShown=true; pause(); showBreak(); }
-    }
-    function persist(){ try{ localStorage.setItem(storeKey,String(elapsed)); }catch(e){} }
-    function start(){ if(running) return; running=true; toggleBtn.textContent='⏸ Pause'; pacer.classList.add('running');
-      ticker=setInterval(function(){ elapsed++; persist(); render(); },1000); }
-    function pause(){ running=false; toggleBtn.textContent=elapsed>0?'▶ Resume':'▶ Start lesson'; pacer.classList.remove('running'); clearInterval(ticker); }
-    toggleBtn.addEventListener('click',function(){ running?pause():start(); });
-    resetBtn.addEventListener('click',function(){ pause(); elapsed=0; breakShown=false; persist(); render(); });
-    if(elapsed>0&&elapsed<targetSec) toggleBtn.textContent='▶ Resume';
-    render();
-    pacers.push({pause:pause});
-  });
-
-  /* pause timers when the whole tab is hidden (real minutes only) */
-  document.addEventListener('visibilitychange',function(){ if(document.hidden) pauseAllPacers(); });
 
 }
 if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',boot); } else { boot(); }
