@@ -240,7 +240,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <section class="hero">
       <span class="pill">Summer Refresher · Ages 12–13</span>
       <h1 data-greeting>Welcome! Let's get ready for 8th grade. 🎉</h1>
-      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>two full lessons</strong> of practice and instant feedback. Do it all and it's about <strong>2 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
+      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>three full lessons</strong> of practice and instant feedback. Do it all and it's about <strong>3 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
       <div class="tryit" style="margin-top:22px;max-width:420px;">
         <label for="nameInput"><strong>What should I call you?</strong></label><br />
         <input type="text" id="nameInput" placeholder="Type your name" />
@@ -254,40 +254,40 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
       <a class="card art" onclick="showLesson('art')">
         <span class="fav">★ FAVORITE</span><span class="emoji">🎨</span>
         <h3>Art</h3><p>Elements of art &amp; color theory — plus a real drawing studio you can paint in.</p>
-        <span class="tag">Lessons 1 &amp; 2 ready</span>
+        <span class="tag">Lessons 1–3 ready</span>
       </a>
       <a class="card math" onclick="showLesson('math')">
         <span class="emoji">🔢</span><h3>Math</h3>
         <p>Integers, the order of operations, and the rules that power 8th-grade algebra.</p>
-        <span class="tag">Lessons 1 &amp; 2 ready</span>
+        <span class="tag">Lessons 1–3 ready</span>
       </a>
       <a class="card english" onclick="showLesson('english')">
         <span class="emoji">📖</span><h3>English / Language Arts</h3>
         <p>Parts of speech and building strong, clear sentences that say what you mean.</p>
-        <span class="tag">Lessons 1 &amp; 2 ready</span>
+        <span class="tag">Lessons 1–3 ready</span>
       </a>
       <a class="card science" onclick="showLesson('science')">
         <span class="emoji">🔬</span><h3>Science</h3>
         <p>The scientific method &amp; lab safety — how real scientists ask and answer questions.</p>
-        <span class="tag">Lessons 1 &amp; 2 ready</span>
+        <span class="tag">Lessons 1–3 ready</span>
       </a>
       <a class="card anatomy" onclick="showLesson('anatomy')">
         <span class="emoji">🫀</span><h3>Anatomy (Human Body)</h3>
         <p>How the body is built and the major systems that keep you alive and moving.</p>
-        <span class="tag">Lessons 1 &amp; 2 ready</span>
+        <span class="tag">Lessons 1–3 ready</span>
       </a>
       <a class="card social" onclick="showLesson('social')">
         <span class="emoji">🗺️</span><h3>Social Studies</h3>
         <p>Map skills, continents, and coordinates — find any place on Earth.</p>
-        <span class="tag">Lessons 1 &amp; 2 ready</span>
+        <span class="tag">Lessons 1–3 ready</span>
       </a>
     </div>
 
     <section class="panel" style="margin-top:32px;">
       <h2>📅 How to use this</h2>
       <ul class="goal-list">
-        <li>Pick a subject up top, then choose <strong>Lesson 1</strong> or <strong>Lesson 2</strong>.</li>
-        <li>Doing all six subjects (both lessons each) is about <strong>2 hours</strong> of work — split it across the day however you like, and take breaks whenever you need them.</li>
+        <li>Pick a subject up top, then choose <strong>Lesson 1, 2, or 3</strong>.</li>
+        <li>Doing all six subjects (all three lessons each) is about <strong>3 hours</strong> of work — split it across the day however you like, and take breaks whenever you need them.</li>
         <li>Read the lesson, do every <em>"Try it"</em> and practice set, then take the quiz and click <strong>Check my answers</strong>.</li>
         <li>Use the buttons at the top to switch subjects anytime.</li>
       </ul>
@@ -300,7 +300,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
 
   <!-- ================= ART ================= -->
   <section id="art" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button><button class="lt" onclick="showPart('art',3)">Lesson 3</button></div>
     <div class="lesson-part active" id="art-1">
     <header class="lesson-head head-art">
       <div class="kicker">Art · Lesson 1 · ★ Your favorite</div>
@@ -476,6 +476,17 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Your eyes can tell apart about <strong>10 million</strong> colors — using just three kinds of color sensors (red, green, blue).</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="blueorange" data-why="Blue and orange sit opposite on the wheel, so they are complementary."><div class="q"><span class="num">★</span>Which pair is <strong>complementary</strong> (opposite on the wheel)?</div><div class="options"><label><input type="radio" name="ba1a" value="blueorange" />Blue &amp; orange</label><label><input type="radio" name="ba1a" value="redpink" />Red &amp; pink</label><label><input type="radio" name="ba1a" value="greenyellow" />Green &amp; yellow</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="brown" data-why="Mixing all three primaries makes a muddy brown."><div class="q"><span class="num">★</span>Mix all three primary colors and you get…</div><div class="options"><label><input type="radio" name="ba1b" value="brown" />A muddy brown</label><label><input type="radio" name="ba1b" value="white" />Bright white</label><label><input type="radio" name="ba1b" value="neon" />Neon green</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="value" data-why="Value is how light or dark a color is."><div class="q"><span class="num">★</span>A color's <em>value</em> means…</div><div class="options"><label><input type="radio" name="ba1c" value="value" />How light or dark it is</label><label><input type="radio" name="ba1c" value="temp" />How warm it is</label><label><input type="radio" name="ba1c" value="name" />Its name</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('home')">← All subjects</span>
       <span class="back-link" onclick="showPart('art',2)">Next: Art · Lesson 2 →</span></div>
     </div><!-- /art-1 -->
@@ -616,14 +627,145 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The soft, smoky shading on the <em>Mona Lisa</em> has a special name — <strong>sfumato</strong> — Italian for 'faded like smoke.'</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="highlight" data-why="The highlight is the brightest spot where light hits most directly."><div class="q"><span class="num">★</span>The brightest spot on a lit ball is the…</div><div class="options"><label><input type="radio" name="ba2a" value="highlight" />Highlight</label><label><input type="radio" name="ba2a" value="core" />Core shadow</label><label><input type="radio" name="ba2a" value="cast" />Cast shadow</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="shadowside" data-why="Reflected light glows faintly on the shadow side."><div class="q"><span class="num">★</span>Reflected light shows up on the…</div><div class="options"><label><input type="radio" name="ba2b" value="shadowside" />Shadow side</label><label><input type="radio" name="ba2b" value="litside" />Lit side</label><label><input type="radio" name="ba2b" value="top" />Very top</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="value" data-why="Changing value (light to dark) makes a circle look like a round ball."><div class="q"><span class="num">★</span>To make a circle look like a 3-D ball you change its…</div><div class="options"><label><input type="radio" name="ba2c" value="value" />Value / shading</label><label><input type="radio" name="ba2c" value="outline" />Outline</label><label><input type="radio" name="ba2c" value="name" />Name</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('art',1)">← Art · Lesson 1</span>
       <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
     </div><!-- /art-2 -->
+
+    <div class="lesson-part" id="art-3">
+    <header class="lesson-head head-art">
+      <div class="kicker">Art · Lesson 3 · ★ Your favorite</div>
+      <h1>One-Point Perspective: Draw 3-D Space 📐</h1>
+      <p>Perspective is the trick that makes a flat page look deep — like you could step right into it. It all starts with a single dot.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan</h2>
+      <ul class="goal-list">
+        <li>What a <strong>horizon line</strong> and <strong>vanishing point</strong> are</li>
+        <li>How <strong>orthogonal lines</strong> pull everything toward that point</li>
+        <li>Draw a <strong>3-D box</strong> in one-point perspective</li>
+        <li>Build a scene in your studio</li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Perspective basics</li><li><b>3.</b> Draw a box</li><li><b>4.</b> Studio challenge</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>✏️ Warm-up · Set the stage</h2>
+      <p>In the studio below, do this fast:</p>
+      <ul class="checklist">
+        <li><input type="checkbox" /> Draw one straight <strong>horizon line</strong> across the middle</li>
+        <li><input type="checkbox" /> Put a single <strong>dot</strong> on it — the vanishing point</li>
+        <li><input type="checkbox" /> Draw 5 lines that all start at the dot and spread out like sun rays</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>📐 Perspective Basics</h2>
+      <table class="tidy">
+        <tr><th>Term</th><th>What it is</th></tr>
+        <tr><td><span class="term">Horizon line</span></td><td>The line at your eye level, where sky meets ground</td></tr>
+        <tr><td><span class="term">Vanishing point</span></td><td>The dot on the horizon where everything shrinks to nothing</td></tr>
+        <tr><td><span class="term">Orthogonal lines</span></td><td>The slanted lines that run from an object back to the vanishing point</td></tr>
+      </table>
+      <div class="callout"><span class="ico">💡</span><div>Objects look <strong>bigger</strong> up close and <strong>smaller</strong> as they near the vanishing point — that shrinking is what your eye reads as depth.</div></div>
+    </section>
+    <section class="panel">
+      <h2>📦 Draw a Box in 3-D</h2>
+      <ol class="steps">
+        <li>Draw a <strong>horizon line</strong> with a <strong>vanishing point</strong> on it.</li>
+        <li>Draw a <strong>square</strong> off to one side — the front of the box.</li>
+        <li>Lightly connect each <strong>corner</strong> of the square to the vanishing point.</li>
+        <li>Mark the <strong>back</strong> of the box with a smaller square along those lines.</li>
+        <li>Trace the real edges, erase the extras — a solid 3-D cube!</li>
+      </ol>
+      <div data-tagging>
+        <h3>Try it — name the part</h3>
+        <p class="tagline">The dot everything shrinks toward is the <select data-answer="vanishing"><option value="">choose…</option><option value="vanishing">vanishing point</option><option value="horizon">horizon line</option><option value="orthogonal">orthogonal line</option></select>,
+          the line at eye level is the <select data-answer="horizon"><option value="">choose…</option><option value="horizon">horizon line</option><option value="vanishing">vanishing point</option><option value="orthogonal">orthogonal line</option></select>,
+          and the slanted lines to the dot are <select data-answer="orthogonal"><option value="">choose…</option><option value="orthogonal">orthogonal lines</option><option value="horizon">horizon lines</option><option value="vanishing">vanishing points</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🖌️ Studio Challenge · A room in perspective</h2>
+      <p>Draw the inside of a room: a small square for the back wall, then connect its corners out to a vanishing point to make the floor, ceiling and side walls. Add a door or window, then <strong>💾 Save</strong>.</p>
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches">
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#e0529c" title="Pink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="brush-size"><label for="brushSize3">Brush</label>
+            <input type="range" id="brushSize3" min="2" max="40" value="6" /><span data-brushval>6px</span></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="artCanvas3" aria-label="Perspective canvas"></canvas></div>
+        <div class="btn-row"><button class="btn" data-save>💾 Save my artwork</button>
+          <button class="btn ghost" data-clear>🧽 Clear canvas</button></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="vanishing" data-why="The vanishing point is the dot where everything shrinks to nothing.">
+          <div class="q"><span class="num">1</span>The dot where everything shrinks to nothing is the…</div>
+          <div class="options"><label><input type="radio" name="a3q1" value="vanishing" />Vanishing point</label>
+            <label><input type="radio" name="a3q1" value="horizon" />Horizon line</label>
+            <label><input type="radio" name="a3q1" value="highlight" />Highlight</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="horizon" data-why="The horizon line sits at your eye level.">
+          <div class="q"><span class="num">2</span>The line at your eye level is the…</div>
+          <div class="options"><label><input type="radio" name="a3q2" value="horizon" />Horizon line</label>
+            <label><input type="radio" name="a3q2" value="vanishing" />Vanishing point</label>
+            <label><input type="radio" name="a3q2" value="core" />Core shadow</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="smaller" data-why="Things shrink as they get closer to the vanishing point.">
+          <div class="q"><span class="num">3</span>As objects get near the vanishing point they look…</div>
+          <div class="options"><label><input type="radio" name="a3q3" value="bigger" />Bigger</label>
+            <label><input type="radio" name="a3q3" value="smaller" />Smaller</label>
+            <label><input type="radio" name="a3q3" value="same" />Exactly the same</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="orthogonal" data-why="Orthogonal lines run from an object back to the vanishing point.">
+          <div class="q"><span class="num">4</span>Lines that run from an object to the vanishing point are…</div>
+          <div class="options"><label><input type="radio" name="a3q4" value="orthogonal" />Orthogonal lines</label>
+            <label><input type="radio" name="a3q4" value="value" />Value lines</label>
+            <label><input type="radio" name="a3q4" value="warm" />Warm lines</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="depth" data-why="One-point perspective creates the illusion of depth (3-D space).">
+          <div class="q"><span class="num">5</span>One-point perspective makes a flat drawing look…</div>
+          <div class="options"><label><input type="radio" name="a3q5" value="depth" />Deep and 3-D</label>
+            <label><input type="radio" name="a3q5" value="flat" />Flatter</label>
+            <label><input type="radio" name="a3q5" value="blurry" />Blurry</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Artists only figured out the <strong>math of perspective</strong> about 600 years ago — before that, paintings looked oddly flat.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="horizon" data-why="The vanishing point always sits on the horizon line."><div class="q"><span class="num">★</span>The vanishing point sits on the…</div><div class="options"><label><input type="radio" name="ba3a" value="horizon" />Horizon line</label><label><input type="radio" name="ba3a" value="corner" />Nearest corner</label><label><input type="radio" name="ba3a" value="sky" />Top of the sky</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="smaller" data-why="Objects shrink as they near the vanishing point."><div class="q"><span class="num">★</span>Far-away objects in perspective look…</div><div class="options"><label><input type="radio" name="ba3b" value="smaller" />Smaller</label><label><input type="radio" name="ba3b" value="bigger" />Bigger</label><label><input type="radio" name="ba3b" value="same" />The same</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="depth" data-why="Perspective gives the illusion of depth (3-D space)."><div class="q"><span class="num">★</span>One-point perspective adds a sense of…</div><div class="options"><label><input type="radio" name="ba3c" value="depth" />Depth</label><label><input type="radio" name="ba3c" value="sound" />Sound</label><label><input type="radio" name="ba3c" value="smell" />Smell</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('art',2)">← Art · Lesson 2</span>
+      <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
+    </div><!-- /art-3 -->
   </section>
 
   <!-- ================= MATH ================= -->
   <section id="math" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('math',1)">Lesson 1</button><button class="lt" onclick="showPart('math',2)">Lesson 2</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('math',1)">Lesson 1</button><button class="lt" onclick="showPart('math',2)">Lesson 2</button><button class="lt" onclick="showPart('math',3)">Lesson 3</button></div>
     <div class="lesson-part active" id="math-1">
     <header class="lesson-head head-math">
       <div class="kicker">Math · Lesson 1</div>
@@ -770,6 +912,17 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="prob" data-answer="3"><span class="pnum">10</span><span class="qtext">If x = −1:  5 + 2x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
       </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The word <strong>calculate</strong> comes from the Latin <em>calculus</em>, meaning 'pebble' — ancient people counted with little stones.</div></div>
+      <p>Tricky challenge — type just the number:</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="-9"><span class="pnum">★</span><span class="qtext">−3 × −3 × −1 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="-8"><span class="pnum">★</span><span class="qtext">10 − 2 × 3² =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="16"><span class="pnum">★</span><span class="qtext">(−4)² =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="5"><span class="pnum">★</span><span class="qtext">−20 ÷ −5 + 1 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('art')">← Art</span>
       <span class="back-link" onclick="showPart('math',2)">Next: Math · Lesson 2 →</span></div>
     </div><!-- /math-1 -->
@@ -902,14 +1055,130 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="prob" data-answer="4"><span class="pnum">10</span><span class="qtext">6x − 10 = 14, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
       </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The <strong>=</strong> sign was invented in <strong>1557</strong> by Robert Recorde, who was tired of writing 'is equal to.'</div></div>
+      <p>Tricky challenge — type just the number:</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="-3"><span class="pnum">★</span><span class="qtext">2x + 9 = 3, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="-3"><span class="pnum">★</span><span class="qtext">5x − 3 = −18, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="6"><span class="pnum">★</span><span class="qtext">10 − x = 4, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="-4"><span class="pnum">★</span><span class="qtext">−2x = 8, &nbsp; x =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('math',1)">← Math · Lesson 1</span>
       <span class="back-link" onclick="showLesson('english')">Next: English →</span></div>
     </div><!-- /math-2 -->
+
+    <div class="lesson-part" id="math-3">
+    <header class="lesson-head head-math">
+      <div class="kicker">Math · Lesson 3</div>
+      <h1>Ratios, Rates &amp; Percents 🔢</h1>
+      <p>Ratios compare amounts, rates compare different units, and a percent is just a part out of 100. These show up everywhere — sales, sports, recipes, tips.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan</h2>
+      <ul class="goal-list">
+        <li>Read and simplify a <strong>ratio</strong></li>
+        <li>Find a <strong>unit rate</strong> (per 1)</li>
+        <li>Find a <strong>percent of a number</strong></li>
+        <li>Solve real-life discount and score problems</li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Ratios &amp; rates</li><li><b>3.</b> Percents</li><li><b>4.</b> Practice</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🔥 Warm-up · Easy percents</h2>
+      <p>Type the answer:</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="10"><span class="pnum">1</span><span class="qtext">10% of 100 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="50"><span class="pnum">2</span><span class="qtext">50% of 100 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="25"><span class="pnum">3</span><span class="qtext">25% of 100 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="7"><span class="pnum">4</span><span class="qtext">100% of 7 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check warm-up</button><span class="score" data-practice-score></span></div></div>
+    </section>
+    <section class="panel">
+      <h2>➗ Ratios &amp; Rates</h2>
+      <p>A <span class="term">ratio</span> compares two amounts, like 2 cats to 3 dogs (<code>2:3</code>). Simplify it like a fraction by dividing both sides by the same number: <code>6:9 = 2:3</code>.</p>
+      <p>A <span class="term">rate</span> compares different units (miles per hour). A <span class="term">unit rate</span> is "per 1": <code>120 miles in 2 hours = 60 miles per hour</code>.</p>
+      <div class="callout"><span class="ico">💡</span><div>To get a unit rate, <strong>divide</strong>: 120 ÷ 2 = 60 mph. $6 ÷ 3 apples = $2 per apple.</div></div>
+    </section>
+    <section class="panel">
+      <h2>％ Percents</h2>
+      <p>A <span class="term">percent</span> means "out of 100." To find a percent of a number, turn the percent into a decimal and multiply:</p>
+      <div class="example"><span class="label">Example</span>
+        <p style="margin:.5rem 0;">25% of 80 → <code>0.25 × 80 = <mark>20</mark></code>. &nbsp; 10% of 50 → <code>0.10 × 50 = <mark>5</mark></code>.</p></div>
+      <div class="callout"><span class="ico">🛍️</span><div><strong>Discount:</strong> a $40 shirt at 25% off → the discount is 25% of 40 = $10, so it costs $30.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔁 Practice</h2>
+      <p>Type just the number:</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="20"><span class="pnum">1</span><span class="qtext">25% of 80 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="5"><span class="pnum">2</span><span class="qtext">10% of 50 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="9"><span class="pnum">3</span><span class="qtext">50% of 18 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="40"><span class="pnum">4</span><span class="qtext">20% of 200 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="6"><span class="pnum">5</span><span class="qtext">75% of 8 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="60"><span class="pnum">6</span><span class="qtext">120 miles in 2 hours = ___ mph</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="2"><span class="pnum">7</span><span class="qtext">$6 for 3 apples = $___ each</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="75"><span class="pnum">8</span><span class="qtext">15 out of 20 correct = ___ %</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="100" data-why="Percent means 'out of 100'.">
+          <div class="q"><span class="num">1</span>A percent means "out of ___."</div>
+          <div class="options"><label><input type="radio" name="m3q1" value="10" />10</label>
+            <label><input type="radio" name="m3q1" value="100" />100</label>
+            <label><input type="radio" name="m3q1" value="1000" />1000</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="20" data-why="0.25 × 80 = 20.">
+          <div class="q"><span class="num">2</span>What is 25% of 80?</div>
+          <div class="options"><label><input type="radio" name="m3q2" value="20" />20</label>
+            <label><input type="radio" name="m3q2" value="25" />25</label>
+            <label><input type="radio" name="m3q2" value="55" />55</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="2to3" data-why="6:9 divides by 3 to become 2:3.">
+          <div class="q"><span class="num">3</span>The ratio 6:9 in simplest form is…</div>
+          <div class="options"><label><input type="radio" name="m3q3" value="2to3" />2:3</label>
+            <label><input type="radio" name="m3q3" value="3to2" />3:2</label>
+            <label><input type="radio" name="m3q3" value="9to6" />9:6</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="50" data-why="150 ÷ 3 = 50 miles per hour.">
+          <div class="q"><span class="num">4</span>150 miles in 3 hours is a unit rate of…</div>
+          <div class="options"><label><input type="radio" name="m3q4" value="50" />50 mph</label>
+            <label><input type="radio" name="m3q4" value="45" />45 mph</label>
+            <label><input type="radio" name="m3q4" value="153" />153 mph</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="10" data-why="20% of $50 = $10 off.">
+          <div class="q"><span class="num">5</span>A $50 item is 20% off. How much do you save?</div>
+          <div class="options"><label><input type="radio" name="m3q5" value="10" />$10</label>
+            <label><input type="radio" name="m3q5" value="20" />$20</label>
+            <label><input type="radio" name="m3q5" value="30" />$30</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="9" data-why="0.10 × 90 = 9.">
+          <div class="q"><span class="num">6</span>What is 10% of 90?</div>
+          <div class="options"><label><input type="radio" name="m3q6" value="9" />9</label>
+            <label><input type="radio" name="m3q6" value="90" />90</label>
+            <label><input type="radio" name="m3q6" value="19" />19</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> <strong>Percent</strong> comes from the Latin <em>per centum</em> — literally 'per hundred.'</div></div>
+      <p>Tricky challenge — type just the number:</p>
+      <div data-practice><div class="practice-grid">
+        <div class="prob" data-answer="30"><span class="pnum">★</span><span class="qtext">15% of 200 =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="60"><span class="pnum">★</span><span class="qtext">An $80 game is 25% off. Final price in $?</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="20"><span class="pnum">★</span><span class="qtext">8 is what % of 40?</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+        <div class="prob" data-answer="15"><span class="pnum">★</span><span class="qtext">Ratio 3:5 — if 3 parts = 9, then 5 parts =</span><input type="text" inputmode="numeric" /><span class="mark"></span></div>
+      </div><div class="btn-row"><button type="button" class="btn" data-grade>Check answers</button><span class="score" data-practice-score></span></div></div>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('math',2)">← Math · Lesson 2</span>
+      <span class="back-link" onclick="showLesson('english')">Next: English →</span></div>
+    </div><!-- /math-3 -->
   </section>
 
   <!-- ================= ENGLISH ================= -->
   <section id="english" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('english',1)">Lesson 1</button><button class="lt" onclick="showPart('english',2)">Lesson 2</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('english',1)">Lesson 1</button><button class="lt" onclick="showPart('english',2)">Lesson 2</button><button class="lt" onclick="showPart('english',3)">Lesson 3</button></div>
     <div class="lesson-part active" id="english-1">
     <header class="lesson-head head-english">
       <div class="kicker">English / Language Arts · Lesson 1</div>
@@ -1094,6 +1363,17 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> English has around <strong>a million</strong> words — more than almost any other language.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="adverb" data-why="'Quickly' describes how something is done — an adverb."><div class="q"><span class="num">★</span>'Quickly' is a(n)…</div><div class="options"><label><input type="radio" name="be1a" value="adverb" />Adverb</label><label><input type="radio" name="be1a" value="adjective" />Adjective</label><label><input type="radio" name="be1a" value="noun" />Noun</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="noun" data-why="'Happiness' names an idea, so it is a noun."><div class="q"><span class="num">★</span>'Happiness' is a(n)…</div><div class="options"><label><input type="radio" name="be1b" value="noun" />Noun</label><label><input type="radio" name="be1b" value="verb" />Verb</label><label><input type="radio" name="be1b" value="adverb" />Adverb</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="conjunction" data-why="And, but, or join words and ideas — conjunctions."><div class="q"><span class="num">★</span>'And', 'but', and 'or' are…</div><div class="options"><label><input type="radio" name="be1c" value="conjunction" />Conjunctions</label><label><input type="radio" name="be1c" value="pronoun" />Pronouns</label><label><input type="radio" name="be1c" value="verb" />Verbs</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('math')">← Math</span>
       <span class="back-link" onclick="showPart('english',2)">Next: English · Lesson 2 →</span></div>
     </div><!-- /english-1 -->
@@ -1248,14 +1528,131 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="wordcount" id="e2x2">0 words</div>
       </div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Shakespeare made up over <strong>1,700 words</strong> we still use — like <em>eyeball</em>, <em>lonely</em>, and <em>fashionable</em>.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="metaphor" data-why="It says the world IS a stage (no like/as) — a metaphor."><div class="q"><span class="num">★</span>'All the world is a stage' is a…</div><div class="options"><label><input type="radio" name="be2a" value="metaphor" />Metaphor</label><label><input type="radio" name="be2a" value="simile" />Simile</label><label><input type="radio" name="be2a" value="idiom" />Idiom</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="onomatopoeia" data-why="'Crash!' imitates a sound — onomatopoeia."><div class="q"><span class="num">★</span>'Crash! went the plates' is…</div><div class="options"><label><input type="radio" name="be2b" value="onomatopoeia" />Onomatopoeia</label><label><input type="radio" name="be2b" value="metaphor" />Metaphor</label><label><input type="radio" name="be2b" value="hyperbole" />Hyperbole</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="simile" data-why="It compares using 'as' — a simile."><div class="q"><span class="num">★</span>'As cold as ice' is a…</div><div class="options"><label><input type="radio" name="be2c" value="simile" />Simile</label><label><input type="radio" name="be2c" value="metaphor" />Metaphor</label><label><input type="radio" name="be2c" value="idiom" />Idiom</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('english',1)">← English · Lesson 1</span>
       <span class="back-link" onclick="showLesson('science')">Next: Science →</span></div>
     </div><!-- /english-2 -->
+
+    <div class="lesson-part" id="english-3">
+    <header class="lesson-head head-english">
+      <div class="kicker">English / Language Arts · Lesson 3</div>
+      <h1>Reading Strategies 📖</h1>
+      <p>Good readers do more than sound out words — they find the main idea, read between the lines, and use clues to figure out new words.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan</h2>
+      <ul class="goal-list">
+        <li>Find the <strong>main idea</strong> vs. the supporting <strong>details</strong></li>
+        <li>Make an <strong>inference</strong> (read between the lines)</li>
+        <li>Use <strong>context clues</strong> for new words</li>
+        <li>Write a one-sentence <strong>summary</strong></li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Main idea</li><li><b>3.</b> Inference &amp; clues</li><li><b>4.</b> Read &amp; write</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🔤 Warm-up · Context clue</h2>
+      <div data-tagging>
+        <p class="tagline">"The desert was so <b>arid</b> that not a single plant could survive." The word <b>arid</b> probably means
+          <select data-answer="dry"><option value="">choose…</option><option value="dry">dry</option><option value="wet">wet</option><option value="crowded">crowded</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🎯 Main Idea vs. Details</h2>
+      <p>The <span class="term">main idea</span> is what a paragraph is mostly about. <span class="term">Details</span> are the smaller facts and examples that support it.</p>
+      <div class="callout"><span class="ico">💡</span><div>Ask: "What is this <em>mostly</em> about?" The answer that covers the <strong>whole</strong> paragraph (not just one sentence) is the main idea.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔎 Inference &amp; Context Clues</h2>
+      <p>An <span class="term">inference</span> is a smart guess using clues + what you already know — the author doesn't say it directly. <span class="term">Context clues</span> are nearby words that hint at a new word's meaning.</p>
+      <div class="example"><span class="label">Inference</span>
+        <p style="margin:.5rem 0;">"Mia grabbed her umbrella and pulled on her boots." You can <em>infer</em> it's probably raining — even though it never says so.</p></div>
+    </section>
+    <section class="panel">
+      <h2>📚 Read &amp; Answer</h2>
+      <div class="passage">
+        <p>Sea otters do something clever at dinnertime. Floating on their backs, they balance a flat rock on their bellies and smash shellfish against it to crack them open. Pups learn this trick by watching their mothers for hours. Scientists were amazed to discover that some otters even keep a <em>favorite</em> rock, tucking it into a pouch of loose skin under their arm so they never lose it.</p>
+      </div>
+      <form class="quiz">
+        <div class="question" data-answer="tools" data-why="The whole paragraph is about otters using rocks as tools to eat.">
+          <div class="q"><span class="num">1</span>What is the <em>main idea</em>?</div>
+          <div class="options"><label><input type="radio" name="e3r1" value="backs" />Otters like floating on their backs</label>
+            <label><input type="radio" name="e3r1" value="tools" />Sea otters use rocks as tools to open shellfish</label>
+            <label><input type="radio" name="e3r1" value="skin" />Otters have loose skin</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="smart" data-why="Using tools and keeping a favorite rock lets you infer otters are clever.">
+          <div class="q"><span class="num">2</span>From the passage you can <em>infer</em> that otters are…</div>
+          <div class="options"><label><input type="radio" name="e3r2" value="lazy" />Lazy</label>
+            <label><input type="radio" name="e3r2" value="smart" />Clever / smart</label>
+            <label><input type="radio" name="e3r2" value="mean" />Mean</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="pocket" data-why="A 'pouch of loose skin' they tuck a rock into is like a pocket — that's the context clue.">
+          <div class="q"><span class="num">3</span>Using context, a "pouch" is most like a…</div>
+          <div class="options"><label><input type="radio" name="e3r3" value="pocket" />Pocket</label>
+            <label><input type="radio" name="e3r3" value="rock" />Rock</label>
+            <label><input type="radio" name="e3r3" value="boat" />Boat</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+      <h3>Write a one-sentence summary</h3>
+      <div class="tryit">
+        <textarea class="write" data-count="#e3wc" placeholder="In one sentence, what was the passage mostly about?"></textarea>
+        <div class="wordcount" id="e3wc">0 words</div>
+        <ul class="checklist">
+          <li><input type="checkbox" /> My summary gives the <strong>main idea</strong>, not a tiny detail</li>
+          <li><input type="checkbox" /> It's one clear sentence in my own words</li>
+        </ul>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="mostly" data-why="The main idea is what a text is mostly about.">
+          <div class="q"><span class="num">1</span>The <em>main idea</em> is…</div>
+          <div class="options"><label><input type="radio" name="e3q1" value="mostly" />What the text is mostly about</label>
+            <label><input type="radio" name="e3q1" value="first" />Always the first word</label>
+            <label><input type="radio" name="e3q1" value="hard" />The hardest sentence</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="clues" data-why="An inference is a smart guess from clues + what you know.">
+          <div class="q"><span class="num">2</span>An <em>inference</em> uses…</div>
+          <div class="options"><label><input type="radio" name="e3q2" value="clues" />Clues plus what you already know</label>
+            <label><input type="radio" name="e3q2" value="guess" />A random guess</label>
+            <label><input type="radio" name="e3q2" value="title" />Only the title</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="nearby" data-why="Context clues are the nearby words that hint at a meaning.">
+          <div class="q"><span class="num">3</span>Context clues are…</div>
+          <div class="options"><label><input type="radio" name="e3q3" value="nearby" />Nearby words that hint at a word's meaning</label>
+            <label><input type="radio" name="e3q3" value="pics" />Pictures only</label>
+            <label><input type="radio" name="e3q3" value="dict" />The dictionary at the back</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Reading just <strong>20 minutes a day</strong> means you'll read almost <strong>2 million</strong> words in a year.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="mostly" data-why="The main idea is what a text is mostly about."><div class="q"><span class="num">★</span>The main idea is…</div><div class="options"><label><input type="radio" name="be3a" value="mostly" />What a text is mostly about</label><label><input type="radio" name="be3a" value="first" />The first word</label><label><input type="radio" name="be3a" value="last" />The last word</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="inference" data-why="Reading between the lines is making an inference."><div class="q"><span class="num">★</span>A smart guess from clues is a(n)…</div><div class="options"><label><input type="radio" name="be3b" value="inference" />Inference</label><label><input type="radio" name="be3b" value="title" />Title</label><label><input type="radio" name="be3b" value="summary" />Summary</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="clues" data-why="Nearby words that hint at a meaning are context clues."><div class="q"><span class="num">★</span>Words around a tricky word that hint its meaning are…</div><div class="options"><label><input type="radio" name="be3c" value="clues" />Context clues</label><label><input type="radio" name="be3c" value="verbs" />Verbs</label><label><input type="radio" name="be3c" value="facts" />Facts</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('english',2)">← English · Lesson 2</span>
+      <span class="back-link" onclick="showLesson('science')">Next: Science →</span></div>
+    </div><!-- /english-3 -->
   </section>
 
   <!-- ================= SCIENCE ================= -->
   <section id="science" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('science',1)">Lesson 1</button><button class="lt" onclick="showPart('science',2)">Lesson 2</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('science',1)">Lesson 1</button><button class="lt" onclick="showPart('science',2)">Lesson 2</button><button class="lt" onclick="showPart('science',3)">Lesson 3</button></div>
     <div class="lesson-part active" id="science-1">
     <header class="lesson-head head-science">
       <div class="kicker">Science · Lesson 1</div>
@@ -1437,6 +1834,17 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The word <strong>scientist</strong> didn't exist until <strong>1833</strong> — before that they were called 'natural philosophers.'</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="independent" data-why="The one thing you change on purpose is the independent variable."><div class="q"><span class="num">★</span>The one thing you change is the…</div><div class="options"><label><input type="radio" name="bsc1a" value="independent" />Independent variable</label><label><input type="radio" name="bsc1a" value="dependent" />Dependent variable</label><label><input type="radio" name="bsc1a" value="controlled" />Controlled variable</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="hypothesis" data-why="A testable if/then prediction is a hypothesis."><div class="q"><span class="num">★</span>A testable 'if… then…' guess is a…</div><div class="options"><label><input type="radio" name="bsc1b" value="hypothesis" />Hypothesis</label><label><input type="radio" name="bsc1b" value="conclusion" />Conclusion</label><label><input type="radio" name="bsc1b" value="result" />Result</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="one" data-why="A fair test changes only one variable."><div class="q"><span class="num">★</span>For a fair test you change ___ variable at a time.</div><div class="options"><label><input type="radio" name="bsc1c" value="one" />One</label><label><input type="radio" name="bsc1c" value="three" />Three</label><label><input type="radio" name="bsc1c" value="all" />All</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('english')">← English</span>
       <span class="back-link" onclick="showPart('science',2)">Next: Science · Lesson 2 →</span></div>
     </div><!-- /science-1 -->
@@ -1576,14 +1984,137 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
         <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
       </div>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> There's a <strong>4th state of matter</strong> — <strong>plasma</strong> — and it's the most common in the universe (stars are made of it!).</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="plasma" data-why="Stars and lightning are plasma, the 4th state of matter."><div class="q"><span class="num">★</span>The super-hot 4th state of matter (stars, lightning) is…</div><div class="options"><label><input type="radio" name="bsc2a" value="plasma" />Plasma</label><label><input type="radio" name="bsc2a" value="ice" />Ice</label><label><input type="radio" name="bsc2a" value="mud" />Mud</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="chemical" data-why="Burning makes new substances — a chemical change."><div class="q"><span class="num">★</span>Burning a log is a ___ change.</div><div class="options"><label><input type="radio" name="bsc2b" value="chemical" />Chemical</label><label><input type="radio" name="bsc2b" value="physical" />Physical</label><label><input type="radio" name="bsc2b" value="state" />No change</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="condensation" data-why="Gas turning to liquid is condensation."><div class="q"><span class="num">★</span>Steam turning to water droplets is…</div><div class="options"><label><input type="radio" name="bsc2c" value="condensation" />Condensation</label><label><input type="radio" name="bsc2c" value="melting" />Melting</label><label><input type="radio" name="bsc2c" value="freezing" />Freezing</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('science',1)">← Science · Lesson 1</span>
       <span class="back-link" onclick="showLesson('anatomy')">Next: Anatomy →</span></div>
     </div><!-- /science-2 -->
+
+    <div class="lesson-part" id="science-3">
+    <header class="lesson-head head-science">
+      <div class="kicker">Science · Lesson 3</div>
+      <h1>Energy: Forms &amp; Changes 🔬</h1>
+      <p>Energy is the ability to make something happen — to move, heat, light up, or grow. It comes in many forms and is always changing from one to another.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan</h2>
+      <ul class="goal-list">
+        <li><strong>Kinetic</strong> (moving) vs. <strong>potential</strong> (stored) energy</li>
+        <li>The main <strong>forms</strong> of energy</li>
+        <li>How energy <strong>changes form</strong> (it's never lost)</li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Kinetic &amp; potential</li><li><b>3.</b> Forms of energy</li><li><b>4.</b> Practice</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>⚡ Warm-up · Moving or stored?</h2>
+      <div data-tagging>
+        <p class="tagline">
+          A ball rolling downhill → <select data-answer="kinetic"><option value="">choose…</option><option value="kinetic">kinetic (moving)</option><option value="potential">potential (stored)</option></select>,
+          a book resting on a high shelf → <select data-answer="potential"><option value="">choose…</option><option value="kinetic">kinetic (moving)</option><option value="potential">potential (stored)</option></select>,
+          a running cheetah → <select data-answer="kinetic"><option value="">choose…</option><option value="kinetic">kinetic (moving)</option><option value="potential">potential (stored)</option></select>,
+          a stretched rubber band → <select data-answer="potential"><option value="">choose…</option><option value="kinetic">kinetic (moving)</option><option value="potential">potential (stored)</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🏃 Kinetic vs. Potential</h2>
+      <table class="tidy">
+        <tr><th>Type</th><th>What it is</th><th>Example</th></tr>
+        <tr><td><span class="term">Kinetic</span></td><td>The energy of <strong>motion</strong></td><td>A rolling ball, wind, a running dog</td></tr>
+        <tr><td><span class="term">Potential</span></td><td><strong>Stored</strong> energy, ready to be used</td><td>A ball at the top of a hill, a stretched spring</td></tr>
+      </table>
+      <div class="callout"><span class="ico">🎢</span><div>At the top of a roller-coaster hill you have lots of <strong>potential</strong> energy; as you race down it turns into <strong>kinetic</strong> energy.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔆 Forms of Energy</h2>
+      <table class="tidy">
+        <tr><th>Form</th><th>Where you see it</th></tr>
+        <tr><td><span class="term">Light</span></td><td>The sun, a lamp</td></tr>
+        <tr><td><span class="term">Thermal (heat)</span></td><td>A warm cup of cocoa, a fire</td></tr>
+        <tr><td><span class="term">Sound</span></td><td>A vibrating guitar string</td></tr>
+        <tr><td><span class="term">Electrical</span></td><td>Electricity in a wire</td></tr>
+        <tr><td><span class="term">Chemical</span></td><td>Stored in food and batteries</td></tr>
+        <tr><td><span class="term">Mechanical</span></td><td>Moving machines and objects</td></tr>
+      </table>
+      <div class="callout"><span class="ico">💡</span><div><strong>Big rule:</strong> energy is never created or destroyed — it just <em>changes form</em>. A battery's chemical energy → electrical → light + heat in a flashlight.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔁 Practice · Name the form</h2>
+      <div data-tagging>
+        <p class="tagline">
+          Energy from the sun → <select data-answer="light"><option value="">choose…</option><option value="light">light</option><option value="sound">sound</option><option value="chemical">chemical</option></select>,
+          energy in food and batteries → <select data-answer="chemical"><option value="">choose…</option><option value="chemical">chemical</option><option value="light">light</option><option value="electrical">electrical</option></select>,
+          a vibrating guitar string → <select data-answer="sound"><option value="">choose…</option><option value="sound">sound</option><option value="thermal">thermal</option><option value="mechanical">mechanical</option></select>,
+          a warm cup of cocoa → <select data-answer="thermal"><option value="">choose…</option><option value="thermal">thermal</option><option value="light">light</option><option value="sound">sound</option></select>,
+          electricity in a wire → <select data-answer="electrical"><option value="">choose…</option><option value="electrical">electrical</option><option value="chemical">chemical</option><option value="sound">sound</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="kinetic" data-why="Kinetic energy is the energy of motion.">
+          <div class="q"><span class="num">1</span>The energy of <em>motion</em> is…</div>
+          <div class="options"><label><input type="radio" name="s3q1" value="kinetic" />Kinetic</label>
+            <label><input type="radio" name="s3q1" value="potential" />Potential</label>
+            <label><input type="radio" name="s3q1" value="chemical" />Chemical</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="potential" data-why="Stored energy from position is potential energy.">
+          <div class="q"><span class="num">2</span>A ball at the top of a hill has lots of ___ energy.</div>
+          <div class="options"><label><input type="radio" name="s3q2" value="kinetic" />Kinetic</label>
+            <label><input type="radio" name="s3q2" value="potential" />Potential</label>
+            <label><input type="radio" name="s3q2" value="sound" />Sound</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="chemical" data-why="Food and batteries store chemical energy.">
+          <div class="q"><span class="num">3</span>Energy stored in food and batteries is…</div>
+          <div class="options"><label><input type="radio" name="s3q3" value="chemical" />Chemical</label>
+            <label><input type="radio" name="s3q3" value="light" />Light</label>
+            <label><input type="radio" name="s3q3" value="sound" />Sound</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="changed" data-why="Energy is never created or destroyed — only changed from one form to another.">
+          <div class="q"><span class="num">4</span>Energy can never be created or destroyed, only…</div>
+          <div class="options"><label><input type="radio" name="s3q4" value="changed" />Changed into another form</label>
+            <label><input type="radio" name="s3q4" value="deleted" />Deleted</label>
+            <label><input type="radio" name="s3q4" value="frozen" />Frozen</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="light" data-why="The sun gives off mostly light (and heat) energy.">
+          <div class="q"><span class="num">5</span>The sun gives off mostly…</div>
+          <div class="options"><label><input type="radio" name="s3q5" value="light" />Light energy</label>
+            <label><input type="radio" name="s3q5" value="sound" />Sound energy</label>
+            <label><input type="radio" name="s3q5" value="chemical" />Chemical energy</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="sound" data-why="A vibrating string makes sound energy.">
+          <div class="q"><span class="num">6</span>A vibrating guitar string makes ___ energy.</div>
+          <div class="options"><label><input type="radio" name="s3q6" value="sound" />Sound</label>
+            <label><input type="radio" name="s3q6" value="light" />Light</label>
+            <label><input type="radio" name="s3q6" value="chemical" />Chemical</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The sunlight hitting Earth in just <strong>one hour</strong> holds more energy than the whole world uses in a <strong>year</strong>.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="potential" data-why="A stretched spring stores potential energy."><div class="q"><span class="num">★</span>A stretched spring is full of ___ energy.</div><div class="options"><label><input type="radio" name="bsc3a" value="potential" />Potential</label><label><input type="radio" name="bsc3a" value="kinetic" />Kinetic</label><label><input type="radio" name="bsc3a" value="sound" />Sound</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="light" data-why="A flashlight turns chemical energy into light (and heat)."><div class="q"><span class="num">★</span>A flashlight turns chemical energy mostly into…</div><div class="options"><label><input type="radio" name="bsc3b" value="light" />Light</label><label><input type="radio" name="bsc3b" value="sound" />Sound</label><label><input type="radio" name="bsc3b" value="nuclear" />Nuclear</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="changed" data-why="Energy is never destroyed — only changed into another form."><div class="q"><span class="num">★</span>Energy is never destroyed, only…</div><div class="options"><label><input type="radio" name="bsc3c" value="changed" />Changed form</label><label><input type="radio" name="bsc3c" value="deleted" />Deleted</label><label><input type="radio" name="bsc3c" value="lost" />Lost forever</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('science',2)">← Science · Lesson 2</span>
+      <span class="back-link" onclick="showLesson('anatomy')">Next: Anatomy →</span></div>
+    </div><!-- /science-3 -->
   </section>
 
   <!-- ================= ANATOMY ================= -->
   <section id="anatomy" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('anatomy',1)">Lesson 1</button><button class="lt" onclick="showPart('anatomy',2)">Lesson 2</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('anatomy',1)">Lesson 1</button><button class="lt" onclick="showPart('anatomy',2)">Lesson 2</button><button class="lt" onclick="showPart('anatomy',3)">Lesson 3</button></div>
     <div class="lesson-part active" id="anatomy-1">
     <header class="lesson-head head-anatomy">
       <div class="kicker">Anatomy · Lesson 1</div>
@@ -1731,6 +2262,17 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Your body is built from about <strong>37 trillion</strong> cells — and bone is, pound for pound, <strong>stronger than steel</strong>.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="cell" data-why="The cell is the smallest living building block."><div class="q"><span class="num">★</span>The smallest living unit of the body is the…</div><div class="options"><label><input type="radio" name="ban1a" value="cell" />Cell</label><label><input type="radio" name="ban1a" value="organ" />Organ</label><label><input type="radio" name="ban1a" value="system" />System</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="skeletal" data-why="The skeletal system protects organs and makes blood cells."><div class="q"><span class="num">★</span>Which system protects organs and makes blood cells?</div><div class="options"><label><input type="radio" name="ban1b" value="skeletal" />Skeletal</label><label><input type="radio" name="ban1b" value="nervous" />Nervous</label><label><input type="radio" name="ban1b" value="digestive" />Digestive</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="nervous" data-why="The brain is the control center of the nervous system."><div class="q"><span class="num">★</span>The brain belongs to the ___ system.</div><div class="options"><label><input type="radio" name="ban1c" value="nervous" />Nervous</label><label><input type="radio" name="ban1c" value="muscular" />Muscular</label><label><input type="radio" name="ban1c" value="respiratory" />Respiratory</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('science')">← Science</span>
       <span class="back-link" onclick="showPart('anatomy',2)">Next: Anatomy · Lesson 2 →</span></div>
     </div><!-- /anatomy-1 -->
@@ -1864,14 +2406,123 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Your heart beats about <strong>100,000 times a day</strong>, and your blood vessels lined up would wrap around Earth <strong>twice</strong>.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="away" data-why="Arteries carry blood away from the heart."><div class="q"><span class="num">★</span>Arteries carry blood…</div><div class="options"><label><input type="radio" name="ban2a" value="away" />Away from the heart</label><label><input type="radio" name="ban2a" value="toward" />Back to the heart</label><label><input type="radio" name="ban2a" value="nowhere" />Nowhere</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="lungs" data-why="Blood picks up oxygen in the lungs (alveoli)."><div class="q"><span class="num">★</span>Blood picks up oxygen in the…</div><div class="options"><label><input type="radio" name="ban2b" value="lungs" />Lungs</label><label><input type="radio" name="ban2b" value="stomach" />Stomach</label><label><input type="radio" name="ban2b" value="knees" />Knees</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="co2" data-why="You breathe out carbon dioxide, the waste gas."><div class="q"><span class="num">★</span>You breathe <em>out</em>…</div><div class="options"><label><input type="radio" name="ban2c" value="co2" />Carbon dioxide</label><label><input type="radio" name="ban2c" value="oxygen" />Oxygen</label><label><input type="radio" name="ban2c" value="water" />Pure water</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('anatomy',1)">← Anatomy · Lesson 1</span>
       <span class="back-link" onclick="showLesson('social')">Next: Social Studies →</span></div>
     </div><!-- /anatomy-2 -->
+
+    <div class="lesson-part" id="anatomy-3">
+    <header class="lesson-head head-anatomy">
+      <div class="kicker">Anatomy · Lesson 3</div>
+      <h1>Digestion: From Food to Fuel 🍎</h1>
+      <p>Every bite you eat goes on a journey of about 9 metres through your body, getting broken down so your cells can use it for energy.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan</h2>
+      <ul class="goal-list">
+        <li>The <strong>path</strong> food takes through your body</li>
+        <li>What each organ <strong>does</strong> to the food</li>
+        <li>Where <strong>nutrients</strong> get absorbed</li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> The journey</li><li><b>3.</b> Each organ's job</li><li><b>4.</b> Practice</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🍽️ Warm-up · Think it through</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" /> Take a bite of an imaginary apple and notice your <strong>saliva</strong> start</li>
+        <li><input type="checkbox" /> Picture the food going <strong>down</strong> a tube to your stomach</li>
+        <li><input type="checkbox" /> Guess: where do you think the <strong>nutrients</strong> get taken into your blood?</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>🛤️ The Journey of Food</h2>
+      <ol class="steps">
+        <li><span class="term">Mouth</span> — teeth chew; saliva starts breaking food down.</li>
+        <li><span class="term">Esophagus</span> — a muscular tube squeezes food down to the stomach.</li>
+        <li><span class="term">Stomach</span> — churns food and mixes it with acid into a mush.</li>
+        <li><span class="term">Small intestine</span> — nutrients pass into the blood here.</li>
+        <li><span class="term">Large intestine</span> — soaks up water; what's left becomes waste.</li>
+      </ol>
+      <div class="callout"><span class="ico">💡</span><div>Most of the real <strong>absorption</strong> of nutrients happens in the <em>small</em> intestine — it's long and lined with tiny folds to grab every bit.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔗 Practice · Match the organ to its job</h2>
+      <div data-tagging>
+        <p class="tagline">
+          Chews food &amp; adds saliva → <select data-answer="mouth"><option value="">choose…</option><option value="mouth">mouth</option><option value="stomach">stomach</option><option value="esophagus">esophagus</option></select>,
+          tube to the stomach → <select data-answer="esophagus"><option value="">choose…</option><option value="esophagus">esophagus</option><option value="mouth">mouth</option><option value="large">large intestine</option></select>,
+          churns food with acid → <select data-answer="stomach"><option value="">choose…</option><option value="stomach">stomach</option><option value="small">small intestine</option><option value="mouth">mouth</option></select>,
+          absorbs nutrients into blood → <select data-answer="small"><option value="">choose…</option><option value="small">small intestine</option><option value="large">large intestine</option><option value="stomach">stomach</option></select>,
+          absorbs water, forms waste → <select data-answer="large"><option value="">choose…</option><option value="large">large intestine</option><option value="small">small intestine</option><option value="esophagus">esophagus</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="mouth" data-why="Digestion starts in the mouth with chewing and saliva.">
+          <div class="q"><span class="num">1</span>Digestion <em>starts</em> in the…</div>
+          <div class="options"><label><input type="radio" name="an3q1" value="mouth" />Mouth</label>
+            <label><input type="radio" name="an3q1" value="stomach" />Stomach</label>
+            <label><input type="radio" name="an3q1" value="small" />Small intestine</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="esophagus" data-why="The esophagus is the tube from the mouth to the stomach.">
+          <div class="q"><span class="num">2</span>The tube from mouth to stomach is the…</div>
+          <div class="options"><label><input type="radio" name="an3q2" value="esophagus" />Esophagus</label>
+            <label><input type="radio" name="an3q2" value="trachea" />Trachea</label>
+            <label><input type="radio" name="an3q2" value="vein" />Vein</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="acid" data-why="The stomach uses acids to break food into mush.">
+          <div class="q"><span class="num">3</span>The stomach breaks food down using…</div>
+          <div class="options"><label><input type="radio" name="an3q3" value="acid" />Acid</label>
+            <label><input type="radio" name="an3q3" value="air" />Air</label>
+            <label><input type="radio" name="an3q3" value="bone" />Bone</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="small" data-why="Most nutrients are absorbed into the blood in the small intestine.">
+          <div class="q"><span class="num">4</span>Most nutrients are absorbed in the…</div>
+          <div class="options"><label><input type="radio" name="an3q4" value="small" />Small intestine</label>
+            <label><input type="radio" name="an3q4" value="mouth" />Mouth</label>
+            <label><input type="radio" name="an3q4" value="esophagus" />Esophagus</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="water" data-why="The large intestine absorbs water and forms waste.">
+          <div class="q"><span class="num">5</span>The large intestine mainly absorbs…</div>
+          <div class="options"><label><input type="radio" name="an3q5" value="water" />Water</label>
+            <label><input type="radio" name="an3q5" value="oxygen" />Oxygen</label>
+            <label><input type="radio" name="an3q5" value="light" />Light</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="fuel" data-why="The digestive system breaks food into nutrients your cells use for energy.">
+          <div class="q"><span class="num">6</span>The job of the digestive system is to…</div>
+          <div class="options"><label><input type="radio" name="an3q6" value="fuel" />Break food into nutrients (fuel) for cells</label>
+            <label><input type="radio" name="an3q6" value="pump" />Pump blood</label>
+            <label><input type="radio" name="an3q6" value="think" />Do your thinking</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> Your <strong>small intestine</strong> is about <strong>20 feet</strong> long — coiled up to fit inside you — and stomach acid is strong enough to dissolve metal.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="mouth" data-why="Digestion starts in the mouth with chewing and saliva."><div class="q"><span class="num">★</span>Digestion starts in the…</div><div class="options"><label><input type="radio" name="ban3a" value="mouth" />Mouth</label><label><input type="radio" name="ban3a" value="stomach" />Stomach</label><label><input type="radio" name="ban3a" value="liver" />Liver</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="small" data-why="Most nutrients are absorbed in the small intestine."><div class="q"><span class="num">★</span>Most nutrients enter the blood in the…</div><div class="options"><label><input type="radio" name="ban3b" value="small" />Small intestine</label><label><input type="radio" name="ban3b" value="large" />Large intestine</label><label><input type="radio" name="ban3b" value="mouth" />Mouth</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="acid" data-why="The stomach uses acid to break food into mush."><div class="q"><span class="num">★</span>The stomach breaks food down with…</div><div class="options"><label><input type="radio" name="ban3c" value="acid" />Acid</label><label><input type="radio" name="ban3c" value="air" />Air</label><label><input type="radio" name="ban3c" value="ice" />Ice</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('anatomy',2)">← Anatomy · Lesson 2</span>
+      <span class="back-link" onclick="showLesson('social')">Next: Social Studies →</span></div>
+    </div><!-- /anatomy-3 -->
   </section>
 
   <!-- ================= SOCIAL STUDIES ================= -->
   <section id="social" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('social',1)">Lesson 1</button><button class="lt" onclick="showPart('social',2)">Lesson 2</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('social',1)">Lesson 1</button><button class="lt" onclick="showPart('social',2)">Lesson 2</button><button class="lt" onclick="showPart('social',3)">Lesson 3</button></div>
     <div class="lesson-part active" id="social-1">
     <header class="lesson-head head-social">
       <div class="kicker">Social Studies · Lesson 1</div>
@@ -2036,6 +2687,17 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The <strong>Pacific Ocean</strong> is so huge it's bigger than <em>all</em> the land on Earth combined.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="7" data-why="There are 7 continents."><div class="q"><span class="num">★</span>How many continents are there?</div><div class="options"><label><input type="radio" name="bso1a" value="7" />7</label><label><input type="radio" name="bso1a" value="5" />5</label><label><input type="radio" name="bso1a" value="10" />10</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="equator" data-why="The Equator is 0° latitude."><div class="q"><span class="num">★</span>0° latitude is the…</div><div class="options"><label><input type="radio" name="bso1b" value="equator" />Equator</label><label><input type="radio" name="bso1b" value="prime" />Prime Meridian</label><label><input type="radio" name="bso1b" value="pole" />North Pole</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="first" data-why="Latitude (N/S) is written first in coordinates."><div class="q"><span class="num">★</span>In '40° N, 74° W', which comes first?</div><div class="options"><label><input type="radio" name="bso1c" value="first" />Latitude (N/S)</label><label><input type="radio" name="bso1c" value="second" />Longitude (E/W)</label><label><input type="radio" name="bso1c" value="either" />Either one</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showLesson('anatomy')">← Anatomy</span>
       <span class="back-link" onclick="showPart('social',2)">Next: Social Studies · Lesson 2 →</span></div>
     </div><!-- /social-1 -->
@@ -2171,9 +2833,125 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
           <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
       </form>
     </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The U.S. Constitution is the <strong>oldest written national constitution</strong> still in use anywhere in the world.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="legislative" data-why="Congress (Legislative) makes the laws."><div class="q"><span class="num">★</span>Which branch makes laws?</div><div class="options"><label><input type="radio" name="bso2a" value="legislative" />Legislative</label><label><input type="radio" name="bso2a" value="executive" />Executive</label><label><input type="radio" name="bso2a" value="judicial" />Judicial</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="veto" data-why="Rejecting a bill is a veto."><div class="q"><span class="num">★</span>When the President rejects a bill it's a…</div><div class="options"><label><input type="radio" name="bso2b" value="veto" />Veto</label><label><input type="radio" name="bso2b" value="law" />Law</label><label><input type="radio" name="bso2b" value="vote" />Vote</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="checks" data-why="Checks and balances keep any branch from too much power."><div class="q"><span class="num">★</span>The system that balances the branches is called…</div><div class="options"><label><input type="radio" name="bso2c" value="checks" />Checks and balances</label><label><input type="radio" name="bso2c" value="voting" />Voting</label><label><input type="radio" name="bso2c" value="taxes" />Taxes</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('social',1)">← Social Studies · Lesson 1</span>
       <span class="back-link" onclick="showLesson('home')">Back to start →</span></div>
     </div><!-- /social-2 -->
+
+    <div class="lesson-part" id="social-3">
+    <header class="lesson-head head-social">
+      <div class="kicker">Social Studies · Lesson 3</div>
+      <h1>The Constitution &amp; Bill of Rights 🗽</h1>
+      <p>The Constitution is the rulebook for the whole U.S. government. Its first ten amendments — the Bill of Rights — protect the freedoms of every person.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan</h2>
+      <ul class="goal-list">
+        <li>What the <strong>Constitution</strong> is</li>
+        <li>What an <strong>amendment</strong> is</li>
+        <li>The <strong>Bill of Rights</strong> (the first 10 amendments)</li>
+        <li>The freedoms in the <strong>1st Amendment</strong></li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> The Constitution</li><li><b>3.</b> The Bill of Rights</li><li><b>4.</b> Practice</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🗽 Warm-up · Which freedom?</h2>
+      <div data-tagging>
+        <p class="tagline">
+          Sharing your opinion about the government → freedom of <select data-answer="speech"><option value="">choose…</option><option value="speech">speech</option><option value="religion">religion</option><option value="press">press</option></select>,
+          going to any church, mosque, or temple → freedom of <select data-answer="religion"><option value="">choose…</option><option value="religion">religion</option><option value="press">press</option><option value="assembly">assembly</option></select>,
+          a newspaper printing the news → freedom of the <select data-answer="press"><option value="">choose…</option><option value="press">press</option><option value="speech">speech</option><option value="religion">religion</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>📜 The Constitution</h2>
+      <p>The <span class="term">Constitution</span> is the plan and rulebook for the U.S. government — it sets up the three branches and the laws they must follow. It was written in 1787 and is still the highest law in the country.</p>
+      <p>An <span class="term">amendment</span> is an official <strong>change or addition</strong> to the Constitution. There are 27 of them so far.</p>
+      <div class="callout"><span class="ico">💡</span><div>The Constitution can be changed — but on purpose it's <em>hard</em> to do, so rights stay protected over time.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🗽 The Bill of Rights</h2>
+      <p>The <span class="term">Bill of Rights</span> is the name for the <strong>first 10 amendments</strong>. They protect the freedoms of the people. The famous <strong>1st Amendment</strong> protects five freedoms:</p>
+      <ul class="goal-list">
+        <li>Freedom of <strong>speech</strong></li>
+        <li>Freedom of <strong>religion</strong></li>
+        <li>Freedom of the <strong>press</strong></li>
+        <li>Freedom of <strong>assembly</strong> (gathering peacefully)</li>
+        <li>The right to <strong>petition</strong> (ask the government to fix things)</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>🔗 Practice · True idea?</h2>
+      <div data-tagging>
+        <p class="tagline">
+          The Bill of Rights is the first <select data-answer="ten"><option value="">choose…</option><option value="ten">ten (10)</option><option value="three">three (3)</option><option value="twenty">twenty (20)</option></select> amendments,
+          an amendment is a <select data-answer="change"><option value="">choose…</option><option value="change">change to the Constitution</option><option value="law">state law</option><option value="court">court building</option></select>,
+          and freedom of speech is in the <select data-answer="first"><option value="">choose…</option><option value="first">1st Amendment</option><option value="tenth">10th Amendment</option><option value="none">no amendment</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="ten" data-why="The Bill of Rights is the first 10 amendments.">
+          <div class="q"><span class="num">1</span>The Bill of Rights is the first ___ amendments.</div>
+          <div class="options"><label><input type="radio" name="g3q1" value="ten" />10</label>
+            <label><input type="radio" name="g3q1" value="three" />3</label>
+            <label><input type="radio" name="g3q1" value="twenty" />27</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="plan" data-why="The Constitution is the plan/rulebook for the government.">
+          <div class="q"><span class="num">2</span>The Constitution is…</div>
+          <div class="options"><label><input type="radio" name="g3q2" value="plan" />The plan and rulebook for the government</label>
+            <label><input type="radio" name="g3q2" value="song" />The national anthem</label>
+            <label><input type="radio" name="g3q2" value="state" />One state's law</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="first" data-why="Freedom of speech is protected by the 1st Amendment.">
+          <div class="q"><span class="num">3</span>Freedom of speech is in the…</div>
+          <div class="options"><label><input type="radio" name="g3q3" value="first" />1st Amendment</label>
+            <label><input type="radio" name="g3q3" value="tenth" />10th Amendment</label>
+            <label><input type="radio" name="g3q3" value="none" />None of them</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="change" data-why="An amendment is a change or addition to the Constitution.">
+          <div class="q"><span class="num">4</span>An amendment is a…</div>
+          <div class="options"><label><input type="radio" name="g3q4" value="change" />Change or addition to the Constitution</label>
+            <label><input type="radio" name="g3q4" value="judge" />Type of judge</label>
+            <label><input type="radio" name="g3q4" value="tax" />Kind of tax</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="religion" data-why="Freedom of religion is one of the five 1st Amendment freedoms.">
+          <div class="q"><span class="num">5</span>Which is a 1st Amendment freedom?</div>
+          <div class="options"><label><input type="radio" name="g3q5" value="religion" />Freedom of religion</label>
+            <label><input type="radio" name="g3q5" value="pizza" />Free pizza</label>
+            <label><input type="radio" name="g3q5" value="drive" />The right to drive at 12</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="rights" data-why="The Bill of Rights protects people's rights and freedoms.">
+          <div class="q"><span class="num">6</span>The Bill of Rights mainly protects…</div>
+          <div class="options"><label><input type="radio" name="g3q6" value="rights" />People's rights and freedoms</label>
+            <label><input type="radio" name="g3q6" value="money" />The President's money</label>
+            <label><input type="radio" name="g3q6" value="army" />Only the army</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>🌟 Bonus Round</h2>
+      <div class="callout"><span class="ico">🤯</span><div><strong>Did you know?</strong> The whole U.S. Constitution is only about <strong>4,500 words</strong> — you could read it in under half an hour.</div></div>
+      <p>Tougher challenge — can she get them all?</p>
+      <form class="quiz">
+        <div class="question" data-answer="ten" data-why="The Bill of Rights is the first 10 amendments."><div class="q"><span class="num">★</span>The Bill of Rights is the first ___ amendments.</div><div class="options"><label><input type="radio" name="bso3a" value="ten" />10</label><label><input type="radio" name="bso3a" value="three" />3</label><label><input type="radio" name="bso3a" value="fifty" />50</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="first" data-why="Freedom of speech is in the 1st Amendment."><div class="q"><span class="num">★</span>Freedom of speech is protected by the…</div><div class="options"><label><input type="radio" name="bso3b" value="first" />1st Amendment</label><label><input type="radio" name="bso3b" value="fifth" />5th Amendment</label><label><input type="radio" name="bso3b" value="none" />None</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="change" data-why="An amendment is a change or addition to the Constitution."><div class="q"><span class="num">★</span>An amendment is a…</div><div class="options"><label><input type="radio" name="bso3c" value="change" />Change to the Constitution</label><label><input type="radio" name="bso3c" value="tax" />Tax</label><label><input type="radio" name="bso3c" value="court" />Courtroom</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button><button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('social',2)">← Social Studies · Lesson 2</span>
+      <span class="back-link" onclick="showLesson('home')">Back to start →</span></div>
+    </div><!-- /social-3 -->
   </section>
 
   <p class="foot">🎒 Everything is inside this one file — no internet or other files needed.</p>
