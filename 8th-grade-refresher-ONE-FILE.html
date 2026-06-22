@@ -216,6 +216,19 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
   display:grid;place-items:center;font-weight:800;color:#fff;background:var(--art);}
 
 @media (max-width:540px){.hero,.lesson-head{padding:24px 20px;}.panel{padding:20px;}}
+
+.study-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:rgba(255,253,248,.97);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;
+  padding:10px 14px;box-shadow:var(--shadow);margin-bottom:18px;}
+.study-bar .save-note{font-weight:700;color:var(--ink-soft);font-size:.9rem;}
+.review-banner{display:none;background:color-mix(in srgb,var(--math) 12%,#fff);border:1px solid var(--line);
+  border-left:5px solid var(--math);border-radius:12px;padding:12px 16px;margin-bottom:18px;}
+.question.q-wrong{border-color:var(--bad);box-shadow:inset 6px 0 0 var(--bad);background:color-mix(in srgb,var(--bad) 6%,#fff);}
+.question.q-right{box-shadow:inset 6px 0 0 var(--good);}
+.question.q-wrong .q::after{content:"  \2717 WRONG";color:var(--bad);font-weight:800;font-size:.78rem;letter-spacing:.04em;}
+.question.q-right .q::after{content:"  \2713";color:var(--good);font-weight:800;}
+.prob.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,#fff);}
+.prob.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,#fff);}
 </style>
 </head>
 <body>
@@ -234,6 +247,14 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <button data-target="anatomy" onclick="showLesson('anatomy')">🫀 Anatomy</button>
     <button data-target="social" onclick="showLesson('social')">🗺️ Social Studies</button>
   </nav>
+
+  <div class="study-bar">
+    <span class="save-note">💾 Everything saves automatically on this device</span>
+    <span style="flex:1 1 auto"></span>
+    <button class="btn" onclick="reviewAll()">✅ Check all my answers</button>
+    <button class="btn ghost" onclick="resetAll()">🗑️ Start fresh</button>
+  </div>
+  <div class="review-banner" id="reviewBanner"></div>
 
   <!-- ================= HOME ================= -->
   <section id="home" class="lesson-section active">
@@ -2982,6 +3003,23 @@ function showPart(subject,n){
   try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
 }
 
+/* ---------- Review every lesson at once + clear-all ---------- */
+function reviewAll(){
+  var btns=document.querySelectorAll('[data-check],[data-grade]');
+  for(var i=0;i<btns.length;i++){ try{ btns[i].click(); }catch(e){} }
+  var right=document.querySelectorAll('.q-right').length+document.querySelectorAll('.prob.right').length+document.querySelectorAll('.tagline select.ok').length;
+  var wrong=document.querySelectorAll('.q-wrong').length+document.querySelectorAll('.prob.wrong').length+document.querySelectorAll('.tagline select.no').length;
+  var b=document.getElementById('reviewBanner');
+  if(b){ b.style.display='block';
+    b.innerHTML='<strong>Reviewed every lesson.</strong> &nbsp; ✅ <strong>'+right+'</strong> right &nbsp;·&nbsp; ❌ <strong>'+wrong+'</strong> wrong or blank.<br />Open each subject and lesson — every <strong style="color:#e85d5d">wrong answer is outlined in red and tagged ✗ WRONG</strong>.'; }
+  try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
+}
+function resetAll(){
+  if(!window.confirm('Erase ALL saved answers and start completely fresh? This cannot be undone.')) return;
+  try{ localStorage.removeItem('refresher_answers_v1'); }catch(e){}
+  location.reload();
+}
+
 /* ---------- Name greeting (saved on this device) ---------- */
 function saveName(){
   var input=document.getElementById('nameInput');
@@ -3033,14 +3071,15 @@ function boot(){
         var why=q.getAttribute('data-why')||'';
         var chosen=q.querySelector('input:checked');
         var feedback=q.querySelector('.feedback');
+        q.classList.remove('q-right','q-wrong');
         q.querySelectorAll('.options label').forEach(function(l){ l.classList.remove('correct','wrong'); });
         q.querySelectorAll('.options input').forEach(function(input){
           if(input.value===answer) input.closest('label').classList.add('correct'); });
         if(feedback){
           feedback.classList.add('show');
-          if(chosen&&chosen.value===answer){ correct++; feedback.className='feedback show right'; feedback.textContent='✅ Correct! '+why; }
-          else if(chosen){ chosen.closest('label').classList.add('wrong'); feedback.className='feedback show miss'; feedback.textContent='❌ Not quite. '+why; }
-          else { feedback.className='feedback show miss'; feedback.textContent='⚠️ You skipped this one. '+why; }
+          if(chosen&&chosen.value===answer){ correct++; q.classList.add('q-right'); feedback.className='feedback show right'; feedback.textContent='✅ Correct! '+why; }
+          else if(chosen){ q.classList.add('q-wrong'); chosen.closest('label').classList.add('wrong'); feedback.className='feedback show miss'; feedback.textContent='❌ Not quite. '+why; }
+          else { q.classList.add('q-wrong'); feedback.className='feedback show miss'; feedback.textContent='⚠️ You skipped this one. '+why; }
         }
       });
       if(scoreEl){
@@ -3056,6 +3095,7 @@ function boot(){
       form.querySelectorAll('input').forEach(function(i){ i.checked=false; });
       form.querySelectorAll('.feedback').forEach(function(f){ f.classList.remove('show','right','miss'); f.textContent=''; });
       form.querySelectorAll('.options label').forEach(function(l){ l.classList.remove('correct','wrong'); });
+      form.querySelectorAll('.question').forEach(function(q){ q.classList.remove('q-right','q-wrong'); });
       if(scoreEl){ scoreEl.classList.remove('show'); scoreEl.textContent=''; }
     });
   });
@@ -3073,6 +3113,7 @@ function boot(){
         var ok=val===ans;
         if(!ok&&val!==''&&!isNaN(parseFloat(ans))&&!isNaN(parseFloat(val))) ok=parseFloat(val)===parseFloat(ans);
         if(mark){ mark.textContent=val===''?'—':(ok?'✅':'❌'); mark.style.color=ok?'var(--good)':'var(--bad)'; }
+        p.classList.remove('right','wrong'); if(val!=='') p.classList.add(ok?'right':'wrong');
         if(ok) correct++;
       });
       var score=set.querySelector('[data-practice-score]');
@@ -3132,6 +3173,32 @@ function boot(){
     if(saveBtn) saveBtn.addEventListener('click',function(){ var l=document.createElement('a'); l.download='my-artwork.png'; l.href=canvas.toDataURL('image/png'); l.click(); });
   });
 
+
+
+  /* ===== Autosave & restore — survives closing, refresh, power loss ===== */
+  (function(){
+    var KEY='refresher_answers_v1';
+    var ctrls=document.querySelectorAll('input, select, textarea');
+    function save(){
+      try{ var d={};
+        for(var i=0;i<ctrls.length;i++){ var el=ctrls[i];
+          if(el.type==='radio'||el.type==='checkbox') d[i]=el.checked?1:0; else d[i]=el.value; }
+        localStorage.setItem(KEY, JSON.stringify({n:ctrls.length,d:d}));
+      }catch(e){}
+    }
+    try{
+      var raw=localStorage.getItem(KEY);
+      if(raw){ var o=JSON.parse(raw);
+        if(o && o.n===ctrls.length){
+          for(var i=0;i<ctrls.length;i++){ var el=ctrls[i]; if(!(i in o.d)) continue;
+            if(el.type==='radio'||el.type==='checkbox') el.checked=!!o.d[i]; else el.value=o.d[i]; }
+          document.querySelectorAll('textarea.write').forEach(function(t){ try{ t.dispatchEvent(new Event('input')); }catch(e){} });
+        }
+      }
+    }catch(e){}
+    document.addEventListener('input', save, true);
+    document.addEventListener('change', save, true);
+  })();
 
 }
 if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',boot); } else { boot(); }
