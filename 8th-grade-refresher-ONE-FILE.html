@@ -328,7 +328,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
 
   <!-- ================= ART ================= -->
   <section id="art" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button><button class="lt" onclick="showPart('art',3)">Lesson 3</button><button class="lt" onclick="showPart('art',4)">Lesson 4</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button><button class="lt" onclick="showPart('art',3)">Lesson 3</button><button class="lt" onclick="showPart('art',4)">Lesson 4</button><button class="lt" onclick="showPart('art',5)">Lesson 5</button></div>
     <div class="lesson-part active" id="art-1">
     <header class="lesson-head head-art">
       <div class="kicker">Art · Lesson 1 · ★ Your favorite</div>
@@ -869,8 +869,165 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
       </form>
     </section>
     <div class="lesson-nav"><span class="back-link" onclick="showPart('art',3)">← Art · Lesson 3</span>
-      <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
+      <span class="back-link" onclick="showPart('art',5)">Next: Art · Lesson 5 →</span></div>
     </div><!-- /art-4 -->
+
+    <div class="lesson-part" id="art-5">
+    <header class="lesson-head head-art">
+      <div class="kicker">Art · Lesson 5 · ★ Your favorite · a full 45-minute studio lesson</div>
+      <h1>Form &amp; Shading: Drawing in 3D 🎨</h1>
+      <p>Today you turn flat shapes into solid objects that look like you could pick them up. The trick is <strong>light and shadow</strong> — and you already know tints and shades from last time, so you're ready. Take your time: this one is a real 45 minutes of drawing.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎯 Today's plan (about 45 minutes)</h2>
+      <ul class="goal-list">
+        <li><strong>Warm-up</strong> — turn flat shapes into solid <strong>forms</strong></li>
+        <li>Learn the <strong>5 parts of light</strong> on any object</li>
+        <li>Build a <strong>value scale</strong> and read light direction</li>
+        <li><strong>Studio A:</strong> shade a <strong>3D sphere</strong> with your blending wheel</li>
+        <li><strong>Studio B:</strong> a tiny <strong>still-life</strong> of solid shapes with cast shadows</li>
+        <li>Quick check + a short reflection</li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> 5 parts of light</li><li><b>3.</b> Value &amp; direction</li><li><b>4.</b> Studio A</li><li><b>5.</b> Studio B</li><li><b>6.</b> Check</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>🟡 Warm-up · Flat → Solid</h2>
+      <p>Every solid object is built from a simple <span class="term">form</span>. A flat <strong>shape</strong> is 2D (just an outline); a <strong>form</strong> is the same thing made 3D with shading. Match each flat shape to the form it becomes:</p>
+      <div data-tagging>
+        <p class="tagline">A flat <b>circle</b> becomes a
+          <select data-answer="sphere"><option value="">choose…</option><option value="sphere">sphere (ball)</option><option value="cube">cube</option><option value="cone">cone</option></select>,
+          a flat <b>square</b> becomes a
+          <select data-answer="cube"><option value="">choose…</option><option value="sphere">sphere</option><option value="cube">cube (box)</option><option value="cone">cone</option></select>,
+          and a flat <b>triangle</b> becomes a
+          <select data-answer="cone"><option value="">choose…</option><option value="cone">cone (ice-cream)</option><option value="cube">cube</option><option value="sphere">sphere</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check matches</button><span class="score" data-tag-score></span></div>
+      </div>
+      <div class="callout"><span class="ico">💡</span><div>Artists draw the simple form first (a light circle, a light box) and <em>then</em> shade it. The shading is what makes your eye believe it's solid.</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>💡 The 5 parts of light on any object</h2>
+      <p>Pick one light direction (say, top-left) and <strong>every</strong> round object shows these five things, always in the same order from bright to dark:</p>
+      <table class="tidy">
+        <tr><th>#</th><th>Part</th><th>What it is</th></tr>
+        <tr><td>1</td><td><span class="term">Highlight</span></td><td>The tiny brightest dot where light hits straight on</td></tr>
+        <tr><td>2</td><td><span class="term">Midtone</span></td><td>The object's normal, medium color</td></tr>
+        <tr><td>3</td><td><span class="term">Core shadow</span></td><td>The darkest band, curving across the side away from the light</td></tr>
+        <tr><td>4</td><td><span class="term">Reflected light</span></td><td>A soft glow on the shadow edge, bounced up from the table</td></tr>
+        <tr><td>5</td><td><span class="term">Cast shadow</span></td><td>The dark shape the object throws onto the ground</td></tr>
+      </table>
+      <div data-tagging>
+        <p class="tagline">Test yourself: the brightest spot is the
+          <select data-answer="highlight"><option value="">choose…</option><option value="highlight">highlight</option><option value="core">core shadow</option><option value="cast">cast shadow</option></select>,
+          the dark band wrapping the form is the
+          <select data-answer="core"><option value="">choose…</option><option value="highlight">highlight</option><option value="core">core shadow</option><option value="cast">cast shadow</option></select>,
+          and the shadow on the table is the
+          <select data-answer="cast"><option value="">choose…</option><option value="highlight">highlight</option><option value="core">core shadow</option><option value="cast">cast shadow</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🌑🌕 Value scale &amp; light direction</h2>
+      <p>A <span class="term">value scale</span> is a strip that steps from white to black. Drawing one trains your hand to make smooth, believable shadows. In your head, read this 5-step scale from lightest to darkest:</p>
+      <ul class="plan-strip"><li>⚪ White</li><li>🌑 Light gray</li><li>🌘 Medium gray</li><li>🌑 Dark gray</li><li>⚫ Black</li></ul>
+      <div data-tagging>
+        <p class="tagline">If the light comes from the <b>top-left</b>, the highlight sits on the
+          <select data-answer="tl"><option value="">choose…</option><option value="tl">top-left</option><option value="br">bottom-right</option></select>
+          side, and the core shadow + cast shadow fall toward the
+          <select data-answer="br"><option value="">choose…</option><option value="tl">top-left</option><option value="br">bottom-right</option></select>
+          side. The shadow is always on the side
+          <select data-answer="away"><option value="">choose…</option><option value="away">away from the light</option><option value="toward">facing the light</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check direction</button><span class="score" data-tag-score></span></div>
+      </div>
+      <div class="callout"><span class="ico">🎡</span><div><strong>This is where last lesson pays off:</strong> on the blending wheel, slide <em>up</em> for the highlight (a tint) and <em>down</em> for the core and cast shadows (shades) — same color, different value.</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>🖌️ Studio A · Shade a 3D sphere</h2>
+      <p>Let's make a flat circle look like a real ball. Work in this order:</p>
+      <ul class="goal-list">
+        <li><strong>1.</strong> Pick a color on the wheel and lightly fill a big circle (that's your midtone).</li>
+        <li><strong>2.</strong> Slide the side bar <strong>down</strong> for a darker shade and paint the <strong>core shadow</strong> as a curved band on the lower-right.</li>
+        <li><strong>3.</strong> Slide <strong>up</strong> for a light tint and dab a <strong>highlight</strong> on the upper-left.</li>
+        <li><strong>4.</strong> Switch to ink/black and paint a <strong>cast shadow</strong> on the ground, stretching to the lower-right.</li>
+        <li><strong>5.</strong> Save it when you're proud of it!</li>
+      </ul>
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches">
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#f5c518" title="Yellow"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#e85d5d" title="Red"></span>
+            <span class="swatch" data-color="#8b5cf6" title="Purple"></span>
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize5">Brush</label>
+            <input type="range" id="brushSize5" min="2" max="60" value="20" /><span data-brushval>20px</span></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="artCanvas5" aria-label="Sphere shading studio"></canvas></div>
+        <div class="btn-row"><button class="btn" data-save>💾 Save my sphere</button>
+          <button class="btn ghost" data-clear>🧽 Clear canvas</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🍎 Studio B · A tiny still-life</h2>
+      <p>Now use the same trick on a little scene. Draw <strong>two or three</strong> solid objects sitting on a table — maybe a ball, a box, and a cup — and give each one a highlight, a core shadow, and a cast shadow that all point the <strong>same</strong> direction (because there's one light). Matching shadow directions is the secret that makes a drawing look real.</p>
+      <div class="callout"><span class="ico">📏</span><div><strong>Composition tip — the rule of thirds:</strong> imagine the canvas split into 9 squares by two lines across and two down. Place your main object near a spot where the lines cross, not dead-center. It instantly looks more interesting.</div></div>
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches">
+            <span class="swatch" data-color="#e85d5d" title="Red"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#f5c518" title="Yellow"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#8b5cf6" title="Purple"></span>
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize6">Brush</label>
+            <input type="range" id="brushSize6" min="2" max="60" value="14" /><span data-brushval>14px</span></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="artCanvas6" aria-label="Still-life studio"></canvas></div>
+        <div class="btn-row"><button class="btn" data-save>💾 Save my still-life</button>
+          <button class="btn ghost" data-clear>🧽 Clear canvas</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="form" data-why="A shape is a flat 2D outline; a form is a 3D object created with shading."><div class="q"><span class="num">1</span>A flat 2D outline is a <em>shape</em>. The same thing made 3D with shading is a…</div><div class="options"><label><input type="radio" name="a5q1" value="form" />Form</label><label><input type="radio" name="a5q1" value="line" />Line</label><label><input type="radio" name="a5q1" value="hue" />Hue</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="highlight" data-why="The highlight is the brightest spot, where light hits the object most directly."><div class="q"><span class="num">2</span>The brightest spot, where the light hits straight on, is the…</div><div class="options"><label><input type="radio" name="a5q2" value="highlight" />Highlight</label><label><input type="radio" name="a5q2" value="core" />Core shadow</label><label><input type="radio" name="a5q2" value="cast" />Cast shadow</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="core" data-why="The core shadow is the darkest band that wraps around the side of the form away from the light."><div class="q"><span class="num">3</span>The dark band that curves around the side of a ball away from the light is the…</div><div class="options"><label><input type="radio" name="a5q3" value="core" />Core shadow</label><label><input type="radio" name="a5q3" value="highlight" />Highlight</label><label><input type="radio" name="a5q3" value="midtone" />Midtone</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="cast" data-why="The cast shadow is the dark shape the object throws onto the ground or table."><div class="q"><span class="num">4</span>The shadow an object throws onto the table is the…</div><div class="options"><label><input type="radio" name="a5q4" value="cast" />Cast shadow</label><label><input type="radio" name="a5q4" value="core" />Core shadow</label><label><input type="radio" name="a5q4" value="reflected" />Reflected light</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="down" data-why="To darken a color for the core and cast shadows, slide the value bar DOWN to a shade."><div class="q"><span class="num">5</span>On your blending wheel, to paint a shadow you slide the side bar…</div><div class="options"><label><input type="radio" name="a5q5" value="down" />Down (darker shade)</label><label><input type="radio" name="a5q5" value="up" />Up (lighter tint)</label><label><input type="radio" name="a5q5" value="off" />It does nothing</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="same" data-why="With one light source, every object's shadows point the SAME direction — that's what makes a scene look real."><div class="q"><span class="num">6</span>In a scene with one light, all the cast shadows should point…</div><div class="options"><label><input type="radio" name="a5q6" value="same" />The same direction</label><label><input type="radio" name="a5q6" value="random" />Random directions</label><label><input type="radio" name="a5q6" value="up" />Straight up</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="thirds" data-why="The rule of thirds: place your subject off-center, near where the third-lines cross, to make a stronger composition."><div class="q"><span class="num">7</span>Placing your main object off-center, near where the grid lines cross, is the rule of…</div><div class="options"><label><input type="radio" name="a5q7" value="thirds" />Thirds</label><label><input type="radio" name="a5q7" value="halves" />Halves</label><label><input type="radio" name="a5q7" value="center" />Dead center</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>📝 Reflection (2 minutes)</h2>
+      <p>In a couple of sentences: which of your two drawings turned out better, and what made the object look solid — the highlight, the core shadow, or the cast shadow?</p>
+      <div class="tryit">
+        <textarea class="write" data-count="#a5wc" placeholder="Type a sentence or two here…"></textarea>
+        <div class="wordcount" id="a5wc">0 words</div>
+      </div>
+    </section>
+
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('art',4)">← Art · Lesson 4</span>
+      <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
+    </div><!-- /art-5 -->
   </section>
 
   <!-- ================= MATH ================= -->
