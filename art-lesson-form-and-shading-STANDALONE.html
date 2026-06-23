@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Art Studio — Form &amp; Shading (a 45-minute lesson)</title>
+<style>
+
+:root{
+  --ink:#1f2440;--ink-soft:#4a5072;--paper:#fffdf8;--cream:#fef6e4;--line:#e7e0d2;
+  --math:#2d6cdf;--english:#e0529c;--science:#1fae8b;--social:#f0883e;--art:#8b5cf6;--anatomy:#d64550;
+  --good:#1fae8b;--bad:#e85d5d;--shadow:0 10px 30px rgba(31,36,64,0.12);--radius:18px;
+  --font:"Segoe UI","Trebuchet MS",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font);color:var(--ink);line-height:1.6;min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(139,92,246,0.10),transparent 38%),
+    radial-gradient(circle at 88% 12%,rgba(224,82,156,0.10),transparent 40%),
+    radial-gradient(circle at 50% 100%,rgba(45,108,223,0.10),transparent 45%),
+    var(--paper);}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding:24px 20px 80px;}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;font-size:1.05rem;cursor:pointer;}
+.brand .logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--art),var(--english));color:#fff;font-size:1.2rem;box-shadow:var(--shadow);}
+
+/* subject tab nav */
+.subject-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.subject-nav button{font-family:inherit;font-weight:800;cursor:pointer;border:1px solid var(--line);
+  background:#fff;color:var(--ink-soft);padding:9px 16px;border-radius:999px;transition:transform .12s ease;}
+.subject-nav button:hover{transform:translateY(-2px);}
+.subject-nav button.navactive{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.lesson-section{display:none;}
+.lesson-section.active{display:block;}
+
+.lesson-tabs{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap;}
+.lesson-tabs .lt{font-family:inherit;font-weight:800;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink-soft);padding:8px 18px;border-radius:999px;}
+.lesson-tabs .lt.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.lesson-part{display:none;}
+.lesson-part.active{display:block;}
+
+.hero{background:linear-gradient(135deg,#fff,var(--cream));border:1px solid var(--line);border-radius:var(--radius);
+  padding:36px 32px;box-shadow:var(--shadow);margin-bottom:32px;position:relative;overflow:hidden;}
+.hero h1{margin:0 0 10px;font-size:clamp(1.8rem,4vw,2.6rem);}
+.hero p{margin:0;color:var(--ink-soft);max-width:60ch;}
+.pill{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:4px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);margin-bottom:14px;}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:hidden;cursor:pointer;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--accent,var(--ink));}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(31,36,64,.18);}
+.card .emoji{font-size:2rem;}
+.card h3{margin:12px 0 6px;font-size:1.25rem;}
+.card p{margin:0 0 14px;color:var(--ink-soft);font-size:.95rem;}
+.card .tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent,var(--ink));
+  background:color-mix(in srgb,var(--accent,#000) 12%,#fff);padding:4px 10px;border-radius:999px;}
+.card .fav{position:absolute;top:14px;right:14px;font-size:.72rem;font-weight:800;background:var(--art);color:#fff;
+  padding:4px 10px;border-radius:999px;letter-spacing:.03em;}
+.card.math{--accent:var(--math);}
+.card.english{--accent:var(--english);}
+.card.science{--accent:var(--science);}
+.card.social{--accent:var(--social);}
+.card.art{--accent:var(--art);}
+.card.anatomy{--accent:var(--anatomy);}
+
+.lesson-head{border-radius:var(--radius);padding:30px 32px;color:#fff;box-shadow:var(--shadow);margin-bottom:28px;}
+.lesson-head .kicker{font-weight:700;opacity:.9;letter-spacing:.05em;text-transform:uppercase;font-size:.8rem;}
+.lesson-head h1{margin:8px 0 6px;font-size:clamp(1.6rem,3.5vw,2.3rem);}
+.lesson-head p{margin:0;opacity:.95;max-width:64ch;}
+.head-math{background:linear-gradient(135deg,var(--math),#5b8def);}
+.head-english{background:linear-gradient(135deg,var(--english),#f178b6);}
+.head-science{background:linear-gradient(135deg,var(--science),#41cda8);}
+.head-social{background:linear-gradient(135deg,var(--social),#f5a86a);}
+.head-art{background:linear-gradient(135deg,var(--art),#b08bf7);}
+.head-anatomy{background:linear-gradient(135deg,var(--anatomy),#ef7a83);}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow);margin-bottom:24px;}
+.panel h2{margin-top:0;display:flex;align-items:center;gap:10px;}
+.panel h3{margin:22px 0 8px;}
+
+.goal-list{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+.goal-list li{padding-left:30px;position:relative;}
+.goal-list li::before{content:"✓";position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;
+  display:grid;place-items:center;font-size:.8rem;font-weight:800;background:var(--good);color:#fff;}
+
+.example{background:var(--cream);border:1px dashed var(--line);border-radius:14px;padding:16px 18px;margin:14px 0;}
+.example .label{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);}
+
+.steps{counter-reset:step;list-style:none;padding:0;margin:12px 0;}
+.steps li{counter-increment:step;padding:8px 0 8px 42px;position:relative;border-bottom:1px solid var(--line);}
+.steps li:last-child{border-bottom:0;}
+.steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;border-radius:8px;
+  display:grid;place-items:center;font-weight:800;color:#fff;background:var(--ink);}
+
+.term{font-weight:800;color:var(--ink);}
+mark{background:#fff2a8;padding:0 4px;border-radius:4px;}
+code,.code{font-family:"Consolas","Courier New",monospace;background:#f3f1ea;padding:2px 7px;border-radius:6px;font-size:.95em;}
+
+.callout{display:flex;gap:12px;background:color-mix(in srgb,var(--science) 10%,#fff);border-left:5px solid var(--science);
+  border-radius:10px;padding:14px 16px;margin:16px 0;}
+.callout .ico{font-size:1.4rem;}
+
+table.tidy{width:100%;border-collapse:collapse;margin:14px 0;}
+table.tidy th,table.tidy td{border:1px solid var(--line);padding:8px 12px;text-align:left;}
+table.tidy th{background:var(--cream);}
+
+.quiz{display:grid;gap:18px;}
+.question{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;}
+.question .q{font-weight:700;margin-bottom:10px;}
+.question .q .num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;
+  background:var(--ink);color:#fff;font-size:.85rem;margin-right:8px;}
+.options{display:grid;gap:8px;}
+.options label{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;
+  padding:10px 12px;cursor:pointer;transition:background .12s ease,border-color .12s ease;}
+.options label:hover{background:var(--cream);}
+.options input{width:18px;height:18px;accent-color:var(--math);}
+.options label.correct{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,#fff);}
+.options label.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,#fff);}
+.feedback{margin-top:10px;font-weight:600;display:none;}
+.feedback.show{display:block;}
+.feedback.right{color:var(--good);}
+.feedback.miss{color:var(--bad);}
+
+.btn{border:0;cursor:pointer;font-family:inherit;font-weight:800;font-size:1rem;padding:12px 24px;border-radius:999px;
+  color:#fff;background:var(--ink);box-shadow:var(--shadow);transition:transform .15s ease,opacity .15s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none;}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px;}
+.score{font-weight:800;font-size:1.1rem;padding:10px 18px;border-radius:999px;background:var(--cream);
+  border:1px solid var(--line);display:none;}
+.score.show{display:inline-block;}
+
+.tryit{background:linear-gradient(135deg,#fff,var(--cream));border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0;}
+.tryit input[type="text"],.tryit input[type="number"]{font-family:inherit;font-size:1rem;padding:9px 12px;
+  border:1px solid var(--line);border-radius:10px;width:130px;}
+.tryit .result{margin-top:10px;font-weight:700;min-height:1.4em;}
+
+.studio{display:grid;gap:16px;}
+.canvas-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow);}
+#artCanvas{width:100%;height:auto;border-radius:10px;background:#fff;touch-action:none;cursor:crosshair;display:block;}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.swatches{display:flex;gap:8px;flex-wrap:wrap;}
+.swatch{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer;}
+.swatch.active{transform:scale(1.18);box-shadow:0 0 0 2px var(--ink);}
+.brush-size{display:flex;align-items:center;gap:8px;}
+.wheel{display:flex;gap:20px;flex-wrap:wrap;align-items:center;}
+.wheel .ring{width:180px;height:180px;border-radius:50%;
+  background:conic-gradient(red,orange,yellow,green,cyan,blue,magenta,red);box-shadow:var(--shadow);flex-shrink:0;}
+
+.lesson-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:10px;}
+.back-link{text-decoration:none;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--line);
+  padding:8px 14px;border-radius:999px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;}
+.back-link:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.foot{text-align:center;color:var(--ink-soft);margin-top:40px;font-size:.9rem;}
+.progress-note{font-size:.85rem;color:var(--ink-soft);margin-top:6px;}
+
+.pacer{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:rgba(255,253,248,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;
+  padding:12px 16px;box-shadow:var(--shadow);margin-bottom:24px;}
+.pacer.running{border-color:var(--science);}
+.pacer .pace-btn{border:0;cursor:pointer;font-family:inherit;font-weight:800;padding:9px 16px;border-radius:999px;color:#fff;background:var(--ink);}
+.pacer .pace-btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);}
+.pacer .pace-time{font-weight:800;font-variant-numeric:tabular-nums;font-size:1.05rem;}
+.pacer .pace-track{flex:1 1 160px;min-width:120px;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line);}
+.pacer .pace-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--science),var(--math));transition:width .4s ease;}
+.pacer .pace-seg{font-size:.85rem;font-weight:700;color:var(--ink-soft);flex-basis:100%;}
+.pacer .pace-seg b{color:var(--ink);}
+
+.plan-strip{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;list-style:none;padding:0;}
+.plan-strip li{font-size:.82rem;font-weight:700;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:5px 12px;}
+.plan-strip li b{color:var(--math);}
+
+.break-overlay{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
+  background:rgba(31,36,64,.78);backdrop-filter:blur(4px);padding:20px;}
+.break-overlay.show{display:flex;}
+.break-card{background:#fff;border-radius:var(--radius);padding:34px 30px;max-width:460px;text-align:center;box-shadow:var(--shadow);}
+.break-card .big{font-size:3rem;}
+.break-card h2{margin:8px 0 6px;}
+.break-card p{color:var(--ink-soft);}
+.break-card .btn-row{justify-content:center;}
+
+.passage{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0;font-size:1.02rem;}
+.passage p{margin:0 0 10px;}
+.passage p:last-child{margin-bottom:0;}
+
+.tagline{font-size:1.05rem;line-height:2.4;}
+.tagline select{font-family:inherit;font-size:.9rem;padding:4px 6px;border-radius:8px;border:1px solid var(--line);margin:0 2px;background:#fff;}
+.tagline select.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,#fff);}
+.tagline select.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,#fff);}
+
+.practice-grid{display:grid;gap:12px;}
+.prob{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;}
+.prob .pnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:.85rem;flex-shrink:0;}
+.prob .qtext{font-weight:700;flex:1 1 200px;}
+.prob input{font-family:inherit;font-size:1rem;padding:7px 10px;border:1px solid var(--line);border-radius:9px;width:90px;}
+.prob .mark{font-weight:800;min-width:1.4em;}
+
+.checklist{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px;}
+.checklist li{display:flex;gap:10px;align-items:flex-start;}
+.checklist input{width:18px;height:18px;margin-top:3px;accent-color:var(--science);}
+
+textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;padding:12px;border:1px solid var(--line);border-radius:12px;resize:vertical;}
+.wordcount{font-size:.85rem;color:var(--ink-soft);margin-top:6px;}
+
+.value-scale{display:flex;gap:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);margin:12px 0;}
+.value-scale div{flex:1;height:46px;display:grid;place-items:center;font-size:.8rem;font-weight:700;}
+
+.challenge{counter-reset:ch;list-style:none;padding:0;margin:12px 0;display:grid;gap:10px;}
+.challenge li{counter-increment:ch;position:relative;padding:12px 14px 12px 50px;border:1px solid var(--line);border-radius:12px;background:#fff;}
+.challenge li::before{content:counter(ch);position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:8px;
+  display:grid;place-items:center;font-weight:800;color:#fff;background:var(--art);}
+
+@media (max-width:540px){.hero,.lesson-head{padding:24px 20px;}.panel{padding:20px;}}
+
+.study-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:rgba(255,253,248,.97);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;
+  padding:10px 14px;box-shadow:var(--shadow);margin-bottom:18px;}
+.study-bar .save-note{font-weight:700;color:var(--ink-soft);font-size:.9rem;}
+.review-banner{display:none;background:color-mix(in srgb,var(--math) 12%,#fff);border:1px solid var(--line);
+  border-left:5px solid var(--math);border-radius:12px;padding:12px 16px;margin-bottom:18px;}
+.question.q-wrong{border-color:var(--bad);box-shadow:inset 6px 0 0 var(--bad);background:color-mix(in srgb,var(--bad) 6%,#fff);}
+.question.q-right{box-shadow:inset 6px 0 0 var(--good);}
+.question.q-wrong .q::after{content:"  \2717 WRONG";color:var(--bad);font-weight:800;font-size:.78rem;letter-spacing:.04em;}
+.question.q-right .q::after{content:"  \2713";color:var(--good);font-weight:800;}
+.prob.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,#fff);}
+.prob.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,#fff);}
+.wheel-wrap{display:flex;align-items:center;gap:10px;}
+.color-wheel{width:96px;height:96px;border-radius:50%;cursor:crosshair;flex-shrink:0;
+  background:radial-gradient(circle,#fff 0%,rgba(255,255,255,0) 72%),conic-gradient(red,yellow,lime,cyan,blue,magenta,red);
+  box-shadow:0 0 0 1px var(--line),var(--shadow);}
+.wheel-side{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.color-current{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);background:#8b5cf6;}
+.shade-slider{width:84px;}
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <span class="brand"><span class="logo">🎨</span><span>Art Studio · Form &amp; Shading</span></span>
+    </div>
+
+    <div class="study-bar">
+      <span class="save-note">💾 Everything saves automatically on this device</span>
+      <span style="flex:1 1 auto"></span>
+      <button class="btn" onclick="reviewAll()">✅ Check my answers</button>
+      <button class="btn ghost" onclick="resetAll()">🗑️ Start fresh</button>
+    </div>
+    <div class="review-banner" id="reviewBanner"></div>
+
+    <section class="lesson-section active">
+<header class="lesson-head head-art">
+      <div class="kicker">Art · ★ Your favorite subject · a full 45-minute studio lesson</div>
+      <h1>Form &amp; Shading: Drawing in 3D 🎨</h1>
+      <p>Today you turn flat shapes into solid objects that look like you could pick them up. The trick is <strong>light and shadow</strong> — and you already know tints and shades from last time, so you're ready. Take your time: this one is a real 45 minutes of drawing.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎯 Today's plan (about 45 minutes)</h2>
+      <ul class="goal-list">
+        <li><strong>Warm-up</strong> — turn flat shapes into solid <strong>forms</strong></li>
+        <li>Learn the <strong>5 parts of light</strong> on any object</li>
+        <li>Build a <strong>value scale</strong> and read light direction</li>
+        <li><strong>Studio A:</strong> shade a <strong>3D sphere</strong> with your blending wheel</li>
+        <li><strong>Studio B:</strong> a tiny <strong>still-life</strong> of solid shapes with cast shadows</li>
+        <li>Quick check + a short reflection</li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> 5 parts of light</li><li><b>3.</b> Value &amp; direction</li><li><b>4.</b> Studio A</li><li><b>5.</b> Studio B</li><li><b>6.</b> Check</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>🟡 Warm-up · Flat → Solid</h2>
+      <p>Every solid object is built from a simple <span class="term">form</span>. A flat <strong>shape</strong> is 2D (just an outline); a <strong>form</strong> is the same thing made 3D with shading. Match each flat shape to the form it becomes:</p>
+      <div data-tagging>
+        <p class="tagline">A flat <b>circle</b> becomes a
+          <select data-answer="sphere"><option value="">choose…</option><option value="sphere">sphere (ball)</option><option value="cube">cube</option><option value="cone">cone</option></select>,
+          a flat <b>square</b> becomes a
+          <select data-answer="cube"><option value="">choose…</option><option value="sphere">sphere</option><option value="cube">cube (box)</option><option value="cone">cone</option></select>,
+          and a flat <b>triangle</b> becomes a
+          <select data-answer="cone"><option value="">choose…</option><option value="cone">cone (ice-cream)</option><option value="cube">cube</option><option value="sphere">sphere</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check matches</button><span class="score" data-tag-score></span></div>
+      </div>
+      <div class="callout"><span class="ico">💡</span><div>Artists draw the simple form first (a light circle, a light box) and <em>then</em> shade it. The shading is what makes your eye believe it's solid.</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>💡 The 5 parts of light on any object</h2>
+      <p>Pick one light direction (say, top-left) and <strong>every</strong> round object shows these five things, always in the same order from bright to dark:</p>
+      <table class="tidy">
+        <tr><th>#</th><th>Part</th><th>What it is</th></tr>
+        <tr><td>1</td><td><span class="term">Highlight</span></td><td>The tiny brightest dot where light hits straight on</td></tr>
+        <tr><td>2</td><td><span class="term">Midtone</span></td><td>The object's normal, medium color</td></tr>
+        <tr><td>3</td><td><span class="term">Core shadow</span></td><td>The darkest band, curving across the side away from the light</td></tr>
+        <tr><td>4</td><td><span class="term">Reflected light</span></td><td>A soft glow on the shadow edge, bounced up from the table</td></tr>
+        <tr><td>5</td><td><span class="term">Cast shadow</span></td><td>The dark shape the object throws onto the ground</td></tr>
+      </table>
+      <div data-tagging>
+        <p class="tagline">Test yourself: the brightest spot is the
+          <select data-answer="highlight"><option value="">choose…</option><option value="highlight">highlight</option><option value="core">core shadow</option><option value="cast">cast shadow</option></select>,
+          the dark band wrapping the form is the
+          <select data-answer="core"><option value="">choose…</option><option value="highlight">highlight</option><option value="core">core shadow</option><option value="cast">cast shadow</option></select>,
+          and the shadow on the table is the
+          <select data-answer="cast"><option value="">choose…</option><option value="highlight">highlight</option><option value="core">core shadow</option><option value="cast">cast shadow</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🌑🌕 Value scale &amp; light direction</h2>
+      <p>A <span class="term">value scale</span> is a strip that steps from white to black. Drawing one trains your hand to make smooth, believable shadows. In your head, read this 5-step scale from lightest to darkest:</p>
+      <ul class="plan-strip"><li>⚪ White</li><li>🌑 Light gray</li><li>🌘 Medium gray</li><li>🌑 Dark gray</li><li>⚫ Black</li></ul>
+      <div data-tagging>
+        <p class="tagline">If the light comes from the <b>top-left</b>, the highlight sits on the
+          <select data-answer="tl"><option value="">choose…</option><option value="tl">top-left</option><option value="br">bottom-right</option></select>
+          side, and the core shadow + cast shadow fall toward the
+          <select data-answer="br"><option value="">choose…</option><option value="tl">top-left</option><option value="br">bottom-right</option></select>
+          side. The shadow is always on the side
+          <select data-answer="away"><option value="">choose…</option><option value="away">away from the light</option><option value="toward">facing the light</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check direction</button><span class="score" data-tag-score></span></div>
+      </div>
+      <div class="callout"><span class="ico">🎡</span><div><strong>This is where last lesson pays off:</strong> on the blending wheel, slide <em>up</em> for the highlight (a tint) and <em>down</em> for the core and cast shadows (shades) — same color, different value.</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>🖌️ Studio A · Shade a 3D sphere</h2>
+      <p>Let's make a flat circle look like a real ball. Work in this order:</p>
+      <ul class="goal-list">
+        <li><strong>1.</strong> Pick a color on the wheel and lightly fill a big circle (that's your midtone).</li>
+        <li><strong>2.</strong> Slide the side bar <strong>down</strong> for a darker shade and paint the <strong>core shadow</strong> as a curved band on the lower-right.</li>
+        <li><strong>3.</strong> Slide <strong>up</strong> for a light tint and dab a <strong>highlight</strong> on the upper-left.</li>
+        <li><strong>4.</strong> Switch to ink/black and paint a <strong>cast shadow</strong> on the ground, stretching to the lower-right.</li>
+        <li><strong>5.</strong> Save it when you're proud of it!</li>
+      </ul>
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches">
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#f5c518" title="Yellow"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#e85d5d" title="Red"></span>
+            <span class="swatch" data-color="#8b5cf6" title="Purple"></span>
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize5">Brush</label>
+            <input type="range" id="brushSize5" min="2" max="60" value="20" /><span data-brushval>20px</span></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="artCanvas5" aria-label="Sphere shading studio"></canvas></div>
+        <div class="btn-row"><button class="btn" data-save>💾 Save my sphere</button>
+          <button class="btn ghost" data-clear>🧽 Clear canvas</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🍎 Studio B · A tiny still-life</h2>
+      <p>Now use the same trick on a little scene. Draw <strong>two or three</strong> solid objects sitting on a table — maybe a ball, a box, and a cup — and give each one a highlight, a core shadow, and a cast shadow that all point the <strong>same</strong> direction (because there's one light). Matching shadow directions is the secret that makes a drawing look real.</p>
+      <div class="callout"><span class="ico">📏</span><div><strong>Composition tip — the rule of thirds:</strong> imagine the canvas split into 9 squares by two lines across and two down. Place your main object near a spot where the lines cross, not dead-center. It instantly looks more interesting.</div></div>
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches">
+            <span class="swatch" data-color="#e85d5d" title="Red"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#f5c518" title="Yellow"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#8b5cf6" title="Purple"></span>
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize6">Brush</label>
+            <input type="range" id="brushSize6" min="2" max="60" value="14" /><span data-brushval>14px</span></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="artCanvas6" aria-label="Still-life studio"></canvas></div>
+        <div class="btn-row"><button class="btn" data-save>💾 Save my still-life</button>
+          <button class="btn ghost" data-clear>🧽 Clear canvas</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="form" data-why="A shape is a flat 2D outline; a form is a 3D object created with shading."><div class="q"><span class="num">1</span>A flat 2D outline is a <em>shape</em>. The same thing made 3D with shading is a…</div><div class="options"><label><input type="radio" name="a5q1" value="form" />Form</label><label><input type="radio" name="a5q1" value="line" />Line</label><label><input type="radio" name="a5q1" value="hue" />Hue</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="highlight" data-why="The highlight is the brightest spot, where light hits the object most directly."><div class="q"><span class="num">2</span>The brightest spot, where the light hits straight on, is the…</div><div class="options"><label><input type="radio" name="a5q2" value="highlight" />Highlight</label><label><input type="radio" name="a5q2" value="core" />Core shadow</label><label><input type="radio" name="a5q2" value="cast" />Cast shadow</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="core" data-why="The core shadow is the darkest band that wraps around the side of the form away from the light."><div class="q"><span class="num">3</span>The dark band that curves around the side of a ball away from the light is the…</div><div class="options"><label><input type="radio" name="a5q3" value="core" />Core shadow</label><label><input type="radio" name="a5q3" value="highlight" />Highlight</label><label><input type="radio" name="a5q3" value="midtone" />Midtone</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="cast" data-why="The cast shadow is the dark shape the object throws onto the ground or table."><div class="q"><span class="num">4</span>The shadow an object throws onto the table is the…</div><div class="options"><label><input type="radio" name="a5q4" value="cast" />Cast shadow</label><label><input type="radio" name="a5q4" value="core" />Core shadow</label><label><input type="radio" name="a5q4" value="reflected" />Reflected light</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="down" data-why="To darken a color for the core and cast shadows, slide the value bar DOWN to a shade."><div class="q"><span class="num">5</span>On your blending wheel, to paint a shadow you slide the side bar…</div><div class="options"><label><input type="radio" name="a5q5" value="down" />Down (darker shade)</label><label><input type="radio" name="a5q5" value="up" />Up (lighter tint)</label><label><input type="radio" name="a5q5" value="off" />It does nothing</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="same" data-why="With one light source, every object's shadows point the SAME direction — that's what makes a scene look real."><div class="q"><span class="num">6</span>In a scene with one light, all the cast shadows should point…</div><div class="options"><label><input type="radio" name="a5q6" value="same" />The same direction</label><label><input type="radio" name="a5q6" value="random" />Random directions</label><label><input type="radio" name="a5q6" value="up" />Straight up</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="thirds" data-why="The rule of thirds: place your subject off-center, near where the third-lines cross, to make a stronger composition."><div class="q"><span class="num">7</span>Placing your main object off-center, near where the grid lines cross, is the rule of…</div><div class="options"><label><input type="radio" name="a5q7" value="thirds" />Thirds</label><label><input type="radio" name="a5q7" value="halves" />Halves</label><label><input type="radio" name="a5q7" value="center" />Dead center</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>📝 Reflection (2 minutes)</h2>
+      <p>In a couple of sentences: which of your two drawings turned out better, and what made the object look solid — the highlight, the core shadow, or the cast shadow?</p>
+      <div class="tryit">
+        <textarea class="write" data-count="#a5wc" placeholder="Type a sentence or two here…"></textarea>
+        <div class="wordcount" id="a5wc">0 words</div>
+      </div>
+    </section>
+    </section>
+
+    <p class="foot">A 45-minute art studio lesson. Everything you type or draw is saved automatically on this device.</p>
+  </div>
+
+<script>
+
+
+
+/* ---------- Tab navigation ---------- */
+function showLesson(id){
+  var secs = document.querySelectorAll('.lesson-section');
+  for(var i=0;i<secs.length;i++) secs[i].classList.remove('active');
+  var el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  var btns = document.querySelectorAll('.subject-nav button');
+  for(var j=0;j<btns.length;j++) btns[j].classList.toggle('navactive', btns[j].getAttribute('data-target')===id);
+  try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
+}
+
+/* ---------- Lesson 1 / Lesson 2 switch inside a subject ---------- */
+function showPart(subject,n){
+  var sec=document.getElementById(subject); if(!sec) return;
+  var parts=sec.querySelectorAll('.lesson-part');
+  for(var i=0;i<parts.length;i++) parts[i].classList.remove('active');
+  var part=document.getElementById(subject+'-'+n); if(part) part.classList.add('active');
+  var tabs=sec.querySelectorAll('.lesson-tabs .lt');
+  for(var j=0;j<tabs.length;j++) tabs[j].classList.toggle('active', j===(n-1));
+  try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
+}
+
+/* ---------- Review every lesson at once + clear-all ---------- */
+function reviewAll(){
+  var btns=document.querySelectorAll('[data-check],[data-grade]');
+  for(var i=0;i<btns.length;i++){ try{ btns[i].click(); }catch(e){} }
+  var right=document.querySelectorAll('.q-right').length+document.querySelectorAll('.prob.right').length+document.querySelectorAll('.tagline select.ok').length;
+  var wrong=document.querySelectorAll('.q-wrong').length+document.querySelectorAll('.prob.wrong').length+document.querySelectorAll('.tagline select.no').length;
+  var b=document.getElementById('reviewBanner');
+  if(b){ b.style.display='block';
+    b.innerHTML='<strong>Reviewed every lesson.</strong> &nbsp; ✅ <strong>'+right+'</strong> right &nbsp;·&nbsp; ❌ <strong>'+wrong+'</strong> wrong or blank.<br />Open each subject and lesson — every <strong style="color:#e85d5d">wrong answer is outlined in red and tagged ✗ WRONG</strong>.'; }
+  try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
+}
+function resetAll(){
+  if(!window.confirm('Erase ALL saved answers and start completely fresh? This cannot be undone.')) return;
+  try{ localStorage.removeItem('refresher_art5_v1'); }catch(e){}
+  location.reload();
+}
+
+/* ---------- Name greeting (saved on this device) ---------- */
+function saveName(){
+  var input=document.getElementById('nameInput');
+  var el=document.querySelector('[data-greeting]');
+  if(input&&input.value.trim()){
+    try{ localStorage.setItem('learnerName',input.value.trim()); }catch(e){}
+    if(el) el.textContent="Welcome, "+input.value.trim()+"! 👋 Let's learn.";
+  }
+}
+
+/* ---------- Art color mixer ---------- */
+function mixColor(){
+  var a=document.getElementById('c1').value, b=document.getElementById('c2').value;
+  var key=[a,b].sort().join('+');
+  var map={'red+yellow':'🟠 Orange — a warm secondary color!','blue+yellow':'🟢 Green — a fresh secondary color!',
+    'blue+red':'🟣 Purple — a cool secondary color!','red+red':"That's still red! Pick two different colors. 🙂",
+    'yellow+yellow':"That's still yellow! Pick two different colors. 🙂",'blue+blue':"That's still blue! Pick two different colors. 🙂"};
+  document.getElementById('mixResult').textContent=map[key]||'Pick two colors and press Mix!';
+}
+
+/* ---------- Social studies try-its ---------- */
+function checkScale(){
+  var v=Number(document.getElementById('scaleAns').value), el=document.getElementById('scaleResult'), ok=v===150;
+  el.textContent=ok?'✅ Yes! 3 × 50 = 150 miles.':'❌ Not yet — multiply the inches by the miles-per-inch (3 × 50).';
+  el.style.color=ok?'var(--good)':'var(--bad)';
+}
+function checkLine(){
+  var v=document.getElementById('linePick').value, el=document.getElementById('lineResult'), ok=v==='equator';
+  el.textContent=ok?'✅ Correct! The Equator is 0° latitude.':"❌ Not quite — that 0° latitude line circles Earth's middle.";
+  el.style.color=ok?'var(--good)':'var(--bad)';
+}
+
+function boot(){
+
+  /* greeting on load */
+  var g=document.querySelector('[data-greeting]');
+  try{ var saved=localStorage.getItem('learnerName'); if(saved&&g) g.textContent="Welcome back, "+saved+"! 👋"; }catch(e){}
+
+  /* ===== Quiz engine ===== */
+  document.querySelectorAll('form.quiz').forEach(function(form){
+    var questions=form.querySelectorAll('.question');
+    var checkBtn=form.querySelector('[data-check]');
+    var resetBtn=form.querySelector('[data-reset]');
+    var scoreEl=form.querySelector('.score');
+    if(checkBtn) checkBtn.addEventListener('click',function(){
+      var correct=0;
+      questions.forEach(function(q){
+        var answer=q.getAttribute('data-answer');
+        var why=q.getAttribute('data-why')||'';
+        var chosen=q.querySelector('input:checked');
+        var feedback=q.querySelector('.feedback');
+        q.classList.remove('q-right','q-wrong');
+        q.querySelectorAll('.options label').forEach(function(l){ l.classList.remove('correct','wrong'); });
+        q.querySelectorAll('.options input').forEach(function(input){
+          if(input.value===answer) input.closest('label').classList.add('correct'); });
+        if(feedback){
+          feedback.classList.add('show');
+          if(chosen&&chosen.value===answer){ correct++; q.classList.add('q-right'); feedback.className='feedback show right'; feedback.textContent='✅ Correct! '+why; }
+          else if(chosen){ q.classList.add('q-wrong'); chosen.closest('label').classList.add('wrong'); feedback.className='feedback show miss'; feedback.textContent='❌ Not quite. '+why; }
+          else { q.classList.add('q-wrong'); feedback.className='feedback show miss'; feedback.textContent='⚠️ You skipped this one. '+why; }
+        }
+      });
+      if(scoreEl){
+        var total=questions.length; scoreEl.classList.add('show');
+        var msg='You got '+correct+' / '+total+'. '; var pct=correct/total;
+        if(pct===1) msg+="Perfect! 🌟 You're ready for 8th grade!";
+        else if(pct>=0.7) msg+="Great work! 💪 Review the misses and you've got it.";
+        else msg+="Good start! 🌱 Re-read the lesson and try again.";
+        scoreEl.textContent=msg;
+      }
+    });
+    if(resetBtn) resetBtn.addEventListener('click',function(){
+      form.querySelectorAll('input').forEach(function(i){ i.checked=false; });
+      form.querySelectorAll('.feedback').forEach(function(f){ f.classList.remove('show','right','miss'); f.textContent=''; });
+      form.querySelectorAll('.options label').forEach(function(l){ l.classList.remove('correct','wrong'); });
+      form.querySelectorAll('.question').forEach(function(q){ q.classList.remove('q-right','q-wrong'); });
+      if(scoreEl){ scoreEl.classList.remove('show'); scoreEl.textContent=''; }
+    });
+  });
+
+  /* ===== Practice sets ===== */
+  document.querySelectorAll('[data-practice]').forEach(function(set){
+    var grade=set.querySelector('[data-grade]'); if(!grade) return;
+    grade.addEventListener('click',function(){
+      var correct=0,total=0;
+      set.querySelectorAll('.prob').forEach(function(p){
+        total++;
+        var ans=(p.getAttribute('data-answer')||'').trim().toLowerCase();
+        var input=p.querySelector('input'); var mark=p.querySelector('.mark');
+        var val=(input?input.value:'').trim().toLowerCase();
+        var ok=val===ans;
+        if(!ok&&val!==''&&!isNaN(parseFloat(ans))&&!isNaN(parseFloat(val))) ok=parseFloat(val)===parseFloat(ans);
+        if(mark){ mark.textContent=val===''?'—':(ok?'✅':'❌'); mark.style.color=ok?'var(--good)':'var(--bad)'; }
+        p.classList.remove('right','wrong'); if(val!=='') p.classList.add(ok?'right':'wrong');
+        if(ok) correct++;
+      });
+      var score=set.querySelector('[data-practice-score]');
+      if(score){ score.classList.add('show'); score.textContent='You solved '+correct+' of '+total+' correctly'+(correct===total?' — perfect! 🌟':'. Fix the ❌ and try again.'); }
+    });
+  });
+
+  /* ===== Word-tagging ===== */
+  document.querySelectorAll('[data-tagging]').forEach(function(box){
+    var grade=box.querySelector('[data-grade]'); if(!grade) return;
+    grade.addEventListener('click',function(){
+      var correct=0,total=0;
+      box.querySelectorAll('select[data-answer]').forEach(function(sel){
+        total++; var ok=sel.value===sel.getAttribute('data-answer');
+        sel.classList.remove('ok','no'); sel.classList.add(ok?'ok':'no'); if(ok) correct++;
+      });
+      var score=box.querySelector('[data-tag-score]');
+      if(score){ score.classList.add('show'); score.textContent='You labeled '+correct+' of '+total+' correctly'+(correct===total?' — nice! 🌟':'. Red ones need another look.'); }
+    });
+  });
+
+  /* ===== Word counters ===== */
+  document.querySelectorAll('textarea.write').forEach(function(t){
+    var out=t.getAttribute('data-count')?document.querySelector(t.getAttribute('data-count')):null;
+    function update(){ var w=t.value.trim()?t.value.trim().split(/\s+/).length:0; if(out) out.textContent=w+(w===1?' word':' words'); }
+    t.addEventListener('input',update); update();
+  });
+
+  /* ===== Art studios (works for any number of .studio blocks) ===== */
+  document.querySelectorAll('.studio').forEach(function(studio){
+    var canvas=studio.querySelector('canvas'); if(!canvas) return;
+    var ctx=canvas.getContext('2d'); if(!ctx) return;
+    canvas.width=800; canvas.height=480;
+    ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.lineCap='round'; ctx.lineJoin='round';
+    var firstSw=studio.querySelector('.swatch');
+    var preview=studio.querySelector('.color-current');
+    var color=firstSw?firstSw.getAttribute('data-color'):'#8b5cf6';
+    function setColor(c){ color=c; if(preview) preview.style.background=c; }
+    var drawing=false,size=8,last={x:0,y:0};
+    setColor(color);
+    function pos(e){ var r=canvas.getBoundingClientRect(); var p=e.touches?e.touches[0]:e;
+      return {x:(p.clientX-r.left)*(canvas.width/r.width),y:(p.clientY-r.top)*(canvas.height/r.height)}; }
+    function startDraw(e){ drawing=true; last=pos(e); ctx.beginPath(); ctx.fillStyle=color; ctx.arc(last.x,last.y,size/2,0,Math.PI*2); ctx.fill(); e.preventDefault(); }
+    function move(e){ if(!drawing) return; var p=pos(e); ctx.strokeStyle=color; ctx.lineWidth=size;
+      ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke(); last=p; e.preventDefault(); }
+    function end(){ drawing=false; }
+    canvas.addEventListener('mousedown',startDraw); canvas.addEventListener('mousemove',move); window.addEventListener('mouseup',end);
+    canvas.addEventListener('touchstart',startDraw,{passive:false}); canvas.addEventListener('touchmove',move,{passive:false}); canvas.addEventListener('touchend',end);
+    studio.querySelectorAll('.swatch').forEach(function(s){
+      s.style.background=s.getAttribute('data-color');
+      s.addEventListener('click',function(){ setColor(s.getAttribute('data-color'));
+        studio.querySelectorAll('.swatch').forEach(function(x){ x.classList.remove('active'); }); s.classList.add('active'); });
+    });
+    if(firstSw) firstSw.classList.add('active');
+    var slider=studio.querySelector('.brush-size input[type="range"]'), sizeLabel=studio.querySelector('[data-brushval]');
+    if(slider) slider.addEventListener('input',function(){ size=parseInt(slider.value,10); if(sizeLabel) sizeLabel.textContent=size+'px'; });
+    var clearBtn=studio.querySelector('[data-clear]');
+    if(clearBtn) clearBtn.addEventListener('click',function(){ ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height); });
+    var saveBtn=studio.querySelector('[data-save]');
+    if(saveBtn) saveBtn.addEventListener('click',function(){ var l=document.createElement('a'); l.download='my-artwork.png'; l.href=canvas.toDataURL('image/png'); l.click(); });
+    /* blending colour wheel */
+    var wheel=studio.querySelector('.color-wheel'), shade=studio.querySelector('.shade-slider');
+    var hueV=265,satV=0.55,litV=50;
+    function applyWheel(){ studio.querySelectorAll('.swatch').forEach(function(x){ x.classList.remove('active'); });
+      setColor('hsl('+Math.round(hueV)+','+Math.round(satV*100)+'%,'+litV+'%)'); }
+    if(wheel) wheel.addEventListener('click',function(e){
+      var r=wheel.getBoundingClientRect(); var dx=e.clientX-r.left-r.width/2, dy=e.clientY-r.top-r.height/2;
+      var radius=r.width/2||48, dist=Math.sqrt(dx*dx+dy*dy);
+      hueV=(Math.atan2(dy,dx)*180/Math.PI+90+360)%360; satV=Math.min(1,dist/radius); applyWheel(); });
+    if(shade) shade.addEventListener('input',function(){ litV=parseInt(shade.value,10); applyWheel(); });
+  });
+
+
+
+  /* ===== Autosave & restore — survives closing, refresh, power loss ===== */
+  (function(){
+    var KEY='refresher_art5_v1';
+    var ctrls=document.querySelectorAll('input, select, textarea');
+    function save(){
+      try{ var d={};
+        for(var i=0;i<ctrls.length;i++){ var el=ctrls[i];
+          if(el.type==='radio'||el.type==='checkbox') d[i]=el.checked?1:0; else d[i]=el.value; }
+        localStorage.setItem(KEY, JSON.stringify({n:ctrls.length,d:d}));
+      }catch(e){}
+    }
+    try{
+      var raw=localStorage.getItem(KEY);
+      if(raw){ var o=JSON.parse(raw);
+        if(o && o.n===ctrls.length){
+          for(var i=0;i<ctrls.length;i++){ var el=ctrls[i]; if(!(i in o.d)) continue;
+            if(el.type==='radio'||el.type==='checkbox') el.checked=!!o.d[i]; else el.value=o.d[i]; }
+          document.querySelectorAll('textarea.write').forEach(function(t){ try{ t.dispatchEvent(new Event('input')); }catch(e){} });
+        }
+      }
+    }catch(e){}
+    document.addEventListener('input', save, true);
+    document.addEventListener('change', save, true);
+  })();
+
+}
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',boot); } else { boot(); }
+
+</script>
+</body>
+</html>
