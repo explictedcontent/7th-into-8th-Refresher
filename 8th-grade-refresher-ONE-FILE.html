@@ -229,6 +229,13 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
 .question.q-right .q::after{content:"  \2713";color:var(--good);font-weight:800;}
 .prob.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,#fff);}
 .prob.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,#fff);}
+.wheel-wrap{display:flex;align-items:center;gap:10px;}
+.color-wheel{width:96px;height:96px;border-radius:50%;cursor:crosshair;flex-shrink:0;
+  background:radial-gradient(circle,#fff 0%,rgba(255,255,255,0) 72%),conic-gradient(red,yellow,lime,cyan,blue,magenta,red);
+  box-shadow:0 0 0 1px var(--line),var(--shadow);}
+.wheel-side{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.color-current{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);background:#8b5cf6;}
+.shade-slider{width:84px;}
 </style>
 </head>
 <body>
@@ -261,7 +268,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <section class="hero">
       <span class="pill">Summer Refresher · Ages 12–13</span>
       <h1 data-greeting>Welcome! Let's get ready for 8th grade. 🎉</h1>
-      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>three full lessons</strong> of practice and instant feedback. Do it all and it's about <strong>3 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
+      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>four lessons</strong> of practice and instant feedback. Do it all and it's about <strong>4 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
       <div class="tryit" style="margin-top:22px;max-width:420px;">
         <label for="nameInput"><strong>What should I call you?</strong></label><br />
         <input type="text" id="nameInput" placeholder="Type your name" />
@@ -275,40 +282,40 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
       <a class="card art" onclick="showLesson('art')">
         <span class="fav">★ FAVORITE</span><span class="emoji">🎨</span>
         <h3>Art</h3><p>Elements of art &amp; color theory — plus a real drawing studio you can paint in.</p>
-        <span class="tag">Lessons 1–3 ready</span>
+        <span class="tag">Lessons 1–4 ready</span>
       </a>
       <a class="card math" onclick="showLesson('math')">
         <span class="emoji">🔢</span><h3>Math</h3>
         <p>Integers, the order of operations, and the rules that power 8th-grade algebra.</p>
-        <span class="tag">Lessons 1–3 ready</span>
+        <span class="tag">Lessons 1–4 ready</span>
       </a>
       <a class="card english" onclick="showLesson('english')">
         <span class="emoji">📖</span><h3>English / Language Arts</h3>
         <p>Parts of speech and building strong, clear sentences that say what you mean.</p>
-        <span class="tag">Lessons 1–3 ready</span>
+        <span class="tag">Lessons 1–4 ready</span>
       </a>
       <a class="card science" onclick="showLesson('science')">
         <span class="emoji">🔬</span><h3>Science</h3>
         <p>The scientific method &amp; lab safety — how real scientists ask and answer questions.</p>
-        <span class="tag">Lessons 1–3 ready</span>
+        <span class="tag">Lessons 1–4 ready</span>
       </a>
       <a class="card anatomy" onclick="showLesson('anatomy')">
         <span class="emoji">🫀</span><h3>Anatomy (Human Body)</h3>
         <p>How the body is built and the major systems that keep you alive and moving.</p>
-        <span class="tag">Lessons 1–3 ready</span>
+        <span class="tag">Lessons 1–4 ready</span>
       </a>
       <a class="card social" onclick="showLesson('social')">
         <span class="emoji">🗺️</span><h3>Social Studies</h3>
         <p>Map skills, continents, and coordinates — find any place on Earth.</p>
-        <span class="tag">Lessons 1–3 ready</span>
+        <span class="tag">Lessons 1–4 ready</span>
       </a>
     </div>
 
     <section class="panel" style="margin-top:32px;">
       <h2>📅 How to use this</h2>
       <ul class="goal-list">
-        <li>Pick a subject up top, then choose <strong>Lesson 1, 2, or 3</strong>.</li>
-        <li>Doing all six subjects (all three lessons each) is about <strong>3 hours</strong> of work — split it across the day however you like, and take breaks whenever you need them.</li>
+        <li>Pick a subject up top, then choose <strong>Lesson 1, 2, 3, or 4</strong>.</li>
+        <li>Doing all six subjects (all four lessons each) is about <strong>4 hours</strong> of work — split it across the day however you like, and take breaks whenever you need them.</li>
         <li>Read the lesson, do every <em>"Try it"</em> and practice set, then take the quiz and click <strong>Check my answers</strong>.</li>
         <li>Use the buttons at the top to switch subjects anytime.</li>
       </ul>
@@ -321,7 +328,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
 
   <!-- ================= ART ================= -->
   <section id="art" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button><button class="lt" onclick="showPart('art',3)">Lesson 3</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('art',1)">Lesson 1</button><button class="lt" onclick="showPart('art',2)">Lesson 2</button><button class="lt" onclick="showPart('art',3)">Lesson 3</button><button class="lt" onclick="showPart('art',4)">Lesson 4</button></div>
     <div class="lesson-part active" id="art-1">
     <header class="lesson-head head-art">
       <div class="kicker">Art · Lesson 1 · ★ Your favorite</div>
@@ -437,7 +444,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
             <span class="swatch" data-color="#1f2440" title="Ink"></span>
             <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
           </div>
-          <div class="brush-size"><label for="brushSize">Brush</label>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize">Brush</label>
             <input type="range" id="brushSize" min="2" max="48" value="8" /><span data-brushval>8px</span></div>
         </div>
         <div class="canvas-wrap"><canvas id="artCanvas" aria-label="Drawing canvas"></canvas></div>
@@ -589,7 +596,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
             <span class="swatch" data-color="#2d6cdf" title="Blue (a colored ball)"></span>
             <span class="swatch" data-color="#ffffff" title="Eraser / highlight (white)"></span>
           </div>
-          <div class="brush-size"><label for="brushSize2">Brush</label>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize2">Brush</label>
             <input type="range" id="brushSize2" min="2" max="60" value="14" /><span data-brushval>14px</span></div>
         </div>
         <div class="canvas-wrap"><canvas id="artCanvas2" aria-label="Shading canvas"></canvas></div>
@@ -728,7 +735,7 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
             <span class="swatch" data-color="#e0529c" title="Pink"></span>
             <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
           </div>
-          <div class="brush-size"><label for="brushSize3">Brush</label>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize3">Brush</label>
             <input type="range" id="brushSize3" min="2" max="40" value="6" /><span data-brushval>6px</span></div>
         </div>
         <div class="canvas-wrap"><canvas id="artCanvas3" aria-label="Perspective canvas"></canvas></div>
@@ -782,11 +789,93 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-nav"><span class="back-link" onclick="showPart('art',2)">← Art · Lesson 2</span>
       <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
     </div><!-- /art-3 -->
+
+    <div class="lesson-part" id="art-4">
+    <header class="lesson-head head-art">
+      <div class="kicker">Art · Lesson 4 · ★ Your favorite · shorter lesson</div>
+      <h1>Tints, Shades &amp; Color Mood 🎨</h1>
+      <p>Take any color and you can make it softer or deeper — and change the whole feeling of a picture. Use your new blending wheel to try it!</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan (a quick one)</h2>
+      <ul class="goal-list">
+        <li>Make a <strong>tint</strong> (add white) and a <strong>shade</strong> (add black)</li>
+        <li>How colors set a <strong>mood</strong></li>
+        <li>Paint with your <strong>blending wheel</strong></li>
+      </ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Tints &amp; shades</li><li><b>3.</b> Color mood</li><li><b>4.</b> Studio</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🎨 Warm-up · Mix it</h2>
+      <div data-tagging>
+        <p class="tagline">Color + <b>white</b> makes a <select data-answer="tint"><option value="">choose…</option><option value="tint">tint (lighter)</option><option value="shade">shade (darker)</option><option value="tone">tone</option></select>,
+          color + <b>black</b> makes a <select data-answer="shade"><option value="">choose…</option><option value="tint">tint (lighter)</option><option value="shade">shade (darker)</option><option value="tone">tone</option></select>,
+          color + <b>gray</b> makes a <select data-answer="tone"><option value="">choose…</option><option value="tone">tone (softer)</option><option value="tint">tint</option><option value="shade">shade</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🌗 Tints, Shades &amp; Tones</h2>
+      <table class="tidy">
+        <tr><th>Mix</th><th>What you get</th><th>Example</th></tr>
+        <tr><td>Color + <strong>white</strong></td><td>A <span class="term">tint</span> — lighter, softer</td><td>Red → pink</td></tr>
+        <tr><td>Color + <strong>black</strong></td><td>A <span class="term">shade</span> — darker, deeper</td><td>Red → maroon</td></tr>
+        <tr><td>Color + <strong>gray</strong></td><td>A <span class="term">tone</span> — calmer, muted</td><td>Red → dusty rose</td></tr>
+      </table>
+      <div class="callout"><span class="ico">🎡</span><div>On your blending wheel below, the slider on the side makes any color <strong>lighter or darker</strong> — that's tints and shades in action!</div></div>
+    </section>
+    <section class="panel">
+      <h2>😊 Color &amp; Mood</h2>
+      <p>Colors make us <em>feel</em> things — artists use that on purpose.</p>
+      <ul class="goal-list">
+        <li><strong>Warm + bright</strong> (red, orange, yellow) → energetic, happy, exciting</li>
+        <li><strong>Cool + pale</strong> (soft blue, green) → calm, peaceful, gentle</li>
+        <li><strong>Dark shades</strong> → serious, mysterious, or moody</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>🖌️ Studio · Tint-and-shade sky</h2>
+      <p>Paint a sky that goes from a light <strong>tint</strong> at the bottom to a dark <strong>shade</strong> at the top — pick a color on the wheel, then drag the side slider to lighten or darken it. Save when you like it!</p>
+      <div class="studio">
+        <div class="tools">
+          <div class="swatches">
+            <span class="swatch" data-color="#2d6cdf" title="Blue"></span>
+            <span class="swatch" data-color="#1fae8b" title="Green"></span>
+            <span class="swatch" data-color="#f5c518" title="Yellow"></span>
+            <span class="swatch" data-color="#f0883e" title="Orange"></span>
+            <span class="swatch" data-color="#e85d5d" title="Red"></span>
+            <span class="swatch" data-color="#8b5cf6" title="Purple"></span>
+            <span class="swatch" data-color="#1f2440" title="Ink"></span>
+            <span class="swatch" data-color="#ffffff" title="Eraser (white)"></span>
+          </div>
+          <div class="wheel-wrap"><div class="color-wheel" title="Tap any spot to blend your own color"></div><div class="wheel-side"><span class="color-current"></span><input type="range" class="shade-slider" min="8" max="92" value="50" title="Lighter to darker" /></div></div><div class="brush-size"><label for="brushSize4">Brush</label>
+            <input type="range" id="brushSize4" min="2" max="60" value="16" /><span data-brushval>16px</span></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="artCanvas4" aria-label="Color studio"></canvas></div>
+        <div class="btn-row"><button class="btn" data-save>💾 Save my artwork</button>
+          <button class="btn ghost" data-clear>🧽 Clear canvas</button></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="tint" data-why="Color + white = a tint (lighter)."><div class="q"><span class="num">1</span>Color + white makes a…</div><div class="options"><label><input type="radio" name="a4q1" value="tint" />Tint</label><label><input type="radio" name="a4q1" value="shade" />Shade</label><label><input type="radio" name="a4q1" value="tone" />Tone</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="shade" data-why="Color + black = a shade (darker)."><div class="q"><span class="num">2</span>Color + black makes a…</div><div class="options"><label><input type="radio" name="a4q2" value="shade" />Shade</label><label><input type="radio" name="a4q2" value="tint" />Tint</label><label><input type="radio" name="a4q2" value="hue" />Hue</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="happy" data-why="Warm, bright colors feel energetic and happy."><div class="q"><span class="num">3</span>Warm, bright colors usually feel…</div><div class="options"><label><input type="radio" name="a4q3" value="happy" />Energetic and happy</label><label><input type="radio" name="a4q3" value="calm" />Calm and sleepy</label><label><input type="radio" name="a4q3" value="nothing" />Like nothing</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="calm" data-why="Soft, cool colors feel calm and gentle."><div class="q"><span class="num">4</span>A pale, soft blue usually feels…</div><div class="options"><label><input type="radio" name="a4q4" value="calm" />Calm and gentle</label><label><input type="radio" name="a4q4" value="angry" />Loud and angry</label><label><input type="radio" name="a4q4" value="hot" />Burning hot</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="black" data-why="Adding black makes a color darker."><div class="q"><span class="num">5</span>To make a color darker you add…</div><div class="options"><label><input type="radio" name="a4q5" value="black" />Black</label><label><input type="radio" name="a4q5" value="white" />White</label><label><input type="radio" name="a4q5" value="water" />Water</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('art',3)">← Art · Lesson 3</span>
+      <span class="back-link" onclick="showLesson('math')">Next: Math →</span></div>
+    </div><!-- /art-4 -->
   </section>
 
   <!-- ================= MATH ================= -->
   <section id="math" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('math',1)">Lesson 1</button><button class="lt" onclick="showPart('math',2)">Lesson 2</button><button class="lt" onclick="showPart('math',3)">Lesson 3</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('math',1)">Lesson 1</button><button class="lt" onclick="showPart('math',2)">Lesson 2</button><button class="lt" onclick="showPart('math',3)">Lesson 3</button><button class="lt" onclick="showPart('math',4)">Lesson 4</button></div>
     <div class="lesson-part active" id="math-1">
     <header class="lesson-head head-math">
       <div class="kicker">Math · Lesson 1</div>
@@ -1195,11 +1284,65 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-nav"><span class="back-link" onclick="showPart('math',2)">← Math · Lesson 2</span>
       <span class="back-link" onclick="showLesson('english')">Next: English →</span></div>
     </div><!-- /math-3 -->
+
+    <div class="lesson-part" id="math-4">
+    <header class="lesson-head head-math">
+      <div class="kicker">Math · Lesson 4 · shorter lesson</div>
+      <h1>The Coordinate Plane 🔢</h1>
+      <p>The coordinate plane is a map for numbers. Every point has an address — two numbers that tell you exactly where it is.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan (a quick one)</h2>
+      <ul class="goal-list"><li>The <strong>x-axis</strong> and <strong>y-axis</strong></li><li>Reading an <strong>ordered pair</strong> (x, y)</li><li>The four <strong>quadrants</strong></li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> The axes</li><li><b>3.</b> Quadrants</li><li><b>4.</b> Practice</li><li><b>5.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🧭 Warm-up · Which way?</h2>
+      <div data-tagging>
+        <p class="tagline">The <b>x-axis</b> runs <select data-answer="horizontal"><option value="">choose…</option><option value="horizontal">horizontally (left–right)</option><option value="vertical">vertically (up–down)</option></select>,
+          the <b>y-axis</b> runs <select data-answer="vertical"><option value="">choose…</option><option value="horizontal">horizontally (left–right)</option><option value="vertical">vertically (up–down)</option></select>,
+          and the center point (0, 0) is the <select data-answer="origin"><option value="">choose…</option><option value="origin">origin</option><option value="quadrant">quadrant</option><option value="axis">axis</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>📍 Reading Points</h2>
+      <p>A point's address is an <span class="term">ordered pair</span> written <code>(x, y)</code>. The <strong>x</strong> comes first — go <em>across</em> first, then <em>up/down</em>.</p>
+      <div class="example"><span class="label">Example</span>
+        <p style="margin:.5rem 0;">To plot <code>(3, 2)</code>: start at the origin, go <strong>right 3</strong>, then <strong>up 2</strong>. ("Across the hall, then up the stairs.")</p></div>
+      <div class="callout"><span class="ico">🧭</span><div>The two axes split the plane into four <span class="term">quadrants</span>, numbered <strong>I, II, III, IV</strong> counter-clockwise starting from the top-right.</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔁 Practice · Which quadrant?</h2>
+      <div data-tagging>
+        <p class="tagline">
+          (+, +) right &amp; up → Quadrant <select data-answer="1"><option value="">choose…</option><option value="1">I</option><option value="2">II</option><option value="3">III</option><option value="4">IV</option></select>,
+          (−, +) left &amp; up → Quadrant <select data-answer="2"><option value="">choose…</option><option value="1">I</option><option value="2">II</option><option value="3">III</option><option value="4">IV</option></select>,
+          (−, −) left &amp; down → Quadrant <select data-answer="3"><option value="">choose…</option><option value="1">I</option><option value="2">II</option><option value="3">III</option><option value="4">IV</option></select>,
+          (+, −) right &amp; down → Quadrant <select data-answer="4"><option value="">choose…</option><option value="1">I</option><option value="2">II</option><option value="3">III</option><option value="4">IV</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="x" data-why="In (x, y) the x-value is written first."><div class="q"><span class="num">1</span>In an ordered pair (x, y), which comes first?</div><div class="options"><label><input type="radio" name="m4q1" value="x" />x (across)</label><label><input type="radio" name="m4q1" value="y" />y (up/down)</label><label><input type="radio" name="m4q1" value="either" />Either one</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="origin" data-why="(0, 0) is the origin, the center."><div class="q"><span class="num">2</span>The point (0, 0) is called the…</div><div class="options"><label><input type="radio" name="m4q2" value="origin" />Origin</label><label><input type="radio" name="m4q2" value="quadrant" />Quadrant</label><label><input type="radio" name="m4q2" value="vertex" />Vertex</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="horizontal" data-why="The x-axis is the horizontal line."><div class="q"><span class="num">3</span>The x-axis runs…</div><div class="options"><label><input type="radio" name="m4q3" value="horizontal" />Horizontally</label><label><input type="radio" name="m4q3" value="vertical" />Vertically</label><label><input type="radio" name="m4q3" value="diagonal" />Diagonally</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="2" data-why="From (0,0) go right 3, then up 2."><div class="q"><span class="num">4</span>To plot (3, 2) you go right 3, then up…</div><div class="options"><label><input type="radio" name="m4q4" value="2" />2</label><label><input type="radio" name="m4q4" value="3" />3</label><label><input type="radio" name="m4q4" value="5" />5</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="quadrants" data-why="The four sections are quadrants."><div class="q"><span class="num">5</span>The four sections of the plane are called…</div><div class="options"><label><input type="radio" name="m4q5" value="quadrants" />Quadrants</label><label><input type="radio" name="m4q5" value="origins" />Origins</label><label><input type="radio" name="m4q5" value="grids" />Grids</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('math',3)">← Math · Lesson 3</span>
+      <span class="back-link" onclick="showLesson('english')">Next: English →</span></div>
+    </div><!-- /math-4 -->
   </section>
 
   <!-- ================= ENGLISH ================= -->
   <section id="english" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('english',1)">Lesson 1</button><button class="lt" onclick="showPart('english',2)">Lesson 2</button><button class="lt" onclick="showPart('english',3)">Lesson 3</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('english',1)">Lesson 1</button><button class="lt" onclick="showPart('english',2)">Lesson 2</button><button class="lt" onclick="showPart('english',3)">Lesson 3</button><button class="lt" onclick="showPart('english',4)">Lesson 4</button></div>
     <div class="lesson-part active" id="english-1">
     <header class="lesson-head head-english">
       <div class="kicker">English / Language Arts · Lesson 1</div>
@@ -1669,11 +1812,68 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-nav"><span class="back-link" onclick="showPart('english',2)">← English · Lesson 2</span>
       <span class="back-link" onclick="showLesson('science')">Next: Science →</span></div>
     </div><!-- /english-3 -->
+
+    <div class="lesson-part" id="english-4">
+    <header class="lesson-head head-english">
+      <div class="kicker">English / Language Arts · Lesson 4 · shorter lesson</div>
+      <h1>Prefixes, Suffixes &amp; Roots 📖</h1>
+      <p>Crack open a long word and you can often figure out its meaning from its parts — a beginning, a middle, and an end.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan (a quick one)</h2>
+      <ul class="goal-list"><li><strong>Prefix</strong> (start), <strong>root</strong> (base), <strong>suffix</strong> (end)</li><li>Use word parts to unlock meaning</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> The word parts</li><li><b>3.</b> Practice</li><li><b>4.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🔤 Warm-up · What does it mean?</h2>
+      <div data-tagging>
+        <p class="tagline">"<b>un</b>-" means <select data-answer="not"><option value="">choose…</option><option value="not">not</option><option value="again">again</option><option value="before">before</option></select>,
+          "<b>re</b>-" means <select data-answer="again"><option value="">choose…</option><option value="again">again</option><option value="not">not</option><option value="after">after</option></select>,
+          "<b>-less</b>" means <select data-answer="without"><option value="">choose…</option><option value="without">without</option><option value="full of">full of</option><option value="again">again</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🧩 The Word Parts</h2>
+      <table class="tidy">
+        <tr><th>Part</th><th>Where</th><th>Examples</th></tr>
+        <tr><td><span class="term">Prefix</span></td><td>At the <strong>start</strong> — changes the meaning</td><td>un- (not), re- (again), pre- (before), dis- (not)</td></tr>
+        <tr><td><span class="term">Root</span></td><td>The <strong>base</strong> — the core meaning</td><td>"play" in replaying, "joy" in joyful</td></tr>
+        <tr><td><span class="term">Suffix</span></td><td>At the <strong>end</strong> — often changes the job/type</td><td>-ful (full of), -less (without), -ed, -ing</td></tr>
+      </table>
+      <div class="callout"><span class="ico">💡</span><div><strong>unhappy</strong> = <em>un</em> (not) + <em>happy</em> → "not happy". Break a word into parts and the meaning appears!</div></div>
+    </section>
+    <section class="panel">
+      <h2>🔁 Practice · Build the meaning</h2>
+      <div data-tagging>
+        <p class="tagline">
+          "<b>pre</b>-" means <select data-answer="before"><option value="">choose…</option><option value="before">before</option><option value="after">after</option><option value="not">not</option></select>,
+          "<b>-ful</b>" means <select data-answer="fullof"><option value="">choose…</option><option value="fullof">full of</option><option value="without">without</option><option value="again">again</option></select>,
+          "<b>dis</b>-" means <select data-answer="not"><option value="">choose…</option><option value="not">not / opposite</option><option value="again">again</option><option value="more">more</option></select>,
+          the base part of a word is the <select data-answer="root"><option value="">choose…</option><option value="root">root</option><option value="prefix">prefix</option><option value="suffix">suffix</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="start" data-why="A prefix is added at the start of a word."><div class="q"><span class="num">1</span>A prefix goes at the…</div><div class="options"><label><input type="radio" name="e4q1" value="start" />Beginning of a word</label><label><input type="radio" name="e4q1" value="end" />End of a word</label><label><input type="radio" name="e4q1" value="middle" />Middle of a word</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="not" data-why="'un-' means not."><div class="q"><span class="num">2</span>'un-' in <em>unhappy</em> means…</div><div class="options"><label><input type="radio" name="e4q2" value="not" />Not</label><label><input type="radio" name="e4q2" value="again" />Again</label><label><input type="radio" name="e4q2" value="very" />Very</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="again" data-why="'re-' means again."><div class="q"><span class="num">3</span>'re-' in <em>redo</em> means…</div><div class="options"><label><input type="radio" name="e4q3" value="again" />Again</label><label><input type="radio" name="e4q3" value="not" />Not</label><label><input type="radio" name="e4q3" value="before" />Before</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="fullof" data-why="'-ful' means full of."><div class="q"><span class="num">4</span>'-ful' in <em>joyful</em> means…</div><div class="options"><label><input type="radio" name="e4q4" value="fullof" />Full of</label><label><input type="radio" name="e4q4" value="without" />Without</label><label><input type="radio" name="e4q4" value="not" />Not</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="root" data-why="The base part is the root."><div class="q"><span class="num">5</span>The base part of a word is the…</div><div class="options"><label><input type="radio" name="e4q5" value="root" />Root</label><label><input type="radio" name="e4q5" value="prefix" />Prefix</label><label><input type="radio" name="e4q5" value="suffix" />Suffix</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('english',3)">← English · Lesson 3</span>
+      <span class="back-link" onclick="showLesson('science')">Next: Science →</span></div>
+    </div><!-- /english-4 -->
   </section>
 
   <!-- ================= SCIENCE ================= -->
   <section id="science" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('science',1)">Lesson 1</button><button class="lt" onclick="showPart('science',2)">Lesson 2</button><button class="lt" onclick="showPart('science',3)">Lesson 3</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('science',1)">Lesson 1</button><button class="lt" onclick="showPart('science',2)">Lesson 2</button><button class="lt" onclick="showPart('science',3)">Lesson 3</button><button class="lt" onclick="showPart('science',4)">Lesson 4</button></div>
     <div class="lesson-part active" id="science-1">
     <header class="lesson-head head-science">
       <div class="kicker">Science · Lesson 1</div>
@@ -2131,11 +2331,57 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-nav"><span class="back-link" onclick="showPart('science',2)">← Science · Lesson 2</span>
       <span class="back-link" onclick="showLesson('anatomy')">Next: Anatomy →</span></div>
     </div><!-- /science-3 -->
+
+    <div class="lesson-part" id="science-4">
+    <header class="lesson-head head-science">
+      <div class="kicker">Science · Lesson 4 · shorter lesson</div>
+      <h1>Forces &amp; Motion 🔬</h1>
+      <p>A force is just a push or a pull. Forces start things moving, stop them, speed them up, slow them down, and turn them.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan (a quick one)</h2>
+      <ul class="goal-list"><li>What a <strong>force</strong> is</li><li><strong>Gravity</strong> and <strong>friction</strong></li><li><strong>Balanced</strong> vs <strong>unbalanced</strong> forces</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Forces</li><li><b>3.</b> Balanced or not</li><li><b>4.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>💪 Warm-up · Push or pull?</h2>
+      <div data-tagging>
+        <p class="tagline">Opening a drawer toward you → a <select data-answer="pull"><option value="">choose…</option><option value="pull">pull</option><option value="push">push</option></select>,
+          shoving a door shut → a <select data-answer="push"><option value="">choose…</option><option value="pull">pull</option><option value="push">push</option></select>,
+          the force pulling everything toward the ground → <select data-answer="gravity"><option value="">choose…</option><option value="gravity">gravity</option><option value="friction">friction</option><option value="magnet">magnetism</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🌍 Forces Around You</h2>
+      <table class="tidy">
+        <tr><th>Force</th><th>What it does</th></tr>
+        <tr><td><span class="term">Gravity</span></td><td>Pulls everything down toward Earth</td></tr>
+        <tr><td><span class="term">Friction</span></td><td>Slows things down when surfaces rub; gives grip</td></tr>
+        <tr><td><span class="term">Push / Pull</span></td><td>A force you apply to move or stop something</td></tr>
+      </table>
+      <div class="callout"><span class="ico">💡</span><div>When forces are <strong>balanced</strong> (equal, opposite) an object stays still or keeps moving the same. When they're <strong>unbalanced</strong>, the motion <em>changes</em> — it speeds up, slows down, or turns.</div></div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="pushpull" data-why="A force is a push or a pull."><div class="q"><span class="num">1</span>A force is a…</div><div class="options"><label><input type="radio" name="sc4q1" value="pushpull" />Push or pull</label><label><input type="radio" name="sc4q1" value="color" />Color</label><label><input type="radio" name="sc4q1" value="sound" />Sound</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="gravity" data-why="Gravity pulls everything toward Earth."><div class="q"><span class="num">2</span>The force pulling things toward Earth is…</div><div class="options"><label><input type="radio" name="sc4q2" value="gravity" />Gravity</label><label><input type="radio" name="sc4q2" value="friction" />Friction</label><label><input type="radio" name="sc4q2" value="magnetism" />Magnetism</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="friction" data-why="Friction slows sliding objects and gives grip."><div class="q"><span class="num">3</span>The force that slows a sliding box is…</div><div class="options"><label><input type="radio" name="sc4q3" value="friction" />Friction</label><label><input type="radio" name="sc4q3" value="gravity" />Gravity</label><label><input type="radio" name="sc4q3" value="sound" />Sound</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="same" data-why="Balanced forces keep motion the same."><div class="q"><span class="num">4</span>If the forces on an object are balanced, its motion…</div><div class="options"><label><input type="radio" name="sc4q4" value="same" />Stays the same</label><label><input type="radio" name="sc4q4" value="stops" />Always stops</label><label><input type="radio" name="sc4q4" value="speeds" />Always speeds up</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="unbalanced" data-why="An unbalanced force is needed to change motion."><div class="q"><span class="num">5</span>To speed up, slow down, or turn, you need a(n)…</div><div class="options"><label><input type="radio" name="sc4q5" value="unbalanced" />Unbalanced force</label><label><input type="radio" name="sc4q5" value="balanced" />Balanced force</label><label><input type="radio" name="sc4q5" value="noforce" />No force</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('science',3)">← Science · Lesson 3</span>
+      <span class="back-link" onclick="showLesson('anatomy')">Next: Anatomy →</span></div>
+    </div><!-- /science-4 -->
   </section>
 
   <!-- ================= ANATOMY ================= -->
   <section id="anatomy" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('anatomy',1)">Lesson 1</button><button class="lt" onclick="showPart('anatomy',2)">Lesson 2</button><button class="lt" onclick="showPart('anatomy',3)">Lesson 3</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('anatomy',1)">Lesson 1</button><button class="lt" onclick="showPart('anatomy',2)">Lesson 2</button><button class="lt" onclick="showPart('anatomy',3)">Lesson 3</button><button class="lt" onclick="showPart('anatomy',4)">Lesson 4</button></div>
     <div class="lesson-part active" id="anatomy-1">
     <header class="lesson-head head-anatomy">
       <div class="kicker">Anatomy · Lesson 1</div>
@@ -2539,11 +2785,60 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-nav"><span class="back-link" onclick="showPart('anatomy',2)">← Anatomy · Lesson 2</span>
       <span class="back-link" onclick="showLesson('social')">Next: Social Studies →</span></div>
     </div><!-- /anatomy-3 -->
+
+    <div class="lesson-part" id="anatomy-4">
+    <header class="lesson-head head-anatomy">
+      <div class="kicker">Anatomy · Lesson 4 · shorter lesson</div>
+      <h1>The Brain, Nerves &amp; Senses 🧠</h1>
+      <p>Your nervous system is the body's command center — the brain gives orders, nerves carry the messages, and your senses report back.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan (a quick one)</h2>
+      <ul class="goal-list"><li>The <strong>nervous system</strong> (brain, spinal cord, nerves)</li><li>The <strong>5 senses</strong> and their organs</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Command center</li><li><b>3.</b> The 5 senses</li><li><b>4.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>👀 Warm-up · Match the sense</h2>
+      <div data-tagging>
+        <p class="tagline">Sight → <select data-answer="eyes"><option value="">choose…</option><option value="eyes">eyes</option><option value="ears">ears</option><option value="nose">nose</option></select>,
+          hearing → <select data-answer="ears"><option value="">choose…</option><option value="ears">ears</option><option value="tongue">tongue</option><option value="skin">skin</option></select>,
+          smell → <select data-answer="nose"><option value="">choose…</option><option value="nose">nose</option><option value="eyes">eyes</option><option value="ears">ears</option></select>,
+          taste → <select data-answer="tongue"><option value="">choose…</option><option value="tongue">tongue</option><option value="skin">skin</option><option value="nose">nose</option></select>,
+          touch → <select data-answer="skin"><option value="">choose…</option><option value="skin">skin</option><option value="eyes">eyes</option><option value="tongue">tongue</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🧠 The Command Center</h2>
+      <p>The <span class="term">nervous system</span> is made of the <strong>brain</strong>, the <strong>spinal cord</strong>, and a body-wide network of <strong>nerves</strong>.</p>
+      <ol class="steps">
+        <li>Your senses pick up information (light, sound, smell, taste, touch).</li>
+        <li><strong>Nerves</strong> carry that as electrical signals to the brain.</li>
+        <li>The <strong>brain</strong> makes sense of it and decides what to do.</li>
+        <li>The brain sends signals back through nerves to move your muscles.</li>
+      </ol>
+      <div class="callout"><span class="ico">⚡</span><div>This happens in a flash — a nerve signal can travel faster than <strong>100 metres per second</strong>!</div></div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="brain" data-why="The brain is the body's control center."><div class="q"><span class="num">1</span>The control center of the body is the…</div><div class="options"><label><input type="radio" name="an4q1" value="brain" />Brain</label><label><input type="radio" name="an4q1" value="heart" />Heart</label><label><input type="radio" name="an4q1" value="stomach" />Stomach</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="nerves" data-why="Nerves carry the messages."><div class="q"><span class="num">2</span>Messages travel through the body along…</div><div class="options"><label><input type="radio" name="an4q2" value="nerves" />Nerves</label><label><input type="radio" name="an4q2" value="bones" />Bones</label><label><input type="radio" name="an4q2" value="veins" />Veins only</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="tongue" data-why="You taste with your tongue."><div class="q"><span class="num">3</span>You taste flavors with your…</div><div class="options"><label><input type="radio" name="an4q3" value="tongue" />Tongue</label><label><input type="radio" name="an4q3" value="ears" />Ears</label><label><input type="radio" name="an4q3" value="skin" />Skin</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="brain2" data-why="The senses send their signals to the brain."><div class="q"><span class="num">4</span>Your 5 senses send their signals to the…</div><div class="options"><label><input type="radio" name="an4q4" value="brain2" />Brain</label><label><input type="radio" name="an4q4" value="feet" />Feet</label><label><input type="radio" name="an4q4" value="lungs" />Lungs</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="spinal" data-why="The nervous system is brain, spinal cord, and nerves."><div class="q"><span class="num">5</span>Besides the brain and nerves, the nervous system includes the…</div><div class="options"><label><input type="radio" name="an4q5" value="spinal" />Spinal cord</label><label><input type="radio" name="an4q5" value="ribs" />Ribs</label><label><input type="radio" name="an4q5" value="kidneys" />Kidneys</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('anatomy',3)">← Anatomy · Lesson 3</span>
+      <span class="back-link" onclick="showLesson('social')">Next: Social Studies →</span></div>
+    </div><!-- /anatomy-4 -->
   </section>
 
   <!-- ================= SOCIAL STUDIES ================= -->
   <section id="social" class="lesson-section">
-    <div class="lesson-tabs"><button class="lt active" onclick="showPart('social',1)">Lesson 1</button><button class="lt" onclick="showPart('social',2)">Lesson 2</button><button class="lt" onclick="showPart('social',3)">Lesson 3</button></div>
+    <div class="lesson-tabs"><button class="lt active" onclick="showPart('social',1)">Lesson 1</button><button class="lt" onclick="showPart('social',2)">Lesson 2</button><button class="lt" onclick="showPart('social',3)">Lesson 3</button><button class="lt" onclick="showPart('social',4)">Lesson 4</button></div>
     <div class="lesson-part active" id="social-1">
     <header class="lesson-head head-social">
       <div class="kicker">Social Studies · Lesson 1</div>
@@ -2973,6 +3268,59 @@ textarea.write{width:100%;min-height:110px;font-family:inherit;font-size:1rem;pa
     <div class="lesson-nav"><span class="back-link" onclick="showPart('social',2)">← Social Studies · Lesson 2</span>
       <span class="back-link" onclick="showLesson('home')">Back to start →</span></div>
     </div><!-- /social-3 -->
+
+    <div class="lesson-part" id="social-4">
+    <header class="lesson-head head-social">
+      <div class="kicker">Social Studies · Lesson 4 · shorter lesson</div>
+      <h1>Economics: Needs, Wants &amp; Trade 🪙</h1>
+      <p>Economics is about how people get the things they need and want. It starts with a simple idea: there's never enough of everything, so we make choices.</p>
+    </header>
+    <section class="panel">
+      <h2>🎯 Today's plan (a quick one)</h2>
+      <ul class="goal-list"><li><strong>Needs</strong> vs <strong>wants</strong></li><li><strong>Goods</strong> vs <strong>services</strong></li><li>How <strong>supply &amp; demand</strong> move prices</li></ul>
+      <ul class="plan-strip"><li><b>1.</b> Warm-up</li><li><b>2.</b> Goods &amp; services</li><li><b>3.</b> Supply &amp; demand</li><li><b>4.</b> Quick check</li></ul>
+    </section>
+    <section class="panel">
+      <h2>🪙 Warm-up · Need or want?</h2>
+      <div data-tagging>
+        <p class="tagline">Food → a <select data-answer="need"><option value="">choose…</option><option value="need">need</option><option value="want">want</option></select>,
+          a new video game → a <select data-answer="want"><option value="">choose…</option><option value="need">need</option><option value="want">want</option></select>,
+          clean water → a <select data-answer="need"><option value="">choose…</option><option value="need">need</option><option value="want">want</option></select>,
+          candy → a <select data-answer="want"><option value="">choose…</option><option value="need">need</option><option value="want">want</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>🛒 Goods &amp; Services</h2>
+      <p>A <span class="term">good</span> is a <strong>thing</strong> you can hold (an apple, a bike). A <span class="term">service</span> is a <strong>job someone does</strong> for you (a haircut, a doctor visit).</p>
+      <div data-tagging>
+        <p class="tagline">A haircut → <select data-answer="service"><option value="">choose…</option><option value="service">service</option><option value="good">good</option></select>,
+          an apple → <select data-answer="good"><option value="">choose…</option><option value="service">service</option><option value="good">good</option></select>,
+          a bus ride → <select data-answer="service"><option value="">choose…</option><option value="service">service</option><option value="good">good</option></select>,
+          a new bike → <select data-answer="good"><option value="">choose…</option><option value="service">service</option><option value="good">good</option></select>.</p>
+        <div class="btn-row"><button type="button" class="btn" data-grade>Check labels</button><span class="score" data-tag-score></span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>📈 Supply &amp; Demand</h2>
+      <p><span class="term">Supply</span> is how much of something there is. <span class="term">Demand</span> is how much people want it.</p>
+      <div class="callout"><span class="ico">💡</span><div>When <strong>lots of people want</strong> something that's <strong>rare</strong> (high demand, low supply), the price usually goes <strong>up</strong>. When there's plenty and few buyers, the price goes <strong>down</strong>.</div></div>
+    </section>
+    <section class="panel">
+      <h2>✏️ Quick Check</h2>
+      <form class="quiz">
+        <div class="question" data-answer="need" data-why="A need is something you must have to live."><div class="q"><span class="num">1</span>Something you must have to live (food, water) is a…</div><div class="options"><label><input type="radio" name="so4q1" value="need" />Need</label><label><input type="radio" name="so4q1" value="want" />Want</label><label><input type="radio" name="so4q1" value="service" />Service</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="want" data-why="A want is nice but not necessary."><div class="q"><span class="num">2</span>Something nice but not necessary is a…</div><div class="options"><label><input type="radio" name="so4q2" value="want" />Want</label><label><input type="radio" name="so4q2" value="need" />Need</label><label><input type="radio" name="so4q2" value="good" />Good</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="service" data-why="A haircut is a service (a job done for you)."><div class="q"><span class="num">3</span>A haircut is a…</div><div class="options"><label><input type="radio" name="so4q3" value="service" />Service</label><label><input type="radio" name="so4q3" value="good" />Good</label><label><input type="radio" name="so4q3" value="need" />Need</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="good" data-why="An apple is a good (a thing)."><div class="q"><span class="num">4</span>An apple is a…</div><div class="options"><label><input type="radio" name="so4q4" value="good" />Good</label><label><input type="radio" name="so4q4" value="service" />Service</label><label><input type="radio" name="so4q4" value="want" />Want</label></div><div class="feedback"></div></div>
+        <div class="question" data-answer="up" data-why="High demand + low supply pushes the price up."><div class="q"><span class="num">5</span>If many people want something rare, the price usually…</div><div class="options"><label><input type="radio" name="so4q5" value="up" />Goes up</label><label><input type="radio" name="so4q5" value="down" />Goes down</label><label><input type="radio" name="so4q5" value="zero" />Becomes free</label></div><div class="feedback"></div></div>
+        <div class="btn-row"><button type="button" class="btn" data-check>Check my answers</button>
+          <button type="button" class="btn ghost" data-reset>Reset</button><span class="score"></span></div>
+      </form>
+    </section>
+    <div class="lesson-nav"><span class="back-link" onclick="showPart('social',3)">← Social Studies · Lesson 3</span>
+      <span class="back-link" onclick="showLesson('home')">Back to start →</span></div>
+    </div><!-- /social-4 -->
   </section>
 
   <p class="foot">🎒 Everything is inside this one file — no internet or other files needed.</p>
@@ -3150,7 +3498,11 @@ function boot(){
     ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.lineCap='round'; ctx.lineJoin='round';
     var firstSw=studio.querySelector('.swatch');
-    var drawing=false,color=firstSw?firstSw.getAttribute('data-color'):'#8b5cf6',size=8,last={x:0,y:0};
+    var preview=studio.querySelector('.color-current');
+    var color=firstSw?firstSw.getAttribute('data-color'):'#8b5cf6';
+    function setColor(c){ color=c; if(preview) preview.style.background=c; }
+    var drawing=false,size=8,last={x:0,y:0};
+    setColor(color);
     function pos(e){ var r=canvas.getBoundingClientRect(); var p=e.touches?e.touches[0]:e;
       return {x:(p.clientX-r.left)*(canvas.width/r.width),y:(p.clientY-r.top)*(canvas.height/r.height)}; }
     function startDraw(e){ drawing=true; last=pos(e); ctx.beginPath(); ctx.fillStyle=color; ctx.arc(last.x,last.y,size/2,0,Math.PI*2); ctx.fill(); e.preventDefault(); }
@@ -3161,16 +3513,26 @@ function boot(){
     canvas.addEventListener('touchstart',startDraw,{passive:false}); canvas.addEventListener('touchmove',move,{passive:false}); canvas.addEventListener('touchend',end);
     studio.querySelectorAll('.swatch').forEach(function(s){
       s.style.background=s.getAttribute('data-color');
-      s.addEventListener('click',function(){ color=s.getAttribute('data-color');
+      s.addEventListener('click',function(){ setColor(s.getAttribute('data-color'));
         studio.querySelectorAll('.swatch').forEach(function(x){ x.classList.remove('active'); }); s.classList.add('active'); });
     });
     if(firstSw) firstSw.classList.add('active');
-    var slider=studio.querySelector('input[type="range"]'), sizeLabel=studio.querySelector('[data-brushval]');
+    var slider=studio.querySelector('.brush-size input[type="range"]'), sizeLabel=studio.querySelector('[data-brushval]');
     if(slider) slider.addEventListener('input',function(){ size=parseInt(slider.value,10); if(sizeLabel) sizeLabel.textContent=size+'px'; });
     var clearBtn=studio.querySelector('[data-clear]');
     if(clearBtn) clearBtn.addEventListener('click',function(){ ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height); });
     var saveBtn=studio.querySelector('[data-save]');
     if(saveBtn) saveBtn.addEventListener('click',function(){ var l=document.createElement('a'); l.download='my-artwork.png'; l.href=canvas.toDataURL('image/png'); l.click(); });
+    /* blending colour wheel */
+    var wheel=studio.querySelector('.color-wheel'), shade=studio.querySelector('.shade-slider');
+    var hueV=265,satV=0.55,litV=50;
+    function applyWheel(){ studio.querySelectorAll('.swatch').forEach(function(x){ x.classList.remove('active'); });
+      setColor('hsl('+Math.round(hueV)+','+Math.round(satV*100)+'%,'+litV+'%)'); }
+    if(wheel) wheel.addEventListener('click',function(e){
+      var r=wheel.getBoundingClientRect(); var dx=e.clientX-r.left-r.width/2, dy=e.clientY-r.top-r.height/2;
+      var radius=r.width/2||48, dist=Math.sqrt(dx*dx+dy*dy);
+      hueV=(Math.atan2(dy,dx)*180/Math.PI+90+360)%360; satV=Math.min(1,dist/radius); applyWheel(); });
+    if(shade) shade.addEventListener('input',function(){ litV=parseInt(shade.value,10); applyWheel(); });
   });
 
 
