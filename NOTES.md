@@ -5,10 +5,10 @@
 
 ## Lesson size — quadrupled for a real ~2 hours of work
 
-The lessons were **quadrupled** from the early versions. Every lesson is now built to
-**exactly 40 graded steps** (drop-downs, select-all questions, typed practice, multiple
-choice, plus two ~60-word writing tasks), so a full pass adds up to a **real ~2 hours of
-work** across the subjects — not a 10-minute click-through.
+The lessons were **quadrupled** from the early versions. Each newer lesson is built from
+**~38 graded steps** (drop-downs, select-all questions, typed practice, and multiple
+choice). Writing tasks have been removed at the parent's request, so completion is based
+purely on answering every question correctly.
 
 A sticky **completion tracker** at the top of each lesson only reads **"Lesson complete!"**
 once every question is answered, so the work
