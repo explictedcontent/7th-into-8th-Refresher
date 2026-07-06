@@ -31,11 +31,11 @@ Closed the four ways the work could be skipped:
    reading the pasted source shows only gibberish — nothing to copy.
 
 Verified end-to-end: filling every question with the correct answer grades 100%
-and completes all 60 lessons; filling garbage leaves lessons locked. No JS errors.
+and completes all 66 lessons; filling garbage leaves lessons locked. No JS errors.
 
 ## What's included
 
 - Six subjects: **Art, Math, English, Science, Anatomy, Social Studies**
-- **9 lessons each** (Art's drawing studios include a colour wheel + a real blend/smudge tool)
+- **11 lessons each** (Art's drawing studios include a colour wheel + a real blend/smudge tool)
 - Autosave/restore (survives closing, refresh, power loss) + clear wrong-answer marking
 - Every exercise auto-graded and render-verified in a real browser (Chromium); no JS errors
