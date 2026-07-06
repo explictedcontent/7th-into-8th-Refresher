@@ -11,7 +11,7 @@ choice, plus two ~60-word writing tasks), so a full pass adds up to a **real ~2 
 work** across the subjects — not a 10-minute click-through.
 
 A sticky **completion tracker** at the top of each lesson only reads **"Lesson complete!"**
-once every question is answered and every writing task hits its word minimum, so the work
+once every question is answered, so the work
 can't be skipped to "finish" early.
 
 ## Anti-cheat lockdown
