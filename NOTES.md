@@ -7,7 +7,7 @@
 
 The lessons were **quadrupled** from the early versions. Every lesson is now built to
 **exactly 40 graded steps** (drop-downs, select-all questions, typed practice, multiple
-choice, plus two ~60-word writing tasks), so a full pass adds up to a **real ~2 hours of
+choice, plus two ~100-word writing tasks), so a full pass adds up to a **real ~2 hours of
 work** across the subjects — not a 10-minute click-through.
 
 A sticky **completion tracker** at the top of each lesson only reads **"Lesson complete!"**
