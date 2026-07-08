@@ -316,6 +316,22 @@ body.theme-candy{--art:#e0529c;background:radial-gradient(circle at 15% 15%,rgba
 .drop-slot .chip{margin:0;padding:4px 12px;}
 .dd-hidden{display:none!important;}
 .dd-hint{font-size:.85rem;color:var(--ink-soft);margin:.4rem 0 0;}
+
+.rep-line{border:1px solid var(--line);border-left-width:5px;border-radius:10px;padding:8px 12px;margin:7px 0;font-size:.9rem;}
+.rep-line.rep-ok{border-left-color:var(--good);}
+.rep-line.rep-bad{border-left-color:var(--bad);}
+.rep-line.rep-none{border-left-color:var(--line);color:var(--ink-soft);}
+details.rep-line>summary{cursor:pointer;list-style:none;}
+details.rep-line>summary::-webkit-details-marker{display:none;}
+details.rep-line>summary::before{content:"▸ ";color:var(--art);font-weight:900;}
+details.rep-line[open]>summary::before{content:"▾ ";}
+.rep-tag{color:var(--ink-soft);font-size:.82rem;}
+.rep-status{font-weight:800;}
+.miss-table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:.85rem;}
+.miss-table th,.miss-table td{border:1px solid var(--line);padding:4px 7px;text-align:left;vertical-align:top;}
+.miss-her{color:var(--bad);white-space:nowrap;}
+.miss-cor{color:var(--good);font-weight:700;}
+.rep-foot-note{font-size:.8rem;color:var(--ink-soft);margin-top:10px;}
 </style>
 </head>
 <body>
@@ -3943,6 +3959,42 @@ function boot(){
     var pinMsg=modal.querySelector('.pin-msg'), pinTitle=modal.querySelector('.pin-title');
     function hasPin(){ try{ return !!localStorage.getItem(PINKEY); }catch(e){ return false; } }
     function esc(s){ return (''+s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+    function qLabel(el){ if(!el) return ''; var c=el.cloneNode(true); var n=c.querySelector('.num'); if(n)n.remove(); var sh=c.querySelector('.selhint'); if(sh)sh.remove(); return c.textContent.replace(/\s+/g,' ').trim(); }
+    function missesFor(part){
+      var out=[];
+      part.querySelectorAll('form.quiz .question').forEach(function(q){
+        var qt=qLabel(q.querySelector('.q'));
+        if(q.classList.contains('multi')){
+          var ks=(q.getAttribute('data-ks')||'').split('|').filter(Boolean);
+          var cor=[], her=[], herH=[];
+          q.querySelectorAll('.options input').forEach(function(i){
+            var lab=(i.closest('label')?i.closest('label').textContent:'').replace(/\s+/g,' ').trim();
+            if(ks.indexOf(_h(i.value))>=0) cor.push(lab);
+            if(i.checked){ her.push(lab); herH.push(_h(i.value)); } });
+          var good=ks.length>0 && herH.length===ks.length && ks.every(function(a){return herH.indexOf(a)>=0;});
+          if(!good) out.push({q:qt,her:her.join(', ')||'(blank)',correct:cor.join(', ')});
+        } else {
+          var k=q.getAttribute('data-k'), cor='', her='(blank)';
+          q.querySelectorAll('.options input').forEach(function(i){ var lab=(i.closest('label')?i.closest('label').textContent:'').replace(/\s+/g,' ').trim();
+            if(_h(i.value)===k) cor=lab; if(i.checked) her=lab; });
+          var ch=q.querySelector('input:checked');
+          if(!(ch && _h(ch.value)===k)) out.push({q:qt,her:her,correct:cor});
+        }
+      });
+      part.querySelectorAll('[data-tagging]').forEach(function(block){
+        var head=block.querySelector('h2')?block.querySelector('h2').textContent.replace(/\s+/g,' ').trim():'Fill-in';
+        var bi=0;
+        block.querySelectorAll('select[data-k]').forEach(function(s){ bi++;
+          var k=s.getAttribute('data-k'), cor='', her='(blank)';
+          [].forEach.call(s.options,function(o){ if(o.value && _h(o.value)===k) cor=o.textContent.trim(); if(o.value!=='' && o.value===s.value) her=o.textContent.trim(); });
+          if(!(s.value!=='' && _h(s.value)===k)) out.push({q:head+' — blank '+bi,her:her,correct:cor}); });
+      });
+      part.querySelectorAll('[data-practice] .prob').forEach(function(p){
+        var k=p.getAttribute('data-k'), inp=p.querySelector('input'), v=inp?inp.value.trim():'';
+        var qt=p.querySelector('.qtext')?p.querySelector('.qtext').textContent.replace(/\s+/g,' ').trim():'Problem';
+        if(!(v!=='' && _h(v)===k)) out.push({q:qt,her:v||'(blank)',correct:'— (open lesson)'}); });
+      return out;
+    }
     function report(){
       var subs={}, names={art:'🎨 Art',math:'🔢 Math',english:'📖 English',science:'🔬 Science',anatomy:'🫀 Anatomy',social:'🌍 Social Studies'};
       var order=['art','math','english','science','anatomy','social'];
@@ -3950,17 +4002,26 @@ function boot(){
         var m=part.id.match(/^([a-z]+)-(\d+)$/); if(!m) return;
         var g=gradePart(part); var title=(part.querySelector('h1')||{}).textContent||part.id;
         var wg=part.querySelector('.writing-gate textarea'); var ww=(wg&&wg.value.trim())?wg.value.trim().split(/\s+/).length:0;
-        (subs[m[1]]=subs[m[1]]||[]).push({n:parseInt(m[2],10),g:g,title:title,w:ww});
+        (subs[m[1]]=subs[m[1]]||[]).push({n:parseInt(m[2],10),g:g,title:title,w:ww,part:part});
       });
-      var html='<h3>Answer report</h3><p class="rep-sub">A lesson is only fully right when every answer is correct. Writing checkpoints are counted in the totals.</p>';
+      var html='<h3>Answer report</h3><p class="rep-sub">Tap any lesson to see exactly what was missed and the correct answers.</p>';
       order.forEach(function(sub){ if(!subs[sub]) return;
         var rows=subs[sub].sort(function(a,b){return a.n-b.n;});
-        html+='<h4>'+names[sub]+'</h4><table class="rep-table"><tr><th>Lesson</th><th>Answered</th><th>Correct</th><th>Writing</th><th>Status</th></tr>';
+        html+='<h4>'+names[sub]+'</h4>';
         rows.forEach(function(r){ var g=r.g;
           var cls=g.answered===0?'rep-none':(g.answered<g.total?'rep-none':(g.correct===g.total?'rep-ok':'rep-bad'));
-          var st=g.answered===0?'not started':(g.answered<g.total?'in progress':(g.correct===g.total?'✅ all correct':'⚠️ '+(g.total-g.correct)+' wrong'));
-          html+='<tr class="'+cls+'"><td>'+r.n+'. '+esc(r.title)+'</td><td>'+g.answered+'/'+g.total+'</td><td>'+g.correct+'/'+g.total+'</td><td>'+(r.w>=60?'✍️ '+r.w+'w':(r.w>0?'⚠️ '+r.w+'w':'—'))+'</td><td>'+st+'</td></tr>'; });
-        html+='</table>'; });
+          var st=g.answered===0?'not started':(g.answered<g.total?'in progress':(g.correct===g.total?'✅ all correct':'⚠️ '+(g.total-g.correct)+' missed'));
+          var wtxt=r.w>=60?' · ✍️ '+r.w+'w':(r.w>0?' · ✍️ '+r.w+'w (needs 60)':'');
+          var sm='<strong>Lesson '+r.n+'</strong> · '+esc(r.title)+' <span class="rep-status">'+st+'</span><br><span class="rep-tag">'+g.answered+'/'+g.total+' answered · '+g.correct+'/'+g.total+' correct'+wtxt+'</span>';
+          var miss=g.answered>0?missesFor(r.part):[];
+          if(!miss.length){ html+='<div class="rep-line '+cls+'">'+sm+'</div>'; }
+          else { var body='<table class="miss-table"><tr><th>Question</th><th>She put</th><th>Correct</th></tr>';
+            miss.forEach(function(mm){ body+='<tr><td>'+esc(mm.q)+'</td><td class="miss-her">'+esc(mm.her)+'</td><td class="miss-cor">'+esc(mm.correct)+'</td></tr>'; });
+            body+='</table>';
+            html+='<details class="rep-line '+cls+'"><summary>'+sm+'</summary>'+body+'</details>'; }
+        });
+      });
+      html+='<p class="rep-foot-note">Typed math answers stay hidden from the student, so they show as “— (open lesson)”. Everything else shows the correct answer.</p>';
       return html;
     }
     function showPin(){ repView.style.display='none'; repFoot.style.display='none'; pinView.style.display='block';

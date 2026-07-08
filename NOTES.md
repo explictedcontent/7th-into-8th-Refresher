@@ -12,9 +12,12 @@ brute-force answers by checking one at a time. Instead:
   signal anywhere she can watch.
 - **The parent sees the real scores** behind a PIN. A discreet **🔒 Parent** button
   (bottom-right) opens a report of every lesson's *answered / correct / writing /
-  status* across all subjects. The parent **creates the PIN on first open** — do
-  this once before handing over the laptop. (Answer key is one-way hashed in the
-  source, so nothing is readable there either.)
+  status*. The parent **types the PIN on first open** and re-enters it each time.
+  **Each lesson expands to show exactly what was missed** — a Question / She put /
+  Correct table (her answers in red, correct answers in green). Typed math answers
+  stay hidden ("— (open lesson)") so they can't be extracted; everything else shows
+  the correct answer. (Answer key is one-way hashed in the source, so nothing is
+  readable there either.)
 
 ## Writing gates (must-do, mid-lesson)
 
