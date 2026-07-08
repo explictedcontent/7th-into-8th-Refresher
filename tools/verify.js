@@ -40,12 +40,15 @@ window.addEventListener('DOMContentLoaded', () => window.setTimeout(() => {
   d.querySelector('[data-parent]').click();
   d.querySelector('[data-pin-input]').value = '1234';
   d.querySelector('[data-pin-go]').click();
-  const rep = d.querySelector('.parent-report').innerHTML;
-  const num = LID.split('-')[1];
-  const row = (rep.match(new RegExp('<tr class="rep-[a-z]+"><td>'+num+'\\.[^<]*</td>(?:<td>[^<]*</td>){4}','g'))||[]).map(r=>r.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim());
+  const repEl = d.querySelector('.parent-report');
+  // new report format: each lesson is a .rep-line (div or <details>) whose text is "Lesson N · Title ... status"
+  const norm = s => (''+s).replace(/[^a-z0-9]/gi,'').toLowerCase();
+  const titleKey = norm((part.querySelector('h1')||{}).textContent||'').slice(0,14);
+  const line = [...repEl.querySelectorAll('.rep-line')].find(el => titleKey && norm(el.textContent).includes(titleKey));
+  const row = line ? [line.textContent.replace(/\s+/g,' ').trim().slice(0,90)] : [];
   const barOk = /^Answered \d+ of \d+/.test(bar);
   const gateOk = hiddenBefore>0 && hiddenAfter===0;
-  const allCorrect = probs>0 ? true : row.some(r=>/all correct/.test(r));
+  const allCorrect = probs>0 ? true : (!!line && /all correct/.test(line.textContent));
   console.log('file:', file, '| lesson:', LID);
   console.log('JS errors:', errs.length ? errs.slice(0,3) : 'NONE');
   console.log('student bar:', JSON.stringify(bar), barOk?'✓':'✗');
