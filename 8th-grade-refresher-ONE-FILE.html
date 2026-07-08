@@ -273,6 +273,49 @@ select.ok,select.no{border-color:var(--line)!important;background:#fff!important
 .rep-ok{background:#e9f9f1;}.rep-bad{background:#fff3f3;}.rep-none{color:var(--ink-soft);}
 .pin-msg{color:var(--bad);font-weight:700;min-height:1.2em;}
 .rep-sub{font-size:.85rem;color:var(--ink-soft);}
+
+/* ===== fun: confetti, celebration, progress map, themes ===== */
+#confettiCanvas{position:fixed;inset:0;pointer-events:none;z-index:85;}
+.celebrate-modal{display:none;position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.4);align-items:center;justify-content:center;padding:16px;}
+.celebrate-modal.show{display:flex;}
+.celebrate-card{background:#fff;border-radius:20px;padding:26px 30px;text-align:center;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:pop .4s ease;}
+@keyframes pop{0%{transform:scale(.7);opacity:0;}100%{transform:scale(1);opacity:1;}}
+.celebrate-card .big{font-size:3.2rem;line-height:1;}
+.toast{position:fixed;left:50%;top:20px;transform:translateX(-50%) translateY(-24px);background:var(--good);color:#fff;padding:12px 20px;border-radius:14px;font-weight:800;z-index:80;opacity:0;transition:all .35s ease;box-shadow:0 10px 30px rgba(0,0,0,.25);pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#progressMap .pm-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.pm-avatar{font-size:2.2rem;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--cream);border:2px solid var(--art);flex-shrink:0;}
+.pm-level{font-weight:900;font-size:1.15rem;}
+.xp-track{height:14px;background:#eee;border-radius:99px;overflow:hidden;margin:4px 0;}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--art),var(--good));width:0;transition:width .5s ease;}
+.pm-streak{font-weight:800;font-size:1.05rem;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:6px 12px;}
+.pm-subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px;}
+.pm-sub{border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fff;}
+.pm-sub .pm-bar{height:8px;background:#eee;border-radius:99px;overflow:hidden;margin-top:6px;}
+.pm-sub .pm-bar span{display:block;height:100%;background:var(--art);width:0;transition:width .5s ease;}
+.pm-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{font-size:.9rem;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:6px 10px;font-weight:700;}
+.badge.locked{opacity:.35;filter:grayscale(1);}
+.avatar-picker button{font-size:1.35rem;border:2px solid var(--line);background:#fff;border-radius:12px;padding:3px 7px;margin:3px;cursor:pointer;line-height:1;}
+.avatar-picker button.sel{border-color:var(--art);background:var(--cream);}
+.theme-picker button{width:32px;height:32px;padding:0;border-radius:50%;border:2px solid var(--line);margin:3px;cursor:pointer;vertical-align:middle;}
+.theme-picker button.sel{outline:3px solid var(--ink);outline-offset:1px;}
+body.theme-ocean{--art:#2d7ff9;background:radial-gradient(circle at 15% 15%,rgba(45,127,249,.14),transparent 40%),radial-gradient(circle at 85% 20%,rgba(31,174,139,.12),transparent 42%),var(--paper);}
+body.theme-sunset{--art:#f0883e;background:radial-gradient(circle at 15% 15%,rgba(240,136,62,.16),transparent 40%),radial-gradient(circle at 85% 20%,rgba(224,82,156,.12),transparent 42%),var(--paper);}
+body.theme-forest{--art:#1fae8b;background:radial-gradient(circle at 15% 15%,rgba(31,174,139,.15),transparent 40%),radial-gradient(circle at 85% 20%,rgba(141,197,0,.12),transparent 42%),var(--paper);}
+body.theme-candy{--art:#e0529c;background:radial-gradient(circle at 15% 15%,rgba(224,82,156,.15),transparent 40%),radial-gradient(circle at 85% 20%,rgba(139,92,246,.13),transparent 42%),var(--paper);}
+
+/* ===== drag-and-drop word matching (over the hidden tagging selects) ===== */
+.word-bank{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px;padding:10px;border:1px dashed var(--line);border-radius:12px;background:var(--cream);min-height:44px;}
+.chip{font-family:inherit;font-weight:700;font-size:.95rem;border:2px solid var(--art);background:#fff;color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;touch-action:none;user-select:none;}
+.chip.sel{background:var(--art);color:#fff;}
+.chip.dragging{opacity:.35;}
+.chip.drag-clone{position:fixed;transform:translate(-50%,-50%);pointer-events:none;z-index:90;box-shadow:0 8px 20px rgba(0,0,0,.3);}
+.drop-slot{display:inline-flex;align-items:center;justify-content:center;min-width:70px;min-height:30px;padding:2px 8px;margin:0 3px;border-bottom:2px dashed var(--art);border-radius:6px;background:color-mix(in srgb,var(--art) 8%,#fff);vertical-align:middle;color:var(--ink-soft);font-weight:700;}
+.drop-slot.over{background:color-mix(in srgb,var(--art) 22%,#fff);}
+.drop-slot .chip{margin:0;padding:4px 12px;}
+.dd-hidden{display:none!important;}
+.dd-hint{font-size:.85rem;color:var(--ink-soft);margin:.4rem 0 0;}
 </style>
 </head>
 <body>
@@ -295,17 +338,15 @@ select.ok,select.no{border-color:var(--line)!important;background:#fff!important
   <div class="study-bar">
     <span class="save-note">💾 Everything saves automatically on this device</span>
     <span style="flex:1 1 auto"></span>
-    <button class="btn" onclick="reviewAll()">✅ Check all my answers</button>
     <button class="btn ghost" onclick="resetAll()">🗑️ Start fresh</button>
   </div>
-  <div class="review-banner" id="reviewBanner"></div>
 
   <!-- ================= HOME ================= -->
   <section id="home" class="lesson-section active">
     <section class="hero">
       <span class="pill">Summer Refresher · Ages 12–13</span>
       <h1 data-greeting>Welcome! Let's get ready for 8th grade. 🎉</h1>
-      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>twelve lessons</strong> of practice and instant feedback. Do it all and it's about <strong>4 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
+      <p>This is your personal interactive review of everything from 7th grade — six subjects, each with <strong>twelve lessons</strong> of hands-on practice. Do it all and it's about <strong>4 hours</strong> of work. <strong>Art is featured first</strong> because it's your favorite! 🎨</p>
       <div class="tryit" style="margin-top:22px;max-width:420px;">
         <label for="nameInput"><strong>What should I call you?</strong></label><br />
         <input type="text" id="nameInput" placeholder="Type your name" />
@@ -314,37 +355,40 @@ select.ok,select.no{border-color:var(--line)!important;background:#fff!important
       </div>
     </section>
 
+<section class="panel" id="progressMap"><h2>🏆 Your progress</h2><div class="pm-body"></div></section>
+    <section class="panel" id="funSettings"><h2>🎨 Make it yours</h2><p class="rep-sub">Pick an avatar and a colour theme — just for fun.</p><div style="margin:8px 0"><strong>Avatar:</strong> <span class="avatar-picker"></span></div><div style="margin:8px 0"><strong>Theme:</strong> <span class="theme-picker"></span></div></section>
+
     <h2 style="margin:0 0 16px;">Pick a subject to start Lesson&nbsp;1</h2>
     <div class="cards">
       <a class="card art" onclick="showLesson('art')">
         <span class="fav">★ FAVORITE</span><span class="emoji">🎨</span>
         <h3>Art</h3><p>Elements of art &amp; color theory — plus a real drawing studio you can paint in.</p>
-        <span class="tag">Lessons 1–4 ready</span>
+        <span class="tag">Lessons 1–12 ready</span>
       </a>
       <a class="card math" onclick="showLesson('math')">
         <span class="emoji">🔢</span><h3>Math</h3>
         <p>Integers, the order of operations, and the rules that power 8th-grade algebra.</p>
-        <span class="tag">Lessons 1–4 ready</span>
+        <span class="tag">Lessons 1–12 ready</span>
       </a>
       <a class="card english" onclick="showLesson('english')">
         <span class="emoji">📖</span><h3>English / Language Arts</h3>
         <p>Parts of speech and building strong, clear sentences that say what you mean.</p>
-        <span class="tag">Lessons 1–4 ready</span>
+        <span class="tag">Lessons 1–12 ready</span>
       </a>
       <a class="card science" onclick="showLesson('science')">
         <span class="emoji">🔬</span><h3>Science</h3>
         <p>The scientific method &amp; lab safety — how real scientists ask and answer questions.</p>
-        <span class="tag">Lessons 1–4 ready</span>
+        <span class="tag">Lessons 1–12 ready</span>
       </a>
       <a class="card anatomy" onclick="showLesson('anatomy')">
         <span class="emoji">🫀</span><h3>Anatomy (Human Body)</h3>
         <p>How the body is built and the major systems that keep you alive and moving.</p>
-        <span class="tag">Lessons 1–4 ready</span>
+        <span class="tag">Lessons 1–12 ready</span>
       </a>
       <a class="card social" onclick="showLesson('social')">
         <span class="emoji">🗺️</span><h3>Social Studies</h3>
         <p>Map skills, continents, and coordinates — find any place on Earth.</p>
-        <span class="tag">Lessons 1–4 ready</span>
+        <span class="tag">Lessons 1–12 ready</span>
       </a>
     </div>
 
@@ -3547,7 +3591,7 @@ function reviewAll(){
 }
 function resetAll(){
   if(!window.confirm('Erase ALL saved answers and start completely fresh? This cannot be undone.')) return;
-  try{ localStorage.removeItem('refresher_answers_v1'); }catch(e){}
+  try{ ['refresher_answers_v1','refresher_answers_v2','rf_done','rf_streak'].forEach(function(k){ localStorage.removeItem(k); }); }catch(e){}
   location.reload();
 }
 
@@ -3931,6 +3975,180 @@ function boot(){
     modal.querySelectorAll('[data-parent-close]').forEach(function(b){ b.addEventListener('click', function(){ modal.classList.remove('show'); }); });
   })();
 
+
+  /* ================= FUN: themes, avatar, XP, badges, streak, confetti ================= */
+  (function(){
+    var LS={done:'rf_done',streak:'rf_streak',avatar:'rf_avatar',theme:'rf_theme'};
+    function get(k,def){ try{ var v=localStorage.getItem(k); return v==null?def:JSON.parse(v); }catch(e){ return def; } }
+    function set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+    function ymd(d){ return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+    function today(){ return ymd(new Date()); }
+    var RAF=window.requestAnimationFrame||function(f){return setTimeout(f,16);};
+
+    var THEMES=[['default','#8b5cf6'],['ocean','#2d7ff9'],['sunset','#f0883e'],['forest','#1fae8b'],['candy','#e0529c']];
+    var AVATARS=['🚀','🦄','🐱','🦊','🐼','🐬','🦋','🌟','🎨','🐉','🐢','🦖'];
+    function applyTheme(t){ document.body.className=document.body.className.replace(/\btheme-\w+/g,'').replace(/\s+/g,' ').trim(); if(t&&t!=='default') document.body.classList.add('theme-'+t); }
+    var curTheme=get(LS.theme,'default'), curAvatar=get(LS.avatar,'🚀');
+    applyTheme(curTheme);
+    function renderPickers(){
+      var ap=document.querySelector('.avatar-picker');
+      if(ap){ ap.innerHTML=''; AVATARS.forEach(function(a){ var b=document.createElement('button'); b.type='button'; b.textContent=a; if(a===curAvatar) b.className='sel';
+        b.addEventListener('click',function(){ curAvatar=a; set(LS.avatar,a); renderPickers(); renderMap(); }); ap.appendChild(b); }); }
+      var tp=document.querySelector('.theme-picker');
+      if(tp){ tp.innerHTML=''; THEMES.forEach(function(t){ var b=document.createElement('button'); b.type='button'; b.style.background=t[1]; b.title=t[0]; if(t[0]===curTheme) b.className='sel';
+        b.addEventListener('click',function(){ curTheme=t[0]; set(LS.theme,t[0]); applyTheme(t[0]); renderPickers(); }); tp.appendChild(b); }); }
+    }
+
+    function partStats(part){ var done=0,total=0;
+      part.querySelectorAll('form.quiz .question').forEach(function(q){ total++; if(q.classList.contains('multi')){ if(q.querySelector('.options input:checked')) done++; } else if(q.querySelector('input:checked')) done++; });
+      part.querySelectorAll('[data-practice] .prob').forEach(function(p){ total++; var i=p.querySelector('input'); if(i&&i.value.trim()!=='') done++; });
+      part.querySelectorAll('[data-tagging] select[data-k]').forEach(function(s){ total++; if(s.value!=='') done++; });
+      part.querySelectorAll('textarea.write[data-min]').forEach(function(t){ total++; var mn=parseInt(t.getAttribute('data-min')||'0',10); var w=t.value.trim()?t.value.trim().split(/\s+/).length:0; if(w>=mn) done++; });
+      return {done:done,total:total};
+    }
+    function isComplete(part){ var s=partStats(part); return s.total>0 && s.done>=s.total; }
+
+    var doneSet=get(LS.done,[]); if(!Array.isArray(doneSet)) doneSet=[];
+    var doneMap={}; doneSet.forEach(function(id){ doneMap[id]=1; });
+    var SUBS=[['art','🎨','Art'],['math','🔢','Math'],['english','📖','English'],['science','🔬','Science'],['anatomy','🫀','Anatomy'],['social','🗺️','Social']];
+    function lessonsDoneIn(sub){ var n=0; for(var id in doneMap){ if(id.indexOf(sub+'-')===0) n++; } return n; }
+    function totalLessonsIn(sub){ return document.querySelectorAll('.lesson-part[id^="'+sub+'-"]').length; }
+
+    function streakInfo(){ var s=get(LS.streak,null); if(!s) return 0; var t=today(); if(s.d===t) return s.n; var y=new Date(); y.setDate(y.getDate()-1); if(s.d===ymd(y)) return s.n; return 0; }
+    function bumpStreak(){ var s=get(LS.streak,null); var t=today(); if(!s){ set(LS.streak,{d:t,n:1}); return; } if(s.d===t) return; var y=new Date(); y.setDate(y.getDate()-1); if(s.d===ymd(y)) set(LS.streak,{d:t,n:s.n+1}); else set(LS.streak,{d:t,n:1}); }
+
+    function badges(){ var out=[]; var total=doneSet.length;
+      SUBS.forEach(function(s){ var n=lessonsDoneIn(s[0]); var tier=n>=12?'🥇':n>=6?'🥈':n>=1?'🥉':''; out.push({e:s[1],got:n>=1,label:s[2]+(tier?' '+tier:'')}); });
+      out.push({e:'🎯',got:total>=1,label:'First lesson'});
+      out.push({e:'💪',got:total>=10,label:'10 lessons'});
+      out.push({e:'🌈',got:SUBS.every(function(s){return lessonsDoneIn(s[0])>=1;}),label:'All subjects'});
+      out.push({e:'🔥',got:streakInfo()>=3,label:'3-day streak'});
+      return out; }
+
+    function renderMap(){ var box=document.querySelector('#progressMap .pm-body'); if(!box) return;
+      var total=doneSet.length, xp=total*100, lvl=Math.floor(xp/500)+1, into=xp%500, pct=Math.round(into/500*100), st=streakInfo();
+      var h='<div class="pm-head"><div class="pm-avatar">'+curAvatar+'</div>'
+        +'<div style="flex:1 1 200px"><div class="pm-level">Level '+lvl+' · '+xp+' XP</div>'
+        +'<div class="xp-track"><div class="xp-fill" style="width:'+pct+'%"></div></div>'
+        +'<div class="rep-sub">'+into+' / 500 XP to level '+(lvl+1)+'</div></div>'
+        +'<div class="pm-streak">🔥 '+st+' day'+(st===1?'':'s')+'</div></div>';
+      h+='<div class="pm-subjects">';
+      SUBS.forEach(function(s){ var n=lessonsDoneIn(s[0]), tot=totalLessonsIn(s[0])||12, p=Math.round(n/tot*100);
+        h+='<div class="pm-sub"><div><strong>'+s[1]+' '+s[2]+'</strong></div><div class="rep-sub">'+n+' / '+tot+' done</div><div class="pm-bar"><span style="width:'+p+'%"></span></div></div>'; });
+      h+='</div><div class="pm-badges">';
+      badges().forEach(function(b){ h+='<span class="badge'+(b.got?'':' locked')+'" title="'+b.label+'">'+b.e+' '+b.label+'</span>'; });
+      h+='</div>'; box.innerHTML=h;
+    }
+
+    var cc=document.getElementById('confettiCanvas'), cx=cc?cc.getContext('2d'):null, parts=[], raf=null;
+    function sizeC(){ if(cc){ cc.width=window.innerWidth||900; cc.height=window.innerHeight||700; } }
+    sizeC(); window.addEventListener('resize',sizeC);
+    function burst(n){ if(!cx) return; var cols=['#8b5cf6','#e0529c','#2d6cdf','#1fae8b','#f0883e','#ffd23f'];
+      for(var i=0;i<(n||120);i++){ parts.push({x:cc.width/2+(Math.random()-.5)*220,y:cc.height/3,vx:(Math.random()-.5)*12,vy:Math.random()*-13-4,g:0.42,c:cols[i%cols.length],s:6+Math.random()*7,r:Math.random()*6,vr:(Math.random()-.5)*.4,life:70+Math.random()*40}); }
+      if(!raf) raf=RAF(tick); }
+    function tick(){ if(!cx) return; cx.clearRect(0,0,cc.width,cc.height); var alive=false;
+      for(var i=0;i<parts.length;i++){ var p=parts[i]; if(p.life<=0) continue; alive=true; p.vy+=p.g; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr; p.life--;
+        cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.6); cx.restore(); }
+      if(alive){ raf=RAF(tick); } else { parts=[]; raf=null; try{cx.clearRect(0,0,cc.width,cc.height);}catch(e){} } }
+
+    var toastEl=document.getElementById('toast'), toastT=null;
+    function toast(msg){ if(!toastEl) return; toastEl.textContent=msg; toastEl.classList.add('show'); if(toastT) clearTimeout(toastT); toastT=setTimeout(function(){ toastEl.classList.remove('show'); },2200); }
+
+    var cm=document.getElementById('celebrateModal');
+    if(cm){ var cb=cm.querySelector('[data-celebrate-close]'); if(cb) cb.addEventListener('click',function(){ cm.classList.remove('show'); }); }
+    function celebrate(title,msg,emoji){ if(cm){ cm.querySelector('.big').textContent=emoji||'🎉'; cm.querySelector('.ctitle').textContent=title; cm.querySelector('.cmsg').textContent=msg; cm.classList.add('show'); } burst(150); }
+
+    /* init done-set from restored state, no celebration */
+    document.querySelectorAll('.lesson-part').forEach(function(part){ if(isComplete(part) && !doneMap[part.id]){ doneMap[part.id]=1; doneSet.push(part.id); } });
+    set(LS.done,doneSet);
+
+    function checkNew(){ document.querySelectorAll('.lesson-part').forEach(function(part){
+      if(!doneMap[part.id] && isComplete(part)){ doneMap[part.id]=1; doneSet.push(part.id); set(LS.done,doneSet);
+        bumpStreak(); renderMap();
+        var title=(part.querySelector('h1')||{}).textContent||'Lesson';
+        celebrate('Lesson complete! 🎉','+100 XP  ·  '+title,'🎉'); } }); }
+    document.addEventListener('input',function(){ setTimeout(checkNew,20); },true);
+    document.addEventListener('change',function(){ setTimeout(checkNew,20); },true);
+
+    /* gate unlock celebration */
+    document.querySelectorAll('.writing-gate textarea').forEach(function(ta){
+      function wc(){ var t=ta.value.trim(); return t?t.split(/\s+/).length:0; }
+      var was=wc()>=60;
+      ta.addEventListener('input',function(){ var now=wc()>=60; if(now&&!was){ burst(100); toast('🔓 Unlocked! Nice writing.'); } was=now; }); });
+
+    renderPickers(); renderMap();
+  })();
+
+
+  /* ================= drag-and-drop matching for tagging blocks ================= */
+  (function(){
+    if(typeof _h!=='function') return;
+    var saved={}; try{ saved=JSON.parse(localStorage.getItem('refresher_answers_v2')||'{}'); }catch(e){}
+    function keyOf(el){ var part=el.closest('.lesson-part'); var pid=part?part.id:'_root';
+      var scope=part?part.querySelectorAll('input, select, textarea'):document.querySelectorAll('input, select, textarea');
+      return pid+'#'+Array.prototype.indexOf.call(scope, el); }
+    var selected=null, suppressClick=false;
+    function pickChip(chip){ if(selected===chip){ chip.classList.remove('sel'); selected=null; return; } if(selected) selected.classList.remove('sel'); selected=chip; chip.classList.add('sel'); }
+
+    document.querySelectorAll('[data-tagging]').forEach(function(block){
+      var tagline=block.querySelector('.tagline'); if(!tagline) return;
+      var selects=[].slice.call(tagline.querySelectorAll('select[data-k]')); if(!selects.length) return;
+      var correct=selects.map(function(s){ var k=s.getAttribute('data-k'), val='', lab='';
+        [].slice.call(s.options).forEach(function(o){ if(o.value && _h(o.value)===k){ val=o.value; lab=o.textContent; } }); return {val:val,lab:lab}; });
+      if(correct.some(function(c){ return c.val===''; })) return;  // safety: leave as dropdown if any answer not found
+      var allVals={}; correct.forEach(function(c){ allVals[c.val]=c.lab; });
+      selects.forEach(function(s){ var have={}; [].slice.call(s.options).forEach(function(o){ have[o.value]=1; });
+        for(var v in allVals){ if(!have[v]) s.add(new Option(allVals[v], v)); } s.classList.add('dd-hidden'); });
+      var slots=[];
+      selects.forEach(function(s,i){ var slot=document.createElement('span'); slot.className='drop-slot'; slot.setAttribute('data-si',i); slot.textContent='?';
+        s.parentNode.insertBefore(slot, s); slots.push(slot); });
+      var bank=document.createElement('div'); bank.className='word-bank';
+      var hint=document.createElement('p'); hint.className='dd-hint'; hint.textContent='Tap a word then tap a blank — or drag it. Tap a filled blank to send the word back.';
+      tagline.parentNode.insertBefore(hint, tagline.nextSibling);
+      tagline.parentNode.insertBefore(bank, hint.nextSibling);
+      var chipData=correct.map(function(c){ return {val:c.val,lab:c.lab}; });
+      for(var i=chipData.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=chipData[i]; chipData[i]=chipData[j]; chipData[j]=t; }
+      chipData.forEach(function(c){ var chip=document.createElement('button'); chip.type='button'; chip.className='chip'; chip.setAttribute('data-val',c.val); chip.textContent=c.lab; bank.appendChild(chip); });
+
+      function setVal(i,v){ selects[i].value=v; selects[i].dispatchEvent(new Event('change',{bubbles:true})); }
+      function place(chip,i){ var slot=slots[i]; var ex=slot.querySelector('.chip'); if(ex){ bank.appendChild(ex); }
+        slot.textContent=''; slot.appendChild(chip); setVal(i, chip.getAttribute('data-val')); }
+      function unplace(chip){ var slot=chip.closest('.drop-slot'); if(slot){ var i=+slot.getAttribute('data-si'); setVal(i,''); slot.textContent='?'; } bank.appendChild(chip); }
+      var st={selects:selects,slots:slots,bank:bank,place:place,unplace:unplace}; block._dd=st;
+
+      block.addEventListener('click',function(e){
+        if(suppressClick){ suppressClick=false; return; }
+        var chip=e.target.closest && e.target.closest('.chip');
+        var slot=e.target.closest && e.target.closest('.drop-slot');
+        if(chip){ if(chip.parentNode===bank){ pickChip(chip); } else { unplace(chip); if(selected){selected.classList.remove('sel');selected=null;} } return; }
+        if(slot){ var i=+slot.getAttribute('data-si'); if(selected){ var sc=selected; selected.classList.remove('sel'); selected=null; place(sc,i); } return; }
+      });
+
+      // restore saved placements
+      selects.forEach(function(s,i){ var v=saved[keyOf(s)]; if(v){ s.value=v;
+        var chip=[].slice.call(bank.querySelectorAll('.chip')).filter(function(c){ return c.getAttribute('data-val')===v; })[0];
+        if(chip){ slots[i].textContent=''; slots[i].appendChild(chip); } } });
+    });
+
+    /* pointer drag (touch + mouse) — reuses each block's _dd.place/unplace */
+    var drag=null;
+    document.addEventListener('pointerdown',function(e){ var chip=e.target.closest&&e.target.closest('.chip'); if(!chip) return;
+      var block=chip.closest('[data-tagging]'); if(!block||!block._dd) return; drag={chip:chip,block:block,sx:e.clientX,sy:e.clientY,moved:false,clone:null}; });
+    document.addEventListener('pointermove',function(e){ if(!drag) return; if(!drag.moved && Math.abs(e.clientX-drag.sx)+Math.abs(e.clientY-drag.sy)<6) return; drag.moved=true;
+      if(!drag.clone){ drag.clone=drag.chip.cloneNode(true); drag.clone.className='chip drag-clone'; document.body.appendChild(drag.clone); drag.chip.classList.add('dragging'); }
+      drag.clone.style.left=e.clientX+'px'; drag.clone.style.top=e.clientY+'px';
+      document.querySelectorAll('.drop-slot.over').forEach(function(s){ s.classList.remove('over'); });
+      var el=document.elementFromPoint(e.clientX,e.clientY); var slot=el&&el.closest?el.closest('.drop-slot'):null; if(slot&&drag.block.contains(slot)) slot.classList.add('over'); });
+    document.addEventListener('pointerup',function(e){ if(!drag) return; var chip=drag.chip, st=drag.block._dd;
+      if(drag.clone) drag.clone.remove(); chip.classList.remove('dragging');
+      document.querySelectorAll('.drop-slot.over').forEach(function(s){ s.classList.remove('over'); });
+      if(drag.moved){ suppressClick=true;
+        var el=document.elementFromPoint(e.clientX,e.clientY); var slot=el&&el.closest?el.closest('.drop-slot'):null;
+        if(slot&&drag.block.contains(slot)){ st.place(chip, +slot.getAttribute('data-si')); }
+        else if(el&&el.closest&&el.closest('.word-bank')===st.bank){ st.unplace(chip); } }
+      drag=null; });
+  })();
+
 }
 if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',boot); } else { boot(); }
 </script>
@@ -3952,5 +4170,9 @@ if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded
   <p>To keep going in this lesson, please finish the <strong>writing assignment</strong> — at least <strong>60 words</strong>. Once it's written, the rest of the lesson unlocks.</p>
   <div class="btn-row" style="justify-content:center;"><button class="btn" data-gate-go>Take me to the writing</button><button class="btn ghost" data-gate-close>Close</button></div>
 </div></div>
+
+<canvas id="confettiCanvas"></canvas>
+<div class="celebrate-modal" id="celebrateModal"><div class="celebrate-card"><div class="big">🎉</div><h3 class="ctitle"></h3><p class="cmsg"></p><button class="btn" data-celebrate-close>Keep going 🚀</button></div></div>
+<div class="toast" id="toast"></div>
 </body>
 </html>

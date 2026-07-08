@@ -29,6 +29,24 @@ Answers are saved per-control with **stable keys**, so **adding a new lesson no
 longer wipes previous progress** (as long as she keeps using the same online
 viewer). One growing master file — no separate download per day needed.
 
+## Fun & engagement (global — auto-applies to every lesson)
+
+Added a game layer that never weakens the anti-cheat (rewards are for *finishing*,
+never for revealing answers). All of these are runtime modules that iterate every
+lesson, so **new lessons get them automatically**:
+
+- **🎉 Confetti + celebration** when a lesson is fully answered, and a confetti/
+  "🔓 Unlocked!" toast when the writing gate is cleared.
+- **⭐ XP, levels, badges & a daily streak**, shown on a **progress map** on the
+  home screen (per-subject bars + earned badges). Keys: `rf_done`, `rf_streak`.
+- **🎨 Avatar + colour-theme picker** on home (5 themes, 12 avatars).
+  Keys: `rf_avatar`, `rf_theme`.
+- **🕹️ Drag-and-drop / tap-to-place word matching** replaces the tagging
+  drop-downs: word chips + inline blanks. It drives the same hidden `<select>`
+  elements, so grading, autosave and the parent report are unchanged.
+- Also removed the old top-bar **"Check all my answers"** button — it revealed
+  the score to the student (now parent-report only).
+
 ## What's included
 
 - Six subjects: **Art, Math, English, Science, Anatomy, Social Studies**
