@@ -32,7 +32,7 @@ viewer). One growing master file — no separate download per day needed.
 ## What's included
 
 - Six subjects: **Art, Math, English, Science, Anatomy, Social Studies**
-- **11 lessons each** (~38 graded steps: drop-downs, select-all, typed practice,
+- **12 lessons each** (~38 graded steps: drop-downs, select-all, typed practice,
   multiple choice) + one mid-lesson 60-word writing gate each
 - Art's drawing studios include a colour wheel + a real blend/smudge tool
 - Shuffled answer positions; hashed answer key; render-verified in jsdom (no JS errors)

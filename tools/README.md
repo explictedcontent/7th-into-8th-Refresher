@@ -10,17 +10,22 @@ viewer. **The tools are dev-only. Never link or inline them into the HTML file.*
 
 ## What the deliverable already has
 
-- **6 subjects × 11 lessons.** Newer lessons (7–11) are ~38 graded "steps":
-  drop-downs, select-all (multi), typed practice, and multiple choice. Writing
-  tasks were removed at the parent's request.
-- **Completion tracker** per lesson: the bar only says "Lesson complete!" when
-  **every answer is correct** (not merely filled in).
-- **Anti-cheat**, all baked into the one file:
-  - **Hashed answer key.** `data-k` (single), `data-ks` (pipe-joined, multi),
-    `data-w` (base64 explanation). No readable answer in the source.
-  - **No answer leak.** Wrong/blank feedback never shows the answer or the
-    explanation; the explanation appears only after a correct answer.
-  - **Shuffled option order**, so the correct choice isn't always first.
+- **6 subjects × 12 lessons.** Newer lessons are ~38 graded "steps": drop-downs,
+  select-all (multi), typed practice, and multiple choice, plus one mid-lesson
+  writing gate.
+- **No per-question checking for the student.** All Check/score/feedback UI is
+  CSS-hidden. She sees only a neutral "Answered X of N" bar — no correctness
+  signal to brute-force.
+- **Parent-only report** behind a PIN (created on first open; key
+  `refresher_parent_pin_v1`). The 🔒 Parent button opens a per-lesson table
+  (answered / correct / writing / status) computed from the hashed keys.
+- **Writing gates.** Each lesson has a 60-word writing checkpoint placed
+  mid-lesson (`.writing-gate`); sections after it are `.gated .locked-hidden`
+  until the word count hits 60. A popup nudges her to finish it first.
+- **Durable autosave** (`refresher_answers_v2`): keyed per control by
+  `lessonPartId#index`, so adding a lesson doesn't wipe prior progress.
+- **Anti-cheat baked in:** hashed answer key (`data-k`/`data-ks`/`data-w`
+  base64) — nothing readable in the source — and shuffled option order.
 - Art lessons include drawing studios (colour wheel, shade slider, blend/smudge
   brush).
 
@@ -39,16 +44,20 @@ Implemented as `_nz`/`_h` in the HTML's quiz engine, and mirrored in
 
 ## Add a lesson (Lesson N for all six subjects)
 
-1. Copy `lesson_builder_template.py` (it's the Lesson 11 build). Set `N` and
+1. Copy `lesson_builder_template.py` (the Lesson 12 build). Set `N` and
    `PREV = N-1`, and replace the six subject bodies with new topics. `SRC`/`OUT`
-   point at the locked deliverable, so it appends in place.
+   point at the deliverable, so it appends in place. Target is **38 graded
+   steps** and there are **no writebox() calls** (writing is a gate, added later).
 2. `python3 your_lesson_N.py` — inserts the new lesson (with **plaintext**
    answers; that's expected).
 3. `python3 tools/postprocess.py ../8th-grade-refresher-ONE-FILE.html`
    — hashes the new plaintext keys and re-shuffles option positions.
-4. `NODE_PATH=<path-to-jsdom> node tools/verify.js ../8th-grade-refresher-ONE-FILE.html`
-   — expect `RESULT: PASS`.
-5. Commit, push to branch `claude/eighth-grade-curriculum-arts-jnshgy`, send the
+4. `python3 tools/add_gate.py ../8th-grade-refresher-ONE-FILE.html`
+   — inserts one mid-lesson **writing gate** into each new lesson-part (skips any
+   part that already has one).
+5. Verify in jsdom (see below) — no JS errors, gate locks/unlocks, and the parent
+   report scores a fully-correct lesson as all-correct.
+6. Commit, push to branch `claude/eighth-grade-curriculum-arts-jnshgy`, send the
    file in chat.
 
 Keep math **gentle** (whole numbers, worked examples, calculator OK). Keep the
@@ -58,10 +67,11 @@ other subjects normal, not dumbed down.
 
 | File | Purpose |
 |------|---------|
-| `lesson_builder_template.py` | Reference builder (Lesson 11) + all builder helpers. Copy → edit → run to add a lesson. |
+| `lesson_builder_template.py` | Reference builder (Lesson 12) + all builder helpers. Copy → edit → run to add a lesson. |
 | `postprocess.py` | Run after inserting a new lesson: hashes plaintext keys + shuffles positions. Reusable. |
-| `verify.js` | jsdom end-to-end check: fills correct answers via the page hash, asserts no JS errors, all non-practice lessons complete, garbage stays locked. |
-| `lockdown.py` | The **one-time** full transform (hash keys + JS surgery) that first locked the file. Kept for reference / rebuilding from a plaintext master. Do **not** re-run on the already-locked file — its JS anchors are gone. |
+| `add_gate.py` | Run after postprocess: inserts a mid-lesson writing gate into each new lesson-part (skips parts that already have one). |
+| `verify.js` | jsdom check: no JS errors; a writing gate hides then unlocks at 60 words; the student bar reads "Answered X of N"; the parent report scores a fully-correct lesson as all-correct. Pass the lesson id to spot-check as `node tools/verify.js <file> <lessonId>`. |
+| `lockdown.py` | The **one-time** transform (hash keys + JS surgery) that first locked the file. Reference only. Do **not** re-run on the current file — its JS anchors are gone. |
 
 ## Verifying needs jsdom (dev only)
 
