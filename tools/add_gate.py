@@ -28,8 +28,20 @@ def transform_part(m):
     tail = inner[pos:]
     nsec = sum(1 for t,_ in chunks if t == 'sec')
     if nsec == 0: return m.group(0)
-    gi = max(1, nsec // 2)
+    # place the gate PAST the halfway point of the QUESTION sections, so she
+    # answers most of the lesson before the writing checkpoint (never after ~3).
+    def is_content(txt):
+        return ('class="question"' in txt) or ('class="prob"' in txt) or ('data-k=' in txt)
+    content_sec = [i for i,(t,txt) in enumerate([(t,x) for (t,x) in chunks if t=='sec']) if is_content(txt)]
+    import math
+    if content_sec:
+        keep = max(3, math.ceil(0.6*len(content_sec)))   # ~60% of question sections before the gate
+        if keep > len(content_sec): keep = len(content_sec)
+        gi = content_sec[keep-1] + 1
+    else:
+        gi = max(1, (nsec*3)//5)
     if gi >= nsec: gi = nsec - 1 if nsec > 1 else nsec
+    if gi < 1: gi = 1
     out = ''; si = 0; inserted = False
     for t, text in chunks:
         if t == 'sec':
