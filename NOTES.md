@@ -12,7 +12,7 @@ brute-force answers by checking one at a time. Instead:
   signal anywhere she can watch.
 - **The parent sees the real scores** behind a PIN. A discreet **🔒 Parent** button
   (bottom-right) opens a report of every lesson's *answered / correct / writing /
-  status*. The parent **types the PIN on first open** and re-enters it each time.
+  status*. The parent PIN is **4310** (checked as a one-way hash, so it is not readable in the source).
   **Each lesson expands to show exactly what was missed** — a Question / She put /
   Correct table (her answers in red, correct answers in green). Typed math answers
   stay hidden ("— (open lesson)") so they can't be extracted; everything else shows
@@ -53,7 +53,7 @@ lesson, so **new lessons get them automatically**:
 ## What's included
 
 - Six subjects: **Art, Math, English, Science, Anatomy, Social Studies**
-- **19 lessons each** (~38 graded steps: drop-downs, select-all, typed practice,
+- **20 lessons each** (~38 graded steps: drop-downs, select-all, typed practice,
   multiple choice) + one mid-lesson 60-word writing gate each
 - Art's drawing studios include a colour wheel + a real blend/smudge tool
 - Shuffled answer positions; hashed answer key; render-verified in jsdom (no JS errors)
