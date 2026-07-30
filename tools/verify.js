@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => window.setTimeout(() => {
   part.querySelectorAll('[data-tagging] select[data-k]').forEach(s => { const k=s.getAttribute('data-k'); [...s.options].forEach(o=>{ if(o.value&&H(o.value)===k) s.value=o.value; }); });
   const probs = part.querySelectorAll('[data-practice] .prob').length;
   d.querySelector('[data-parent]').click();
-  d.querySelector('[data-pin-input]').value = '4310';
+  d.querySelector('[data-pin-input]').value = '4428';
   d.querySelector('[data-pin-go]').click();
   const repEl = d.querySelector('.parent-report');
   // new report format: each lesson is a .rep-line (div or <details>) whose text is "Lesson N · Title ... status"

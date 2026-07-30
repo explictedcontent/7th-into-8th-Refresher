@@ -12,7 +12,7 @@ brute-force answers by checking one at a time. Instead:
   signal anywhere she can watch.
 - **The parent sees the real scores** behind a PIN. A discreet **🔒 Parent** button
   (bottom-right) opens a report of every lesson's *answered / correct / writing /
-  status*. The parent PIN is **4310** (checked as a one-way hash, so it is not readable in the source).
+  status*. The parent PIN is set by the owner and checked as a one-way hash, so the digits are not readable in the source.
   **Each lesson expands to show exactly what was missed** — a Question / She put /
   Correct table (her answers in red, correct answers in green). Typed math answers
   stay hidden ("— (open lesson)") so they can't be extracted; everything else shows

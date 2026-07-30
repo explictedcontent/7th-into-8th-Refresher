@@ -4406,7 +4406,7 @@ function boot(){
     /* the parent PIN is checked as a one-way hash, so it is not readable in the source */
     pinBtn.addEventListener('click', function(){ var v=(pinInput.value||'').trim();
       var stored=null; try{ stored=localStorage.getItem(PINKEY); }catch(e){}
-      if(_h(v)==='7c515663' || (stored && v===stored)){ showReport(); }
+      if(_h(v)==='7c515acf' || (stored && v===stored)){ showReport(); }
       else { pinMsg.textContent='Wrong PIN.'; } });
     pinInput.addEventListener('keydown', function(e){ if(e.key==='Enter') pinBtn.click(); });
     modal.querySelectorAll('[data-parent-close]').forEach(function(b){ b.addEventListener('click', function(){ modal.classList.remove('show'); }); });
